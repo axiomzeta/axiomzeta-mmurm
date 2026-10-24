@@ -718,11 +718,16 @@ vertices $V = 12$).
 ### 5.4 Projection from the form realm; the unified field equation
 
 Dimensional reduction is quantified by the shadow projection operator
-$P_{\mathrm{shadow}}$, built from the dimensional layers
-$\xi_d$, $\mathcal{D}$, and the dodecahedral faces $\mathcal{F}_f$ that encode
-holographic data. (The displayed form of $P_{\mathrm{shadow}}$ did not survive
-the source conversion intact; the operator and its components are as stated
-here and in Appendix R7.) The projection efficiency is
+
+$$
+P_{\mathrm{shadow}} = \frac{\Gamma(22)}{\Gamma(12)}
+\oint_{\partial\mathcal{D}} \left( \sum_{f=1}^{22} \mathcal{F}_f \right)
+\cdot \prod_{d=1}^{12} \xi_d ,
+$$
+
+built from the dimensional layers $\xi_d$, $\mathcal{D}$, and the
+dodecahedral faces $\mathcal{F}_f$ that encode holographic data (display
+recovered from the Final Draft; Appendix R7). The projection efficiency is
 
 $$
 \zeta_{\mathrm{projection}}^{(22)} =
@@ -750,17 +755,42 @@ the open-system correction $+\, \mathrm{Tr}\!\left(\rho \sum_k L_k\right)$ and
 with $\Phi_{\mathrm{unified}}$ written as a sum over the ten IFT fields.
 
 Spacetime granularity arises from loop integrals over core dimensions — the
-quantum-foam functional $\Omega_{\mathrm{foam}}$, built from
-$\sqrt{\hbar G / c^3}$, sums over the dimensional layers and string products,
-and the Lindblad correction $\sum_k L_k^\dagger L_k$ (the full display is
-partially garbled in the source; see Appendix R7). Holographic storage on the
-cosmic boundary $\partial\mathcal{D}$ (dodecahedral) is asserted in the draft;
-its displayed form did not survive conversion. The Schrödinger-like evolution
-of the multiversal state $\Psi$ involves the connection matrix $\Lambda_{ij}$
-coupling dimensions to strings, and the complete system state
-$\Theta_{\mathrm{system}}$ combines the unified field integrated over time
-with $P_{\mathrm{shadow}}$, $T_{\mathrm{branch}}$, and $\Theta_{\mathrm{scale}}$
-(Section 6 gives the integrated form, Eq. 12.1 there).
+quantum-foam functional
+
+$$
+\Omega_{\mathrm{foam}} = \oint_\gamma \sqrt{\frac{\hbar G}{c^3}}\;
+\sum_{c=1}^{8} \chi_c \cdot \prod_{p=1}^{6} \xi_p \cdot
+\prod_{f=1}^{22} \varphi_f
+$$
+
+(the open-system form of Section 6 adds the Lindblad correction
+$\sum_k L_k^\dagger L_k$). Holographic storage on the cosmic boundary
+$\partial\mathcal{D}$ (dodecahedral) is
+
+$$
+\mathcal{H} = \oint_{\partial\mathcal{D}} \left( \sum_{f=1}^{12}
+\mathcal{F}_f \right) \mathcal{M}(\omega, t).
+$$
+
+The Schrödinger-like evolution of the multiversal state $\Psi$ is
+
+$$
+i\hbar \frac{\partial \Psi}{\partial t} = \hat{H} \Psi, \qquad
+\hat{H} = \Lambda_{ij} \cdot \mathcal{M}(\omega, t) \cdot
+\Omega_{\mathrm{foam}},
+$$
+
+with connection matrix $\Lambda_{ij}$ coupling dimensions to strings. The
+complete system state at this layer is
+
+$$
+\Theta_{\mathrm{system}} = \exp\left( \frac{i}{\hbar} \int
+\Phi_{\mathrm{unified}}\, dt \right) P_{\mathrm{shadow}}\,
+T_{\mathrm{branch}}\, \Theta_{\mathrm{scale}}
+$$
+
+(Section 6 gives the integrated form, Eq. 12.1 there). All four displays in
+this passage were recovered from the Final Draft (Appendix R7).
 
 ### 5.5 Physical implications, as stated in the draft
 
@@ -777,7 +807,16 @@ with $P_{\mathrm{shadow}}$, $T_{\mathrm{branch}}$, and $\Theta_{\mathrm{scale}}$
    realm, additional degrees of freedom (the sum over realities $R_r$,
    gravitational wave functions $\Psi_{\mathrm{gravity}}$, core layers $\chi_c$,
    and Fibonacci modes $F_i$) regularize trajectories, projecting chaotic 3D
-   orbits from ordered higher-dimensional geodesics.
+   orbits from ordered higher-dimensional geodesics. In the 22D form realm
+   the three-body system is stated as
+
+   $$
+   M_{\mathrm{3body}} = \sum_{r=1}^{22} R_r \otimes \Psi_{\mathrm{gravity}},
+   \qquad
+   \Psi_{\mathrm{gravity}} = \sum_{c=1}^{8} \chi_c \prod_{i=1}^{3} F_i
+   $$
+
+   (display recovered from the Final Draft; Appendix R7).
 4. **Cosmological and vacuum structure** [postulated]. Dark energy emerges
    from vacuum fluctuations in core dimensions; the cosmological constant
    $\Lambda$ is tied to $\zeta(0) = -1/2$; timeline branching yields a
@@ -932,7 +971,14 @@ $$
 with $f_{ijk} = \omega_0 \cdot F_i F_j F_k / F_{i+j+k}$. The open system adds
 the dissipative factor $-i\hbar\, \mathrm{Tr}(\rho L_k)$; the draft states that
 this validates hybridization across 9 orders of magnitude [asserted]. The WFB
-modulation factor $m_{ijk}$ and bridge strength are given as
+modulation factor is
+
+$$
+m_{ijk} = \exp\left( -\frac{(i-j)^2 + (j-k)^2 + (k-i)^2}{2 \cdot 6^2}
+\right),
+$$
+
+and the bridge strength and hybridization function are given as
 
 $$
 B = \mathrm{Tr}\!\left( T_{ijk} m_{ijk} \psi^\dagger \psi \right)
@@ -942,8 +988,8 @@ H(\phi) = 1 - e^{-B \cdot |\phi|^2},
 $$
 
 with the graphene G-band error of 0.9% ($1566\ \mathrm{cm^{-1}}$) cited as the
-validation of this layer [simulated]. (The explicit displayed form of $m_{ijk}$
-did not survive the source conversion; see Appendix R7.)
+validation of this layer [simulated]. (The $m_{ijk}$ display is recovered from
+the Final Draft, Modal 5, Eq. 5.2; Appendix R7.)
 
 **URM recursive scaling.**
 
@@ -1004,7 +1050,16 @@ $$
 and its modal form (Section 6.4) enforce stability: no runaway modes except the
 controlled $\lambda_1$.
 
-**Master unified field equation and system state (integrated forms).**
+**Master unified field equation and system state (integrated forms).** The
+master equation (Eq. 11.1) is
+
+$$
+\Phi_{\mathrm{total}} = \frac{\Gamma(5)}{\zeta(2)} \cdot \mathcal{H} \cdot
+\Omega \cdot \prod_{n=1}^{\infty} F_n \cdot \sum_{i=1}^{22} S_i
++ \mathrm{Tr}\!\left( \rho \sum_k L_k \right),
+$$
+
+evaluated in the draft as
 
 $$
 \Phi_{\mathrm{total}} = 14.59 \cdot \mathcal{H} \cdot \Omega \cdot
@@ -1012,14 +1067,17 @@ $$
 $$
 
 with regularization by cutoff at $n = 100$, $\prod F_n \approx 1.2 \times
-10^{21}$ (the full product display is partially garbled in the source; see
-Appendix R7), and
+10^{21}$ (full product display recovered from the Final Draft; Appendix R7),
+and the complete system state (Eq. 12.1) is
 
 $$
-\Theta_{\mathrm{system}} = \left( \int \Theta_{\mathrm{total}}\, dt \right)
-\cdot \prod_{f=1}^{12} \mathcal{F}_f \cdot \prod_{i=1}^{22} S_i
-- \mathrm{Tr}\!\left( \rho\, \gamma^{t} \right).
+\Theta_{\mathrm{system}} = \exp\left( \frac{i}{\hbar} \int
+\Phi_{\mathrm{total}}\, dt \right) \cdot \prod_{f=1}^{12} \mathcal{F}_f
+\cdot \prod_{i=1}^{22} S_i - \mathrm{Tr}\!\left( \rho\, \gamma_t \right)
 $$
+
+(as printed in the Final Draft; it supersedes the fragment-based
+reconstruction carried in the first edition of this cleanup — Appendix R7).
 
 **Final integrated Lagrangian.**
 
@@ -2060,21 +2118,31 @@ the G-band validation passages (four tellings — Section 4.1); and the
 integrated equations of the URM layer (the integrated framework states its
 §§2–7 twice verbatim — one instance in Section 6.3).
 
-**R7 — Displays not recoverable from the source conversion.** The following
-displayed formulas were already lost or fragmentary in the source PDFs and are
-therefore represented by their stated components and prose claims, not by
-invented formulas: the display of the shadow projection operator
-$P_{\mathrm{shadow}}$ (Section 5.4); the holographic storage display on
-$\partial\mathcal{D}$ (UST §2.7 in the source); the Schrödinger-like
-evolution display (UST §2.8; components $\Lambda_{ij}$, $P_{\mathrm{shadow}}$,
-$T_{\mathrm{branch}}$, $\Theta_{\mathrm{scale}}$ given in prose); the
-$\Omega_{\mathrm{foam}}$ loop-integral display (components given); the
-three-body display in UST §3.3 (components given in prose); the WFB modulation
-factor $m_{ijk}$ display ("Modal 5, Eq. 5.2" — the source shows the heading
-and no surviving formula); the $\Phi_{\mathrm{total}}$ product display
-(Eq. 11.1; value and regularization retained); and the $\Theta_{\mathrm{system}}$
-display (Eq. 12.1), reconstructed in Section 6.3 from its surviving fragments
-and flagged here as a reconstruction.
+**R7 — Displays lost in Draft-C, recovered from the Final Draft.** In the
+first edition of this cleanup, eight displayed formulas were already lost or
+fragmentary in the Draft-C conversion and were therefore represented by their
+stated components and prose claims, not by invented formulas. All eight were
+subsequently recovered from *The Multi-Modal Unified Recursion Multiverse —
+Final Draft* (146 pp, supplied by the author on 2026-10-23) and are now
+printed in place: the shadow projection operator $P_{\mathrm{shadow}}$
+(Section 5.4; Final Draft UST §2.5); the holographic storage display
+$\mathcal{H}$ on $\partial\mathcal{D}$ (Section 5.4; UST §2.7); the
+Schrödinger-like evolution display (Section 5.4; UST §2.8); the
+$\Omega_{\mathrm{foam}}$ loop-integral display (Section 5.4; UST §2.7); the
+three-body display (Section 5.5; UST §3.3); the WFB modulation factor
+$m_{ijk}$ display (Section 6.3; Modal 5, Eq. 5.2); the $\Phi_{\mathrm{total}}$
+product display (Section 6.3; Eq. 11.1 — its printed prefactor checks:
+$\Gamma(5)/\zeta(2) = 24/(\pi^2/6) \approx 14.59$, matching the draft's
+evaluated form); and the $\Theta_{\mathrm{system}}$ display (Eq. 12.1). One
+correction resulted: the first edition's fragment-based reconstruction of
+Eq. 12.1 read the prefactor as $\left( \int \Theta_{\mathrm{total}}\, dt
+\right)$; the printed form is $\exp\left( \frac{i}{\hbar} \int
+\Phi_{\mathrm{total}}\, dt \right)$, and the printed form governs. The
+Final Draft also prints a second, distinct $\Theta_{\mathrm{system}}$
+display at the UST layer (with $P_{\mathrm{shadow}}$, $T_{\mathrm{branch}}$,
+$\Theta_{\mathrm{scale}}$), now printed in Section 5.4 as that layer's own
+statement; the two forms are separate layer statements, not variants to
+harmonize.
 
 **R8 — Eq. 3 form variant.** The Method section prints the Transformer
 reaction factor as $\kappa_3 \phi_3 (1 - |\phi_3|)$; the CTT schematic form
