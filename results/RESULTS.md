@@ -48,6 +48,10 @@ Independent re-run of the 38 tracked items in `tests/TEST_CENSUS.md` (source: *M
 | I2 | Both candidate architectures satisfy the Euler closure chi = D - (T*B) | AGREES |
 | I3 | Topology free-energy sweep selects N=5 over N=12 (lower F wins) | RECORDED (not re-run) |
 | I4 | Physical (Hawking) identification of the structural count N | NOT ESTABLISHED |
+| A1 | Parameterized admissibility of the seed family (bridge relations + Eul | AGREES |
+| A2 | Both branches' seed architectures and closures | AGREES |
+| A3 | Branch-dependent derived objects, recomputed per branch from the manus | COMPUTED for both branches — see notes |
+| A4 | Identification of the Eq. 11.1 prefactor Gamma(5)/zeta(2) = 14.59 unde | UNRESOLVED identification |
 
 Group R (URM-1..URM-10) is a PROTOCOL registry — see `data/claims_registry.json`; statuses are as published, not re-tested. URM-9 and URM-10 are the 2026-10-23 addenda audited in Groups X and I.
 
@@ -505,6 +509,102 @@ Author-supplied solver result: under the bridge relations g = N, D = N, T = N + 
 - **Verdict: NOT ESTABLISHED**
 - Notes: Stated next milestone (from the solver report): derive an independent H(N). If a Hawking-side quantity lands near N=5 without passing through the bridge relations, the candidate upgrades from internal structure to evidence.
 
+## Group A — Parameterized seed architecture (addendum 2026-10-23)
+
+The seed counts are a one-parameter family under the bridge relations; admissible branches are exactly {5, 12}. The manuscript and Groups D–X describe the N = 12 instantiation (frozen at git tag `n12-legacy`); the N = 5 instantiation is specified in `paper/MMURM_N5_instantiation.md`. Group A recomputes both branches' seed-dependent objects and marks what does not transfer between branches.
+
+### A1 — Parameterized admissibility of the seed family (bridge relations + Euler closure), N = 2..64
+
+- **Label:** REPRODUCTION
+- **Published:** Admissible branches {5, 12} (Group I)
+- **Recomputed:** - admissible_branches: 5, 12
+- **Verdict: AGREES**
+
+### A2 — Both branches' seed architectures and closures
+
+- **Label:** REPRODUCTION
+- **Published:** N=5: R=8, T=7, B=3, 21 channels, D=5, chi=-8. N=12: R=22, T=14, B=4, 56 channels, D=12, chi=-22
+- **Recomputed:** - N5:   - N: 5
+  - R_realities: 8
+  - T_timelines: 7
+  - B_branches_per_timeline: 3
+  - admissible: True
+  - D_dimensions: 5
+  - g_genus: 5
+  - chi: -8
+  - channels_TxB: 21
+  - closure_D_minus_TB_plus_R: -8
+  - closure_holds: True
+- N12:   - N: 12
+  - R_realities: 22
+  - T_timelines: 14
+  - B_branches_per_timeline: 4
+  - admissible: True
+  - D_dimensions: 12
+  - g_genus: 12
+  - chi: -22
+  - channels_TxB: 56
+  - closure_D_minus_TB_plus_R: -22
+  - closure_holds: True
+- **Verdict: AGREES**
+
+### A3 — Branch-dependent derived objects, recomputed per branch from the manuscript's stated formulas
+
+- **Label:** DERIVATION-CHECK
+- **Published:** Published objects exist for the N=12 branch only (manuscript passim; Groups S/E ensemble at n=22; lambda_1 = 3.71 of the 12-layer modal object)
+- **Recomputed:** - N5:   - architecture:     - N: 5
+    - R_realities: 8
+    - T_timelines: 7
+    - B_branches_per_timeline: 3
+    - admissible: True
+    - D_dimensions: 5
+    - g_genus: 5
+    - chi: -8
+    - channels_TxB: 21
+    - closure_D_minus_TB_plus_R: -8
+    - closure_holds: True
+  - p_shadow_prefactor_GammaR_over_GammaD: 210
+  - mp_edge_p5_at_n_equals_R: 3.2061388300841904
+  - modal_drift_stated_couplings:     - modes: 5
+    - max_real_eigenvalue: 2.9202034948050204
+    - min_real_eigenvalue: -0.021343276859050686
+    - core_mode_intrinsic_decay_per_step: 0.0
+  - phi_total_sum_terms_R: 8
+  - gammaN_over_zeta2: 14.59025044449664
+- N12:   - architecture:     - N: 12
+    - R_realities: 22
+    - T_timelines: 14
+    - B_branches_per_timeline: 4
+    - admissible: True
+    - D_dimensions: 12
+    - g_genus: 12
+    - chi: -22
+    - channels_TxB: 56
+    - closure_D_minus_TB_plus_R: -22
+    - closure_holds: True
+  - p_shadow_prefactor_GammaR_over_GammaD: 1279935820800
+  - mp_edge_p5_at_n_equals_R: 2.1807353165183194
+  - modal_drift_stated_couplings:     - modes: 12
+    - max_real_eigenvalue: 3.0998382280264702
+    - min_real_eigenvalue: -0.023944550136890008
+    - core_mode_intrinsic_decay_per_step: 0.0
+  - phi_total_sum_terms_R: 22
+  - gammaN_over_zeta2: 24266504.53928681
+- **Verdict: COMPUTED for both branches — see notes**
+- Notes: P_shadow prefactor Gamma(R)/Gamma(D): N=5 -> 210; N=12 -> 21!/11!. Marchenko-Pastur edge (p=5): n=8 -> 3.21 vs n=22 -> 2.18 (the S1-corrected edge is the 12-branch value). Stated-coupling modal drift: both branches growth-dominated, core mode intrinsically undamped. CRITICAL SCOPE NOTE: the ensemble statistics (Groups S/E) and lambda_1 = 3.71 are N=12-branch objects computed at n=22. The N=5 branch currently has NO ensemble statistics and NO lambda_1: at n=8 those must be newly simulated, and nothing in the 12-branch results transfers.
+
+### A4 — Identification of the Eq. 11.1 prefactor Gamma(5)/zeta(2) = 14.59 under parameterization
+
+- **Label:** DERIVATION-CHECK
+- **Published:** Phi_total (Eq. 11.1) carries prefactor Gamma(5)/zeta(2) = 14.59 in the legacy (N=12) text
+- **Recomputed:** - Gamma(N)/zeta(2) at N=5: 14.59025044449664
+- Gamma(N)/zeta(2) at N=12: 24266504.53928681
+- printed_value: 14.59
+- matches_at_N5: True
+- matches_at_N12: False
+- **Verdict: UNRESOLVED identification**
+- ⚠️ If the prefactor's argument is the structural N, the printed 14.59 is consistent ONLY with N=5 (at N=12 it would be ~2.43e7). If it is an independent constant, it is branch-invariant and the match at N=5 is coincidence. The supplied material does not decide between these readings; recorded as an open identification, not as evidence for either branch.
+
 ## Contradictions & flags (unsoftened)
 
 - L1: EXACT MATCH: the URM 'predicted' value is identical to the measured value to every quoted digit (deviation 0.0%). This is an identity, not a prediction: the value was taken from the measurement.
@@ -537,6 +637,7 @@ Author-supplied solver result: under the bridge relations g = N, D = N, T = N + 
 - X3: omega_0 is stated as 1.0e14 rad/s in the constants table and 1.4e14 rad/s in the body text; immaterial at these orders of magnitude, recorded for the errata list.
 - I2: The bridge relations (g=N, D=N, T=N+2, R=-chi) carry all of the selective power and their provenance is not stated in the solver report: if they were abstracted from the legacy architecture, the N=12 reproduction is guaranteed by construction and N=5 is the other solution of a system built around the first; if derived independently, the {5, 12} admissible set is a discovery. The audit cannot distinguish these from the report alone.
 - I3: F has its unrestricted optimum at g=1, so the objective alone mostly prefers small genus; the admissibility filter performs the selection and F breaks a two-way tie. Depositing the sweep would upgrade this item to REPRODUCTION.
+- A4: If the prefactor's argument is the structural N, the printed 14.59 is consistent ONLY with N=5 (at N=12 it would be ~2.43e7). If it is an independent constant, it is branch-invariant and the match at N=5 is coincidence. The supplied material does not decide between these readings; recorded as an open identification, not as evidence for either branch.
 
 ## Figures
 

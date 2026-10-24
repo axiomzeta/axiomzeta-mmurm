@@ -20,6 +20,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 
+import architecture         # noqa: E402
 import decoherence          # noqa: E402
 import dimensional          # noqa: E402
 import ensemble             # noqa: E402
@@ -105,6 +106,7 @@ def main():
     s_results, art_s = stats_suite.run(art_e["df22"], art_e["label"])
     x_results = decoherence.run()
     i_results = inverse_solver.run()
+    a_results = architecture.run()
 
     fig_dir = os.path.join(RESULTS_DIR, "figures")
     fig_paths = figures.make(fig_dir, art_e["df22"], art_s, s_results)
@@ -114,7 +116,8 @@ def main():
         claims = json.load(fh)
 
     all_flags = []
-    for group in (l_results, s_results, e_results, x_results, i_results):
+    for group in (l_results, s_results, e_results, x_results, i_results,
+                  a_results):
         for e in group:
             for f in e.get("flags", []) or []:
                 all_flags.append(f"{e['id']}: {f}")
@@ -170,6 +173,7 @@ def main():
             "E_ensemble": e_results,
             "X_decoherence": x_results,
             "I_inverse_solver": i_results,
+            "A_architecture": a_results,
             "R_claims_registry": claims["claims"],
         },
         "contradictions_and_flags": all_flags,
@@ -252,6 +256,17 @@ def main():
               "N = 5. The solver labels N = 5 a provisional structural "
               "candidate and the Hawking identification not established.\n")
     for e in i_results:
+        md.append(entry_md(e))
+    md.append("## Group A — Parameterized seed architecture (addendum "
+              "2026-10-23)\n")
+    md.append("The seed counts are a one-parameter family under the bridge "
+              "relations; admissible branches are exactly {5, 12}. The "
+              "manuscript and Groups D–X describe the N = 12 instantiation "
+              "(frozen at git tag `n12-legacy`); the N = 5 instantiation "
+              "is specified in `paper/MMURM_N5_instantiation.md`. Group A "
+              "recomputes both branches' seed-dependent objects and marks "
+              "what does not transfer between branches.\n")
+    for e in a_results:
         md.append(entry_md(e))
 
     md.append("## Contradictions & flags (unsoftened)\n")

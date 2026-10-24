@@ -2210,6 +2210,22 @@ the arrangement is editorial. The $H_0$ "compromise null" (70.2 km/s/Mpc) and
 the $M_{\mathrm{Amat}}$ self-referential null in the Foundation statistics are
 the source's choices and are flagged, not replaced (Section 10.3).
 
+**R15 — Seed parameterization (2026-10-23).** This manuscript is the text of
+the **N = 12 instantiation** of the framework: its seed counts (22 realities,
+14 timelines × 4 branches, 12 dimensions, genus 12, χ = −22) are one of
+exactly two admissible solutions of the parameterized seed system
+($g = N$, $D = N$, $T = N + 2$, $R = 2N − 2$, Euler closure
+$\chi = D − TB + R$ forcing $B = (5N − 4)/(N + 2)$; admissible branches
+{5, 12}). The N = 12 line is frozen in the repository at the tag
+`n12-legacy`. The **N = 5 instantiation** (8 realities, 7 timelines × 3
+branches, 21 channels, 5 dimensions, χ = −8), selected by the author's
+inverse solver on a reported free-energy tiebreak, is specified in the
+companion document `MMURM_N5_instantiation.md`, with recomputation in
+repository test Groups A and I. No seed-dependent statement in this
+manuscript has been altered: the branches are carried in parallel, and the
+stated discriminator between them is an independent Hawking observable
+$H(N)$, not yet derived.
+
 ---
 
 ## References

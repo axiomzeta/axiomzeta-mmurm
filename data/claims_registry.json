@@ -78,12 +78,12 @@
   },
   {
    "claim": "Inverse structural solution N=5 (R=8, T=7, B=3, 21 branched channels, D=5, g=5, chi=-8) under the bridge relations g=N, D=N, T=N+2, R=-chi with Euler closure chi = D - (T*B) + R",
-   "computable_part": "tests/inverse_solver.py (Group I): algebra, exhaustive integer search, and both Euler closures reproduce exactly (AGREES); F values recorded as REPORTED-ONLY",
+   "computable_part": "tests/inverse_solver.py (Group I): algebra, exhaustive integer search, and both Euler closures reproduce exactly (AGREES); F values recorded as REPORTED-ONLY Group A (tests/architecture.py) recomputes both branches' seed-dependent objects; the Gamma(5)/zeta(2) = 14.59 prefactor identification is recorded as UNRESOLVED (consistent only with N=5 if its argument is the structural N).",
    "experimental_test": "Derivation of an independent Hawking observable H(N) (the solver's stated next milestone); none exists yet",
    "id": "URM-10",
    "label": "PROTOCOL",
    "mathematical_basis": "B = (5N-4)/(N+2) = 5 - 14/(N+2); positive-integer B over N=2..64 leaves exactly {5, 12}; N=12 reproduces the legacy architecture (R=22, T=14, B=4, 56 channels, D=12, chi=-22)",
-   "status_in_source": "Provisional structural candidate (inverse-solver report, 2026-10-23); topology free-energy tiebreak F(5) = -9.2023 vs F(12) = -0.6029 reported but the sweep is not deposited; physical Hawking identification NOT established"
+   "status_in_source": "Provisional structural candidate (inverse-solver report, 2026-10-23); topology free-energy tiebreak F(5) = -9.2023 vs F(12) = -0.6029 reported but the sweep is not deposited; physical Hawking identification NOT established Parameterized 2026-10-23: the N=12 line is frozen at git tag n12-legacy; the N=5 instantiation is specified in paper/MMURM_N5_instantiation.md (seed level complete; no ensemble statistics or lambda_1 exist on the 5-branch yet)."
   }
  ],
  "source": "MMURM_LHC_Foundation (Anthony Castro / Julius AI analyses, data circa Sep 2025)"

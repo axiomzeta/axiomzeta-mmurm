@@ -164,3 +164,16 @@ D=5, chi=-8). Registered as URM-10.
 | I2 | Both architectures + Euler closure; N=12 = legacy architecture | N=5: 5-21+8=-8; N=12: 12-56+22=-22 (R=22, T=14, B=4) | Identical — AGREES |
 | I3 | Topology free-energy tiebreak | F(5) = -9.2023 vs F(12) = -0.6029; unrestricted optimum g=1 rejected | REPORTED-ONLY — sweep not supplied; recorded, not verified |
 | I4 | Hawking identification H(N) | Not established (solver's own label); T_H contains no N | Agrees — NOT ESTABLISHED; milestone is an independent H(N) |
+
+### Group A — Parameterized seed architecture (4) · `tests/architecture.py`
+
+Added 2026-10-23 with the N-parameterization. The manuscript and Groups
+D–X describe the N = 12 instantiation (frozen at git tag `n12-legacy`);
+the N = 5 instantiation is specified in `paper/MMURM_N5_instantiation.md`.
+
+| ID | Item | Published | Recomputed |
+|----|------|-----------|------------|
+| A1 | Admissible branches of the seed family, N=2..64 | {5, 12} | Identical — AGREES |
+| A2 | Both architectures + Euler closures | N=5: 8/7/3/21/5/−8; N=12: 22/14/4/56/12/−22 | Identical — AGREES |
+| A3 | Branch-dependent derived objects (P_shadow prefactor, MP edge, stated-coupling modal drift) | Exist for N=12 only | COMPUTED for both: prefactor 210 vs 21!/11!; MP edge (p=5) 3.21 at n=8 vs 2.18 at n=22; both modal drifts growth-dominated, core undamped. Ensemble statistics and λ₁ are N=12-branch objects; the 5-branch has none yet |
+| A4 | Eq. 11.1 prefactor Γ(5)/ζ(2) = 14.59 under parameterization | Printed on the N=12 text | UNRESOLVED identification: Γ(N)/ζ(2) matches 14.59 only at N=5 (at N=12 it is ≈2.43×10⁷); independent-constant reading leaves it branch-invariant coincidence. Not decided, not used as evidence |
