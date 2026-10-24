@@ -79,10 +79,9 @@ predicate, so it is left as no-transition instead.
 
 ## 4. Status in the repo
 
-This layer is **local only, unpushed**: it sits in the working tree
-as `paper/MMURM_N5_time_branch.md` + `tests/time_branch.py` and has
-been run standalone (all assertions pass). Pushing it needs the
-author's go and a fresh push token — the previous token's copy was
-shredded after the Group M push, and it expires Friday, Oct 30 in
-any case. Wiring into `tests/run_all.py` and the census/claims
-registry is the one remaining integration step before a push.
+This layer is **live on main**: wired into `tests/run_all.py` and
+the census/claims registry and pushed as commit 2217ada (39 files,
+verified 2026-10-24), using a fresh token minted by the author via
+browser takeover (token `cami-mmurm-2026-10-24`, copy shredded
+after the push, per protocol). It was run standalone first (all
+assertions pass) and then as Group T in the full suite.

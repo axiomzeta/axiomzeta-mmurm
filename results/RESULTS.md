@@ -58,6 +58,7 @@ Independent re-run of the 38 tracked items in `tests/TEST_CENSUS.md` (source: *M
 | M4 | Modal-amplitude null ensemble: lam1_mod(5) under no coherence | SIMULATION |
 | M5 | One-factor modal coherence sweep: what clears the n = 8 bar? | SIMULATION |
 | T1 | T4 branch-selection closure at N = 5 (O2, branch-selection part) | CLOSED (branch selection, construction) |
+| U1 | Successor timeline l' at N = 5: stay selected (O2 remainder) | SELECTED: stay (l' = l) — O2 successor part closed at N = 5 by construction |
 
 Group R (URM-1..URM-11) is a PROTOCOL registry — see `data/claims_registry.json`; statuses are as published, not re-tested. URM-9 and URM-10 are the 2026-10-23 addenda audited in Groups X and I; URM-11 is the 2026-10-24 audit-derived modal-coherence threshold from Group M.
 
@@ -645,6 +646,53 @@ The author has not developed this layer; at his direction it is built here and m
 - general_B_note: At B = 4 (N = 12 branch) the source names no predicate for branch 4; this rule assigns branches 1-3 only and leaves branch 4 unassigned rather than inventing a predicate.
 - **Verdict: CLOSED (branch selection, construction)**
 - Notes: Agrees with the source wherever the source is already single-valued (asserted over all 8 combinations); the only new choice is the uncovered case, deliberately left as no-transition rather than inventing a fourth predicate. NOT closed: successor timeline l' (O2's remainder); branch 4 at N = 12 (no source predicate); O1 (H_in/H_out) and F1/F2/F3 (theta/Delta-tau, state space, Reality Anchor) are untouched.
+
+## Group U — Successor timeline (addendum 2026-10-24, CONSTRUCTION, author-selected)
+
+Built as an options register enumerating stay, advance-one, advance-branch, retreat-branch, and free over the 21 (l, b) pairs; the author selected stay (l' = l) on 2026-10-24, recorded as [construction]. Consequence: at N = 5 transitions change branch, never timeline, so timelines evolve independently. O2 is thereby closed at N = 5 (branch selection by Group T, successor by stay); the general-B form, branch 4 at N = 12, O1, and F1–F3 remain open.
+
+### U1 — Successor timeline l' at N = 5: stay selected (O2 remainder)
+
+- **Label:** CONSTRUCTION (author-selected)
+- **Published:** Source T4 arrow: C_{l,b} -> {C_{l',1}; ...; C_{l',B}} subject to A_r; l' 'denotes an allowed successor timeline (which may equal l if within-timeline transitions are intended)'. No rule mapping (l, b) -> l' is stated.
+- **Recomputed:** - timelines_T: 7
+- branches_B: (1, 2, 3)
+- pairs: 21
+- rules:   - stay:     - single_valued_function_of_l_b: True
+    - one_step_reachable_from_one_timeline: 0
+    - one_step_count: 1
+    - long_run_reachable_from_one_timeline: 0
+    - long_run_count: 1
+  - advance-branch:     - single_valued_function_of_l_b: True
+    - one_step_reachable_from_one_timeline: 1, 2, 3
+    - one_step_count: 3
+    - long_run_reachable_from_one_timeline: 0, 1, 2, 3, 4, 5, 6
+    - long_run_count: 7
+  - advance-one:     - single_valued_function_of_l_b: True
+    - one_step_reachable_from_one_timeline: 1
+    - one_step_count: 1
+    - long_run_reachable_from_one_timeline: 0, 1, 2, 3, 4, 5, 6
+    - long_run_count: 7
+  - retreat-branch:     - single_valued_function_of_l_b: True
+    - one_step_reachable_from_one_timeline: 4, 5, 6
+    - one_step_count: 3
+    - long_run_reachable_from_one_timeline: 0, 1, 2, 3, 4, 5, 6
+    - long_run_count: 7
+  - free:     - single_valued_function_of_l_b: False
+    - one_step_reachable_from_one_timeline: 0, 1, 2, 3, 4, 5, 6
+    - one_step_count: 7
+    - long_run_reachable_from_one_timeline: 0, 1, 2, 3, 4, 5, 6
+    - long_run_count: 7
+- verdict: NOT CLOSED: no source statement selects among these rules. stay is the only rule with any textual support, and that support is a permission ('may equal l'), not a prescription. advance-branch vs retreat-branch are graph-identical, so direction is an author choice, not a derivable one.
+- assumptions_flagged: Predicates (dK, Dcal, Bcal) treated as independent of timeline index l: the source states no l-dependence, but also does not rule it out. If predicates depend on l, the (l, b) pair space is not the full 21 pairs., Timeline indices 0..6 are labels only: mod-7 arithmetic is a bookkeeping device for the candidate rules, not a claim that timelines are cyclically ordered in the framework.
+- selected_rule:   - rule: stay
+  - definition: l' = l for every (l, b) pair
+  - selected_by: author decision, 2026-10-24
+  - status: [construction], not source canon
+  - consequence: transitions change branch, never timeline; timelines evolve independently (consistent with T1's no-free-coupling rule)
+  - scope: N = 5 only; whether stay generalizes to the N = 12 branch is not decided here
+- **Verdict: SELECTED: stay (l' = l) — O2 successor part closed at N = 5 by construction**
+- Notes: Stay is the minimal rule and the only one with any textual support, but that support is a permission ('may equal l'), not a prescription — hence [construction], not canon. The unselected rules (advance-one, advance-branch, retreat-branch, free) remain enumerated in the audit for the record. Branch 4 at N = 12, the general-B form, O1, and F1–F3 are untouched.
 
 ## Group A — Parameterized seed architecture (addendum 2026-10-23)
 

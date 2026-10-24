@@ -140,9 +140,12 @@ convention must be re-declared per branch. See O2.
   `MMURM_N5_time_branch.md`)** by [construction] priority in the
   source's listing order (1 > 2 > 3), with the uncovered case as no
   transition — proven by exhaustive enumeration of the 8 predicate
-  combinations. What remains of O2 is the successor timeline $\ell'$
-  (which timeline a transition lands on), still unspecified, plus
-  branch 4 at N = 12, for which the source names no predicate.
+  combinations. **Successor timeline at N = 5: CLOSED 2026-10-24
+  (Group U, `MMURM_N5_time_successor.md`)** by author-selected
+  [construction] stay ($\ell' = \ell$). O2 is thereby closed at
+  N = 5. What remains is the general-$B$ form: branch 4 at N = 12,
+  for which the source names no predicate, and whether stay
+  generalizes to the N = 12 branch (not decided).
 
 ## 4. Flagged seams (audit, 2026-10-23)
 
@@ -187,6 +190,7 @@ $R{=}8$, $T{=}7$, $B{=}3$, $D{=}5$. Two open items are the source's own
 (O1, O2); three seams are flagged by the audit (F1–F3). None of the
 five is a defect of arithmetic — each is a specification the layer
 needs and does not yet have, recorded here so that closing them is a
-matter of writing the specification down. **Update 2026-10-24:** O2's
-branch-selection part is closed at N = 5 by Group T (see §3); O1,
-F1–F3, and O2's successor-timeline remainder stay open.
+matter of writing the specification down. **Update 2026-10-24:** O2
+is closed at N = 5 — branch selection by Group T, successor
+timeline by author-selected stay (Group U, see §3). O1, F1–F3, and
+the general-$B$ form stay open.

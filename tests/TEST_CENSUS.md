@@ -206,4 +206,17 @@ No new claim is registered: the closure is a rule, not a claim.
 
 | ID | Item | Construction / result |
 |----|------|----------------------|
-| T1 | T4 branch-selection closure (O2, branch-selection part) | CLOSED (construction): source mapping overlaps on 3 of 8 predicate combinations and covers nothing on 1. Closure = priority in the source's listing order (1 > 2 > 3); uncovered case (ΔK < 0, 𝒟 ≤ 𝒟ᶜ, ℬ ≤ ℬᶜ) = no transition, not an invented fourth branch. Proven by exhaustive enumeration: single-valued on all 8 combinations, agrees with the source wherever the source is already single-valued, all three branches reachable. NOT closed: successor timeline ℓ′ (O2's remainder); branch 4 at N = 12 (no source predicate, left unassigned); O1, F1, F2, F3 untouched |
+| T1 | T4 branch-selection closure (O2, branch-selection part) | CLOSED (construction): source mapping overlaps on 3 of 8 predicate combinations and covers nothing on 1. Closure = priority in the source's listing order (1 > 2 > 3); uncovered case (ΔK < 0, 𝒟 ≤ 𝒟ᶜ, ℬ ≤ ℬᶜ) = no transition, not an invented fourth branch. Proven by exhaustive enumeration: single-valued on all 8 combinations, agrees with the source wherever the source is already single-valued, all three branches reachable. NOT closed by T1: successor timeline ℓ′ (closed separately by Group U); branch 4 at N = 12 (no source predicate, left unassigned); O1, F1, F2, F3 untouched |
+
+### Group U — Successor timeline ℓ′ at N = 5 (1) · `tests/time_successor.py`
+
+Added 2026-10-24 as an options register, then closed by author
+decision the same day. **Not author-supplied:** the author has not
+developed this layer, and at his direction it was built here. Label
+CONSTRUCTION (author-selected). Full statement:
+`paper/MMURM_N5_time_successor.md`. No new claim is registered:
+the selection is a rule, not a claim.
+
+| ID | Item | Construction / result |
+|----|------|----------------------|
+| U1 | Successor timeline ℓ′ at N = 5 (O2 remainder) | SELECTED (construction): author selected **stay** (ℓ′ = ℓ) on 2026-10-24. Enumeration retained: 21 (ℓ, b) pairs; stay is the only rule with any textual support (the source's "may equal ℓ" permission, not a prescription); advance-branch vs retreat-branch are graph-identical (direction would have been an author statement); free closes nothing. Consequence: transitions change branch, never timeline — timelines evolve independently at N = 5. O2 thereby CLOSED at N = 5 (branch by Group T, successor by stay). Still open: general-B form, branch 4 at N = 12, O1, F1, F2, F3 |

@@ -2,7 +2,7 @@
   "meta": {
     "title": "MMURM Foundation \u2014 independent re-performance of the Julius AI test suite",
     "source_document": "MMURM_LHC_Foundation (Anthony Castro / Julius AI session analyses, data circa Sep 2025)",
-    "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 registered claims; plus 2026-10-23 addenda: Groups X and I, 4 items each, and registry claims URM-9/URM-10; plus 2026-10-24 addendum: Group M, 5 items, and registry claim URM-11; plus 2026-10-24 addendum: Group T, 1 item)",
+    "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 registered claims; plus 2026-10-23 addenda: Groups X and I, 4 items each, and registry claims URM-9/URM-10; plus 2026-10-24 addendum: Group M, 5 items, and registry claim URM-11; plus 2026-10-24 addendum: Group T, 1 item; plus 2026-10-24 addendum: Group U, 1 item)",
     "generated": "2026-10-24",
     "seed": 20250922,
     "honesty_labels": {
@@ -1166,6 +1166,129 @@
         },
         "verdict": "CLOSED (branch selection, construction)",
         "notes": "Agrees with the source wherever the source is already single-valued (asserted over all 8 combinations); the only new choice is the uncovered case, deliberately left as no-transition rather than inventing a fourth predicate. NOT closed: successor timeline l' (O2's remainder); branch 4 at N = 12 (no source predicate); O1 (H_in/H_out) and F1/F2/F3 (theta/Delta-tau, state space, Reality Anchor) are untouched."
+      }
+    ],
+    "U_time_successor": [
+      {
+        "id": "U1",
+        "test": "Successor timeline l' at N = 5: stay selected (O2 remainder)",
+        "label": "CONSTRUCTION (author-selected)",
+        "published_result": "Source T4 arrow: C_{l,b} -> {C_{l',1}; ...; C_{l',B}} subject to A_r; l' 'denotes an allowed successor timeline (which may equal l if within-timeline transitions are intended)'. No rule mapping (l, b) -> l' is stated.",
+        "recomputed_result": {
+          "timelines_T": 7,
+          "branches_B": [
+            1,
+            2,
+            3
+          ],
+          "pairs": 21,
+          "rules": {
+            "stay": {
+              "single_valued_function_of_l_b": true,
+              "one_step_reachable_from_one_timeline": [
+                0
+              ],
+              "one_step_count": 1,
+              "long_run_reachable_from_one_timeline": [
+                0
+              ],
+              "long_run_count": 1
+            },
+            "advance-branch": {
+              "single_valued_function_of_l_b": true,
+              "one_step_reachable_from_one_timeline": [
+                1,
+                2,
+                3
+              ],
+              "one_step_count": 3,
+              "long_run_reachable_from_one_timeline": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "long_run_count": 7
+            },
+            "advance-one": {
+              "single_valued_function_of_l_b": true,
+              "one_step_reachable_from_one_timeline": [
+                1
+              ],
+              "one_step_count": 1,
+              "long_run_reachable_from_one_timeline": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "long_run_count": 7
+            },
+            "retreat-branch": {
+              "single_valued_function_of_l_b": true,
+              "one_step_reachable_from_one_timeline": [
+                4,
+                5,
+                6
+              ],
+              "one_step_count": 3,
+              "long_run_reachable_from_one_timeline": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "long_run_count": 7
+            },
+            "free": {
+              "single_valued_function_of_l_b": false,
+              "one_step_reachable_from_one_timeline": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "one_step_count": 7,
+              "long_run_reachable_from_one_timeline": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "long_run_count": 7
+            }
+          },
+          "verdict": "NOT CLOSED: no source statement selects among these rules. stay is the only rule with any textual support, and that support is a permission ('may equal l'), not a prescription. advance-branch vs retreat-branch are graph-identical, so direction is an author choice, not a derivable one.",
+          "assumptions_flagged": [
+            "Predicates (dK, Dcal, Bcal) treated as independent of timeline index l: the source states no l-dependence, but also does not rule it out. If predicates depend on l, the (l, b) pair space is not the full 21 pairs.",
+            "Timeline indices 0..6 are labels only: mod-7 arithmetic is a bookkeeping device for the candidate rules, not a claim that timelines are cyclically ordered in the framework."
+          ],
+          "selected_rule": {
+            "rule": "stay",
+            "definition": "l' = l for every (l, b) pair",
+            "selected_by": "author decision, 2026-10-24",
+            "status": "[construction], not source canon",
+            "consequence": "transitions change branch, never timeline; timelines evolve independently (consistent with T1's no-free-coupling rule)",
+            "scope": "N = 5 only; whether stay generalizes to the N = 12 branch is not decided here"
+          }
+        },
+        "verdict": "SELECTED: stay (l' = l) \u2014 O2 successor part closed at N = 5 by construction",
+        "notes": "Stay is the minimal rule and the only one with any textual support, but that support is a permission ('may equal l'), not a prescription \u2014 hence [construction], not canon. The unselected rules (advance-one, advance-branch, retreat-branch, free) remain enumerated in the audit for the record. Branch 4 at N = 12, the general-B form, O1, and F1\u2013F3 are untouched."
       }
     ],
     "R_claims_registry": [

@@ -33,6 +33,7 @@ import lhc_compare          # noqa: E402
 import modal                # noqa: E402
 import stats_suite          # noqa: E402
 import time_branch          # noqa: E402
+import time_successor       # noqa: E402
 
 RESULTS_DIR = os.path.join(ROOT, "results")
 
@@ -114,6 +115,7 @@ def main():
     a_results = architecture.run()
     m_results, _ = modal.run()
     t_results, _ = time_branch.run()
+    u_results, _ = time_successor.run()
 
     fig_dir = os.path.join(RESULTS_DIR, "figures")
     fig_paths = figures.make(fig_dir, art_e["df22"], art_s, s_results)
@@ -124,7 +126,7 @@ def main():
 
     all_flags = []
     for group in (l_results, s_results, e_results, x_results, i_results,
-                  a_results, m_results, t_results):
+                  a_results, m_results, t_results, u_results):
         for e in group:
             for f in e.get("flags", []) or []:
                 all_flags.append(f"{e['id']}: {f}")
@@ -140,7 +142,8 @@ def main():
                     "and I, 4 items each, and registry claims URM-9/URM-10; "
                     "plus 2026-10-24 addendum: Group M, 5 items, and "
                     "registry claim URM-11; plus 2026-10-24 addendum: "
-                    "Group T, 1 item)",
+                    "Group T, 1 item; plus 2026-10-24 addendum: Group U, "
+                    "1 item)",
             "generated": str(date.today()),
             "seed": 20250922,
             "honesty_labels": {
@@ -186,6 +189,7 @@ def main():
             "A_architecture": a_results,
             "M_modal": m_results,
             "T_time_branch": t_results,
+            "U_time_successor": u_results,
             "R_claims_registry": claims["claims"],
         },
         "contradictions_and_flags": all_flags,
@@ -298,6 +302,19 @@ def main():
               "Successor timeline l' is still unspecified, branch 4 at "
               "N = 12 is left unassigned, and O1/F1/F2/F3 are untouched.\n")
     for e in t_results:
+        md.append(entry_md(e))
+    md.append("## Group U — Successor timeline (addendum 2026-10-24, "
+              "CONSTRUCTION, author-selected)\n")
+    md.append("Built as an options register enumerating stay, "
+              "advance-one, advance-branch, retreat-branch, and free "
+              "over the 21 (l, b) pairs; the author selected stay "
+              "(l' = l) on 2026-10-24, recorded as [construction]. "
+              "Consequence: at N = 5 transitions change branch, never "
+              "timeline, so timelines evolve independently. O2 is "
+              "thereby closed at N = 5 (branch selection by Group T, "
+              "successor by stay); the general-B form, branch 4 at "
+              "N = 12, O1, and F1–F3 remain open.\n")
+    for e in u_results:
         md.append(entry_md(e))
     md.append("## Group A — Parameterized seed architecture (addendum "
               "2026-10-23)\n")
