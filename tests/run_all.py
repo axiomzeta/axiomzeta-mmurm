@@ -9,7 +9,10 @@ ensemble.py). Group C is SYMBOLIC and Group R is a PROTOCOL registry: both
 are recorded from TEST_CENSUS.md / data/claims_registry.json, not re-run.
 Addenda (2026-10-23): Group X (decoherence.py, DERIVATION-CHECK) and Group
 I (inverse_solver.py) audit two author-supplied results that postdate the
-Julius document; they are not part of the original 38 items.
+Julius document; they are not part of the original 38 items. Addendum
+(2026-10-24): Group M (modal.py, CONSTRUCTION + SIMULATION) builds the
+N = 5 modal system and n = 8 ensemble the author has not developed; it
+is the builder's construction, not the author's canon.
 """
 import json
 import os
@@ -27,6 +30,7 @@ import ensemble             # noqa: E402
 import figures              # noqa: E402
 import inverse_solver       # noqa: E402
 import lhc_compare          # noqa: E402
+import modal                # noqa: E402
 import stats_suite          # noqa: E402
 
 RESULTS_DIR = os.path.join(ROOT, "results")
@@ -107,6 +111,7 @@ def main():
     x_results = decoherence.run()
     i_results = inverse_solver.run()
     a_results = architecture.run()
+    m_results, _ = modal.run()
 
     fig_dir = os.path.join(RESULTS_DIR, "figures")
     fig_paths = figures.make(fig_dir, art_e["df22"], art_s, s_results)
@@ -117,7 +122,7 @@ def main():
 
     all_flags = []
     for group in (l_results, s_results, e_results, x_results, i_results,
-                  a_results):
+                  a_results, m_results):
         for e in group:
             for f in e.get("flags", []) or []:
                 all_flags.append(f"{e['id']}: {f}")
@@ -130,7 +135,9 @@ def main():
                                "AI session analyses, data circa Sep 2025)",
             "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 "
                     "registered claims; plus 2026-10-23 addenda: Groups X "
-                    "and I, 4 items each, and registry claims URM-9/URM-10)",
+                    "and I, 4 items each, and registry claims URM-9/URM-10; "
+                    "plus 2026-10-24 addendum: Group M, 5 items, and "
+                    "registry claim URM-11)",
             "generated": str(date.today()),
             "seed": 20250922,
             "honesty_labels": {
@@ -174,6 +181,7 @@ def main():
             "X_decoherence": x_results,
             "I_inverse_solver": i_results,
             "A_architecture": a_results,
+            "M_modal": m_results,
             "R_claims_registry": claims["claims"],
         },
         "contradictions_and_flags": all_flags,
@@ -213,10 +221,11 @@ def main():
         for e in group:
             md.append(f"| {e['id']} | {str(e.get('test', ''))[:70]} | "
                       f"{e.get('verdict', '')} |")
-    md.append("\nGroup R (URM-1..URM-10) is a PROTOCOL registry — see "
+    md.append("\nGroup R (URM-1..URM-11) is a PROTOCOL registry — see "
               "`data/claims_registry.json`; statuses are as published, not "
               "re-tested. URM-9 and URM-10 are the 2026-10-23 addenda "
-              "audited in Groups X and I.\n")
+              "audited in Groups X and I; URM-11 is the 2026-10-24 "
+              "audit-derived modal-coherence threshold from Group M.\n")
 
     md.append("## Group D — Dimensional analysis (REPRODUCTION)\n")
     for e in d_results:
@@ -256,6 +265,23 @@ def main():
               "N = 5. The solver labels N = 5 a provisional structural "
               "candidate and the Hawking identification not established.\n")
     for e in i_results:
+        md.append(entry_md(e))
+    md.append("## Group M — N = 5 modal system + n = 8 ensemble (addendum "
+              "2026-10-24, CONSTRUCTION + SIMULATION)\n")
+    md.append("The author has not developed these layers; they are built "
+              "here and marked as the builder's construction, not the "
+              "author's canon and not empirical data. The modal matrix on "
+              "the 5-branch is defined as the 5x5 correlation matrix of "
+              "modal amplitudes across the 8 realities, so modal weight "
+              "and variance share coincide by definition (w_1 = lam_1 / 5) "
+              "and the legacy weight/variance conflation cannot recur. "
+              "Two leading eigenvalues are kept distinct: lam1_obs (the "
+              "5-observable correlation, E1 analogue) and lam1_mod (the "
+              "5-mode modal correlation). Raw data: "
+              "`data/modal8_observables.csv` (the single 8-reality dataset) "
+              "and `data/modal_eigenvalues.csv` (all 5,000 simulation "
+              "draws).\n")
+    for e in m_results:
         md.append(entry_md(e))
     md.append("## Group A — Parameterized seed architecture (addendum "
               "2026-10-23)\n")

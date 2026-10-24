@@ -177,3 +177,22 @@ the N = 5 instantiation is specified in `paper/MMURM_N5_instantiation.md`.
 | A2 | Both architectures + Euler closures | N=5: 8/7/3/21/5/−8; N=12: 22/14/4/56/12/−22 | Identical — AGREES |
 | A3 | Branch-dependent derived objects (P_shadow prefactor, MP edge, stated-coupling modal drift) | Exist for N=12 only | COMPUTED for both: prefactor 210 vs 21!/11!; MP edge (p=5) 3.21 at n=8 vs 2.18 at n=22; both modal drifts growth-dominated, core undamped. Ensemble statistics and λ₁ are N=12-branch objects; the 5-branch has none yet |
 | A4 | Eq. 11.1 prefactor Γ(5)/ζ(2) = 14.59 under parameterization | Printed on the N=12 text | UNRESOLVED identification: Γ(N)/ζ(2) matches 14.59 only at N=5 (at N=12 it is ≈2.43×10⁷); independent-constant reading leaves it branch-invariant coincidence. Not decided, not used as evidence |
+
+### Group M — N = 5 modal system + n = 8 ensemble (5) · `tests/modal.py`
+
+Added 2026-10-24. **Not author-supplied and not part of the original
+38:** the author has not developed these layers, and at his direction
+they are built here. Labels are CONSTRUCTION (specification) and
+SIMULATION (statistics). Nothing here is the author's canon or
+empirical data. Full statement: `paper/MMURM_N5_modal.md`. Raw data:
+`data/modal8_observables.csv` (single 8-reality dataset) and
+`data/modal_eigenvalues.csv` (all 5,000 simulation draws), seed
+20250922 throughout.
+
+| ID | Item | Construction / result |
+|----|------|----------------------|
+| M1 | 5-mode system: frequencies, damping, weight convention | SPECIFIED (construction): K = 5; ω_k/ω_0 = 1/F_k = (1, 1, 1/2, 1/3, 1/5); γ_k = (0, 0.94, 0.94, 0.94, 0.94); modal matrix = 5×5 correlation matrix of modal amplitudes across 8 realities, weights w_k = λ_k/5 (trace 5), so w_1 = λ_1/5 by definition and the legacy weight/variance conflation (R3) cannot recur. Mode identities 2–5 NOT assigned (no mapping rule exists from the 12 legacy layer names) |
+| M2 | Encompassing matrix U_env at N = 5 | FORM CARRIED (numerics open): (U_env)_ri = R_r · S_i, r, i = 1..8, R_r · S_r ∝ F_r; numerical entries unspecified, as on the legacy branch |
+| M3 | n = 8 observable ensemble, λ₁^obs(5) (E1 analogue) | SIMULATION: single dataset eigenvalues [3.1386, 0.9997, 0.6115, 0.2385, 0.0117] — ONE DRAW. 1,000-draw simulation: median 3.6928, p5 2.7943, p95 4.3706, 83.5% above MP edge 3.2061. Target correlation matrix reused as a stated assumption |
+| M4 | Modal-amplitude null ensemble, λ₁^mod(5) | SIMULATION: 1,000 draws of 8×5 i.i.d. normals: median 2.1525, p95 2.7415 (operational bar); only 0.6% exceed the MP edge 3.2061 (strict bar). For correlation matrices the edge sits ABOVE the finite-sample null — verified n = 8..500 |
+| M5 | One-factor coherence sweep | SIMULATION: loadings swept, not fitted. a = 0.5/0.7/0.85 → medians 2.3809/3.0824/3.8966; % above edge 5.1/42.2/84.3; % above null p95 21.5/69.5/94.3. Falsifiable threshold registered as URM-11 (audit-derived, not author-stated) |

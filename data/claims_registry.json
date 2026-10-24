@@ -83,7 +83,16 @@
    "id": "URM-10",
    "label": "PROTOCOL",
    "mathematical_basis": "B = (5N-4)/(N+2) = 5 - 14/(N+2); positive-integer B over N=2..64 leaves exactly {5, 12}; N=12 reproduces the legacy architecture (R=22, T=14, B=4, 56 channels, D=12, chi=-22)",
-   "status_in_source": "Provisional structural candidate (inverse-solver report, 2026-10-23); topology free-energy tiebreak F(5) = -9.2023 vs F(12) = -0.6029 reported but the sweep is not deposited; physical Hawking identification NOT established Parameterized 2026-10-23: the N=12 line is frozen at git tag n12-legacy; the N=5 instantiation is specified in paper/MMURM_N5_instantiation.md (seed level complete; no ensemble statistics or lambda_1 exist on the 5-branch yet)."
+   "status_in_source": "Provisional structural candidate (inverse-solver report, 2026-10-23); topology free-energy tiebreak F(5) = -9.2023 vs F(12) = -0.6029 reported but the sweep is not deposited; physical Hawking identification NOT established Parameterized 2026-10-23: the N=12 line is frozen at git tag n12-legacy; the N=5 instantiation is specified in paper/MMURM_N5_instantiation.md. Group M (2026-10-24) adds simulation-defined ensemble statistics and lambda_1(5) on the 5-branch; no empirical 8x5 dataset exists yet."
+  },
+  {
+   "id": "URM-11",
+   "claim": "N = 5 modal coherence: a future empirical dataset of 8 realities x 5 modes (or 5 observables) shows lam1 above the n = 8 random-matrix null (operational bar: null 95th percentile 2.7415; strict bar: Marchenko-Pastur edge 3.2061)",
+   "mathematical_basis": "Modal matrix = 5x5 correlation matrix of modal amplitudes across R = 8 realities (Group M construction); MP edge (1 + sqrt(5/8))^2 = 3.2061; null distribution from 1,000 draws of 8x5 i.i.d. normals (median 2.1525, p95 2.7415); one-factor sweep: loadings 0.5/0.7/0.85 give median lam1 2.3809/3.0824/3.8966",
+   "experimental_test": "An empirical 8x5 modal-amplitude or observable dataset (none exists); lam1 above 2.7415 exceeds the finite-sample null, above 3.2061 clears the asymptotic bar; below 2.7415 the modal-coherence claim has no support from that dataset. Small-n caveat: at n = 8 the test is weak (wide eigenvalue distributions); clearing the bar is necessary, not sufficient",
+   "status_in_source": "AUDIT-DERIVED PREDICTION (Group M, 2026-10-24), not an author-stated claim: the author has not developed the modal/ensemble layers, and the threshold is the builder's construction from the simulation. Simulation statistics, not empirical data",
+   "label": "PROTOCOL",
+   "computable_part": "tests/modal.py (Group M): null ensemble, one-factor sweep, and n = 8 observable simulation with published raw data (data/modal8_observables.csv, data/modal_eigenvalues.csv), seed 20250922"
   }
  ],
  "source": "MMURM_LHC_Foundation (Anthony Castro / Julius AI analyses, data circa Sep 2025)"

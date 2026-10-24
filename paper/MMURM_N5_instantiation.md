@@ -84,7 +84,8 @@ independent Hawking observable $H(N)$, which does not yet exist (I4).
   $C_{\mathrm{modal}}$ sums to 5. Stated-coupling drift spectrum
   (Group A): max real eigenvalue +2.92/step, slowest decay 0.021/step,
   core mode intrinsically undamped — qualitatively the legacy branch's
-  structure at smaller size.
+  structure at smaller size. Full modal specification, including the
+  n = 8 ensemble, is `MMURM_N5_modal.md` (Group M, 2026-10-24).
 - **String modes.** Phases $\phi_i = 2\pi i / R$ → $2\pi i / 8$.
 - **Three-body display.** $\sum_{r=1}^{R} R_r \otimes
   \Psi_{\mathrm{gravity}}$ → sum to 8.
@@ -94,14 +95,18 @@ independent Hawking observable $H(N)$, which does not yet exist (I4).
 
 ## 4. What does not exist on this branch (yet)
 
-- **Ensemble statistics.** Groups S and E, the correlation matrix, the
+- **Ensemble statistics (simulated, not empirical — Group M,
+  2026-10-24).** Groups S and E, the correlation matrix, the
   bootstrap, the eigenvalue spectrum, and λ₁ = 3.71 are **N = 12-branch
-  objects**, computed (by Julius, and in re-performance) at n = 22. The
-  N = 5 branch has no ensemble: no n = 8 simulation has been run, no
-  raw data published, and λ₁(5) is **undefined**. At n = 8, p = 5 the
-  Marchenko–Pastur edge alone moves to (1 + √(5/8))² ≈ 3.21 (vs 2.18),
-  so the statistical chapter must be newly simulated, not renumbered.
-  Nothing from the 12-branch statistics transfers.
+  objects**, computed (by Julius, and in re-performance) at n = 22.
+  Nothing from the 12-branch statistics transfers — but the 5-branch
+  statistical chapter is now simulated rather than missing
+  (`MMURM_N5_modal.md`): λ₁^obs(5) median 3.6928 and λ₁^mod(5) null
+  median 2.1525 (null p95 2.7415, MP edge 3.2061) from 1,000-draw
+  n = 8 simulations with published raw data. What is still missing is
+  an *empirical* 8 × 5 dataset: until one exists, λ₁(5) is a
+  simulation statistic with a stated falsifiable threshold, not a
+  measurement.
 - **The topology free-energy sweep** F(g) — reported-only (I3).
 - **H(N)** — the independent Hawking observable that would discriminate
   the branches — not derived (I4).
@@ -125,14 +130,18 @@ independent Hawking observable $H(N)$, which does not yet exist (I4).
 
 ## 6. Completion path for this instantiation
 
-1. An n = 8 ensemble simulation with **published raw data** (the lack of
-   which is what forced Groups S/E into RECONSTRUCTION on the legacy
-   branch) → defines λ₁(5) and the 5-branch statistics.
+1. ~~An n = 8 ensemble simulation with **published raw data**~~ —
+   **done as simulation (Group M, 2026-10-24):** raw data published
+   (`data/modal8_observables.csv`, `data/modal_eigenvalues.csv`),
+   λ₁(5) defined as ensemble statistics with a falsifiable threshold
+   (URM-11). The remaining step on this item is an *empirical* 8 × 5
+   dataset, which would upgrade the simulation to measurement.
 2. Deposit of the topology sweep → I3 upgrades to REPRODUCTION and the
    branch selection becomes auditable.
 3. Derivation of an independent H(N) → the branches become empirically
    discriminable in principle.
 
-Until (1)–(3) land, this instantiation is exactly what the solver
-labeled it: a **provisional structural candidate**, fully specified at
-the seed level, with its missing pieces named rather than papered over.
+Until (2)–(3) land, this instantiation is exactly what the solver
+labeled it: a **provisional structural candidate**, now with its
+seed, time, and statistical layers specified, with its remaining
+missing pieces named rather than papered over.

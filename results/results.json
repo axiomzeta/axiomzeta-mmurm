@@ -2,8 +2,8 @@
   "meta": {
     "title": "MMURM Foundation \u2014 independent re-performance of the Julius AI test suite",
     "source_document": "MMURM_LHC_Foundation (Anthony Castro / Julius AI session analyses, data circa Sep 2025)",
-    "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 registered claims; plus 2026-10-23 addenda: Groups X and I, 4 items each, and registry claims URM-9/URM-10)",
-    "generated": "2026-10-23",
+    "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 registered claims; plus 2026-10-23 addenda: Groups X and I, 4 items each, and registry claims URM-9/URM-10; plus 2026-10-24 addendum: Group M, 5 items, and registry claim URM-11)",
+    "generated": "2026-10-24",
     "seed": 20250922,
     "honesty_labels": {
       "REPRODUCTION": "recomputed from inputs fully specified in the document",
@@ -949,6 +949,164 @@
         ]
       }
     ],
+    "M_modal": [
+      {
+        "id": "M1",
+        "test": "N = 5 modal system: frequencies, damping, weight convention",
+        "label": "CONSTRUCTION",
+        "published_result": "Legacy (N = 12): 12 modes, omega_k = omega_0 / F_k, gamma_k = 0.94(1 - delta_k1), modal weights summing to 1 (printed 1.006), U_core = lam_1 = 3.71 [simulated]. No 5-branch modal specification exists in the supplied material.",
+        "recomputed_result": {
+          "modes_K": 5,
+          "fibonacci_F_k": [
+            1,
+            1,
+            2,
+            3,
+            5
+          ],
+          "omega_k_over_omega_0": [
+            1.0,
+            1.0,
+            0.5,
+            0.3333,
+            0.2
+          ],
+          "gamma_k": [
+            0.0,
+            0.94,
+            0.94,
+            0.94,
+            0.94
+          ],
+          "core_mode_k1_intrinsic_decay": 0.0,
+          "modal_matrix_definition": "5x5 correlation matrix of modal amplitudes across the 8 realities; eigenvalues lam_k, trace 5; modal weights w_k = lam_k / 5, sum 1",
+          "convention_note": "w_1 = lam_1 / 5 BY DEFINITION on this branch, so the legacy weight/variance conflation (manuscript R3) cannot recur"
+        },
+        "verdict": "SPECIFIED (construction)",
+        "notes": "Mode identities: only mode 1 carries a branch-invariant meaning (core/fundamental resonance, by the gamma_1 = 0 rule). The 12 legacy layer names are NOT mapped onto 5 modes \u2014 no such rule is stated, and inventing one would be fabrication. omega_0's dual stated value (1.0 vs 1.4e14 rad/s, Group X flag) is why only ratios are used."
+      },
+      {
+        "id": "M2",
+        "test": "Encompassing matrix U_env at N = 5 (form)",
+        "label": "CONSTRUCTION",
+        "published_result": "Legacy: (U_env)_ri = R_r . S_i, r, i = 1..22, Fibonacci diagonal dominance R_r . S_r proportional to F_r. No numerical entries are given even for the legacy matrix.",
+        "recomputed_result": {
+          "form": "(U_env)_ri = R_r . S_i, r, i = 1..8",
+          "diagonal_dominance": "R_r . S_r proportional to F_r, F = (1, 1, 2, 3, 5, 8, 13, 21)",
+          "numerical_entries": "UNSPECIFIED (as on the legacy branch)"
+        },
+        "verdict": "FORM CARRIED (numerics open)",
+        "notes": "The 8x8 form is carried, not numerically instantiated: the reality amplitudes R_r and string modes S_i are never numerically specified in the supplied material. Any numeric U_env would be invention."
+      },
+      {
+        "id": "M3",
+        "test": "n = 8 observable ensemble: lam1_obs(5) (E1 analogue)",
+        "label": "SIMULATION",
+        "published_result": "No 5-branch ensemble exists (instantiation doc Section 4). Legacy: lam_1 = 3.71 +/- 0.04 at n = 1,000 realities; reconstruction 3.659 at n = 22 (E1).",
+        "recomputed_result": {
+          "single_dataset": "data/modal8_observables.csv (8 realities, fixed seed 20250922, Gaussian copula targeting the published correlation matrix)",
+          "single_dataset_eigenvalues": [
+            3.1386,
+            0.9997,
+            0.6115,
+            0.2385,
+            0.0117
+          ],
+          "single_dataset_lam1_obs": 3.1386,
+          "single_dataset_note": "ONE DRAW, not 'the' lam1(5)",
+          "simulation_1000_draws_n8": {
+            "median": 3.6928,
+            "mean": 3.6608,
+            "sd": 0.4732,
+            "p5": 2.7943,
+            "p95": 4.3706,
+            "frac_above_mp_edge": 0.835
+          },
+          "mp_edge_n8_p5": 3.2061,
+          "lam1_obs_5_definition": "median of the 1,000-draw distribution"
+        },
+        "verdict": "SIMULATION",
+        "notes": "Target correlation matrix reused as a STATED ASSUMPTION: it is the only published correlation structure, and nothing derives it for the 5-branch. t_half's marginal is carried as published; its null-status problem (Group S/E) is unchanged. The single dataset's lam1 is one draw of a wide distribution \u2014 see the p5/p95 spread."
+      },
+      {
+        "id": "M4",
+        "test": "Modal-amplitude null ensemble: lam1_mod(5) under no coherence",
+        "label": "SIMULATION",
+        "published_result": "None: no modal-amplitude data exists on either branch. Legacy MP edge (p = 5, n = 22) = 2.18.",
+        "recomputed_result": {
+          "model": "8x5 i.i.d. standard normal amplitudes, 1,000 draws",
+          "mp_edge_n8_p5": 3.2061,
+          "null_distribution": {
+            "median": 2.1525,
+            "mean": 2.1855,
+            "sd": 0.3151,
+            "p5": 1.7225,
+            "p95": 2.7415,
+            "frac_above_mp_edge": 0.006
+          },
+          "operational_threshold_null_p95": 2.7415
+        },
+        "verdict": "SIMULATION",
+        "notes": "Two bars, not one, and their order matters. For correlation matrices the asymptotic MP edge sits ABOVE the finite-sample null: only 0.6% of null draws exceed 3.21 at n = 8, and the null 95th percentile is 2.74. The edge is therefore the stricter bar; the null p95 is the operational bar. (Sanity check, independent seed: white-noise correlation lam1 medians 2.15 / 1.63 / 1.28 / 1.12 at n = 8 / 22 / 100 / 500 against edges 3.21 / 2.18 / 1.50 / 1.21 \u2014 the null approaches the edge from below as n grows. The edge is a covariance asymptotic; the unit-diagonal constraint of a correlation matrix shrinks the top eigenvalue.)"
+      },
+      {
+        "id": "M5",
+        "test": "One-factor modal coherence sweep: what clears the n = 8 bar?",
+        "label": "SIMULATION",
+        "published_result": "Legacy claim: a dominant modal core (weight 0.780, U_core = 3.71) [simulated]. No loading parameter is stated anywhere in the supplied material.",
+        "recomputed_result": {
+          "model": "amplitude = a * common_factor + sqrt(1 - a^2) * noise; population lam1 = 1 + 4a^2",
+          "sweep": [
+            {
+              "loading_a": 0.5,
+              "population_lam1": 2.0,
+              "simulated": {
+                "median": 2.3809,
+                "mean": 2.4179,
+                "sd": 0.4295,
+                "p5": 1.7928,
+                "p95": 3.2127,
+                "frac_above_mp_edge": 0.051,
+                "frac_above_null_p95": 0.215
+              }
+            },
+            {
+              "loading_a": 0.7,
+              "population_lam1": 2.96,
+              "simulated": {
+                "median": 3.0824,
+                "mean": 3.0584,
+                "sd": 0.5864,
+                "p5": 2.056,
+                "p95": 3.9494,
+                "frac_above_mp_edge": 0.422,
+                "frac_above_null_p95": 0.695
+              }
+            },
+            {
+              "loading_a": 0.85,
+              "population_lam1": 3.89,
+              "simulated": {
+                "median": 3.8966,
+                "mean": 3.8026,
+                "sd": 0.5564,
+                "p5": 2.6918,
+                "p95": 4.5202,
+                "frac_above_mp_edge": 0.843,
+                "frac_above_null_p95": 0.943
+              }
+            }
+          ],
+          "falsifiable_threshold": {
+            "mp_edge_strict_bar": 3.2061,
+            "null_p95_operational_bar": 2.7415,
+            "statement": "A future empirical 8-reality x 5-mode dataset with lam1_mod above the null 95th percentile (2.74) exceeds the finite-sample random-matrix null at n = 8; above the MP edge (3.21) it clears the stricter asymptotic bar as well. Below 2.74, the modal coherence claim has no support from that dataset."
+          }
+        },
+        "verdict": "SIMULATION",
+        "notes": "Loadings are SWEPT, not fitted: no loading is claimed, so nothing here bakes in a desired lam1. Small-n caveat, stated plainly: at n = 8, p = 5 the eigenvalue distribution is wide (see M4 p5/p95), so this test is weak \u2014 clearing the bar is necessary, not sufficient, for the modal-coherence claim. An empirical 8x5 modal dataset would upgrade M3/M4 from SIMULATION to REPRODUCTION-style measurement; none exists."
+      }
+    ],
     "R_claims_registry": [
       {
         "claim": "Recursive multiverse structure with phi-ratio scaling",
@@ -1032,7 +1190,16 @@
         "id": "URM-10",
         "label": "PROTOCOL",
         "mathematical_basis": "B = (5N-4)/(N+2) = 5 - 14/(N+2); positive-integer B over N=2..64 leaves exactly {5, 12}; N=12 reproduces the legacy architecture (R=22, T=14, B=4, 56 channels, D=12, chi=-22)",
-        "status_in_source": "Provisional structural candidate (inverse-solver report, 2026-10-23); topology free-energy tiebreak F(5) = -9.2023 vs F(12) = -0.6029 reported but the sweep is not deposited; physical Hawking identification NOT established Parameterized 2026-10-23: the N=12 line is frozen at git tag n12-legacy; the N=5 instantiation is specified in paper/MMURM_N5_instantiation.md (seed level complete; no ensemble statistics or lambda_1 exist on the 5-branch yet)."
+        "status_in_source": "Provisional structural candidate (inverse-solver report, 2026-10-23); topology free-energy tiebreak F(5) = -9.2023 vs F(12) = -0.6029 reported but the sweep is not deposited; physical Hawking identification NOT established Parameterized 2026-10-23: the N=12 line is frozen at git tag n12-legacy; the N=5 instantiation is specified in paper/MMURM_N5_instantiation.md. Group M (2026-10-24) adds simulation-defined ensemble statistics and lambda_1(5) on the 5-branch; no empirical 8x5 dataset exists yet."
+      },
+      {
+        "id": "URM-11",
+        "claim": "N = 5 modal coherence: a future empirical dataset of 8 realities x 5 modes (or 5 observables) shows lam1 above the n = 8 random-matrix null (operational bar: null 95th percentile 2.7415; strict bar: Marchenko-Pastur edge 3.2061)",
+        "mathematical_basis": "Modal matrix = 5x5 correlation matrix of modal amplitudes across R = 8 realities (Group M construction); MP edge (1 + sqrt(5/8))^2 = 3.2061; null distribution from 1,000 draws of 8x5 i.i.d. normals (median 2.1525, p95 2.7415); one-factor sweep: loadings 0.5/0.7/0.85 give median lam1 2.3809/3.0824/3.8966",
+        "experimental_test": "An empirical 8x5 modal-amplitude or observable dataset (none exists); lam1 above 2.7415 exceeds the finite-sample null, above 3.2061 clears the asymptotic bar; below 2.7415 the modal-coherence claim has no support from that dataset. Small-n caveat: at n = 8 the test is weak (wide eigenvalue distributions); clearing the bar is necessary, not sufficient",
+        "status_in_source": "AUDIT-DERIVED PREDICTION (Group M, 2026-10-24), not an author-stated claim: the author has not developed the modal/ensemble layers, and the threshold is the builder's construction from the simulation. Simulation statistics, not empirical data",
+        "label": "PROTOCOL",
+        "computable_part": "tests/modal.py (Group M): null ensemble, one-factor sweep, and n = 8 observable simulation with published raw data (data/modal8_observables.csv, data/modal_eigenvalues.csv), seed 20250922"
       }
     ]
   },
