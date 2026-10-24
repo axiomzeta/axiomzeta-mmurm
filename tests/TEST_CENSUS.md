@@ -124,3 +124,43 @@ gravity expectation); rho_DE = 6.5e-30 J/m^3 (Planck 2018); H_0 = 70.2 km/s/Mpc
 The document's "weighted confidence" scores (84.6%, updated 89.3%) are a self-assigned
 scoring rubric, not a statistical test; they are recorded in the results for provenance
 and are not re-issued as findings.
+
+---
+
+## Addenda (2026-10-23) — author-supplied results postdating the Julius document
+
+Two further items were supplied by the author after the original suite was
+built. They are audited with the same published-vs-recomputed framing and two
+additional labels:
+
+- **DERIVATION-CHECK** — a claimed derivation is re-performed from the
+  parameters the source itself states; unstated inputs are swept as free
+  parameters, never assumed.
+- **REPORTED-ONLY** — values recorded as reported; the underlying
+  computation was not supplied, so nothing is presented as verified.
+
+### Group X — Decoherence half-life audit (4) · DERIVATION-CHECK · `tests/decoherence.py`
+
+Claim (manuscript + author's decoherence memo, 2026-10-23): a multiversal
+Lindblad half-decoherence time t1/2 ~ 800–1600 years. Registered as URM-9.
+
+| ID | Item | Published | Recomputed |
+|----|------|-----------|------------|
+| X1 | Gamma_eff <-> t1/2 conversion | 4.33e-4 – 8.66e-4 /yr = 1.37e-11 – 2.75e-11 /s; example 7.5e-4 /yr -> 924 yr | Identical — AGREES (arithmetic only; the Gamma range is computed from the interval) |
+| X2 | Lindblad run of the stated operator L = sqrt(0.94) sigma_z | Framework yields 800–1600 yr | Liouvillian spectrum {0, 0, -1.88, -1.88}/step; t1/2 = 0.369 steps; 800 yr needs dtau ~ 2,170 yr/step — DIFFERS |
+| X3 | Modal dynamics (gamma_k = 0.94(1 - delta_k1), lambda_1 = 3.71, eps = 0.15) | Persistent core mode, damped non-core modes | Drift growth-dominated (max +3.10/step); slowest decay 0.024/step; core intrinsic decay exactly 0 — DIFFERS |
+| X4 | Protected-sector route | Signed budget ansatz (memo) | Mechanism valid in strict Lindblad form (t1/2 = 2 ln2/eps_leak, sweep-verified); interval is equivalent to positing eps_leak ~ 1.2e-24/step, stated nowhere — CANNOT BE DERIVED; requirement identified |
+
+### Group I — Inverse structural solver audit (4) · `tests/inverse_solver.py`
+
+Result (author's inverse-solver report, 2026-10-23): under the bridge
+relations g = N, D = N, T = N + 2, R = -chi with Euler closure
+chi = D - (T*B) + R, the solver selects N = 5 (R=8, T=7, B=3, 21 channels,
+D=5, chi=-8). Registered as URM-10.
+
+| ID | Item | Published | Recomputed |
+|----|------|-----------|------------|
+| I1 | B = (5N-4)/(N+2); integer admissibility, N=2..64 | Only {5, 12}; N=1 inadmissible | Identical — AGREES ((N+2) must divide 14) |
+| I2 | Both architectures + Euler closure; N=12 = legacy architecture | N=5: 5-21+8=-8; N=12: 12-56+22=-22 (R=22, T=14, B=4) | Identical — AGREES |
+| I3 | Topology free-energy tiebreak | F(5) = -9.2023 vs F(12) = -0.6029; unrestricted optimum g=1 rejected | REPORTED-ONLY — sweep not supplied; recorded, not verified |
+| I4 | Hawking identification H(N) | Not established (solver's own label); T_H contains no N | Agrees — NOT ESTABLISHED; milestone is an independent H(N) |

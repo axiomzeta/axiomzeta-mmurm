@@ -1,0 +1,107 @@
+{
+  "A_memo_budget": {
+    "gamma_eff_per_yr": [
+      0.00043321698784996583,
+      0.0008664339756999317
+    ],
+    "gamma_eff_per_s": [
+      1.372781795351883e-11,
+      2.745563590703766e-11
+    ],
+    "memo_claim_per_s": [
+      1.37e-11,
+      2.75e-11
+    ],
+    "agrees": true,
+    "illustrative_check_yr": 924.1962407465937
+  },
+  "B_stated_dephasing": {
+    "operator": "L = sqrt(0.94) * sigma_z (manuscript Sec. 6.3)",
+    "liouvillian_eigenvalues": [
+      "(-1.88+0j)",
+      "(-1.88+0j)",
+      "0j",
+      "0j"
+    ],
+    "slowest_decay_per_step": 1.88,
+    "t_half_steps": 0.36869530880848156
+  },
+  "C_modal_drift": {
+    "min_real_eigenvalue": -0.023944550136890008,
+    "max_real_eigenvalue": 3.0998382280264702,
+    "core_mode_intrinsic_decay_per_step": 0.0,
+    "slowest_coupled_decay_per_step": 0.023944550136890008,
+    "slowest_coupled_t_half_steps": 28.94801433300068
+  },
+  "D_conversion": {
+    "t_half_years_if_dtau_is": {
+      "planck_time": {
+        "dtau_s": 5.391e-44,
+        "t_half_yr": 6.29843970956766e-52
+      },
+      "g_band_period_1580cm-1": {
+        "dtau_s": 2.111165159481975e-14,
+        "t_half_yr": 2.466526891845115e-22
+      },
+      "omega0_1.0e14_period": {
+        "dtau_s": 6.283185307179587e-14,
+        "t_half_yr": 7.340802048100907e-22
+      },
+      "omega0_1.4e14_period": {
+        "dtau_s": 4.4879895051282756e-14,
+        "t_half_yr": 5.24343003435779e-22
+      },
+      "one_second": {
+        "dtau_s": 1.0,
+        "t_half_yr": 1.1683249322143686e-08
+      },
+      "one_day": {
+        "dtau_s": 86400.0,
+        "t_half_yr": 0.0010094327414332145
+      },
+      "one_year": {
+        "dtau_s": 31557600.0,
+        "t_half_yr": 0.36869530880848156
+      }
+    },
+    "required_dtau_s_for_stated_dephasing": {
+      "t_half_800yr": 68474101505.625755,
+      "t_half_1600yr": 136948203011.25151
+    },
+    "required_coherence_decay_per_step_gband": {
+      "800yr": 5.796338195836019e-25,
+      "1600yr": 2.8981690979180097e-25
+    }
+  },
+  "E_protected_sector": {
+    "sweep": {
+      "eps_leak=0.01": {
+        "slowest_decay_per_step": 0.005,
+        "t_half_steps": 138.62943611198907,
+        "t_half_yr_at_gband_dtau": 9.274141113337632e-20
+      },
+      "eps_leak=1e-06": {
+        "slowest_decay_per_step": 5e-07,
+        "t_half_steps": 1386294.3611198906,
+        "t_half_yr_at_gband_dtau": 9.27414111333763e-16
+      },
+      "eps_leak=1e-10": {
+        "slowest_decay_per_step": 5e-11,
+        "t_half_steps": 13862943611.198906,
+        "t_half_yr_at_gband_dtau": 9.274141113337632e-12
+      },
+      "eps_leak=1e-12": {
+        "slowest_decay_per_step": 5e-13,
+        "t_half_steps": 1386294361119.8906,
+        "t_half_yr_at_gband_dtau": 9.274141113337632e-10
+      }
+    },
+    "required_coherence_decay_per_step_for_800yr_at_gband_dtau": 5.796338195836019e-25,
+    "mechanism": "protected coherence decays at eps_leak/2, so t1/2 = 2 ln2 / eps_leak exactly (sweep-verified)"
+  },
+  "F_stated_physical_rate": {
+    "Lambda_Eq1_instance_s-1": 0.12,
+    "t_half_s": 5.776226504666211,
+    "orders_from_claim_rate": 9.640549739079658
+  }
+}

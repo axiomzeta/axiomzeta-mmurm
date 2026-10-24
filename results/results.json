@@ -2,18 +2,21 @@
   "meta": {
     "title": "MMURM Foundation \u2014 independent re-performance of the Julius AI test suite",
     "source_document": "MMURM_LHC_Foundation (Anthony Castro / Julius AI session analyses, data circa Sep 2025)",
-    "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 registered claims)",
+    "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 registered claims; plus 2026-10-23 addenda: Groups X and I, 4 items each, and registry claims URM-9/URM-10)",
     "generated": "2026-10-23",
     "seed": 20250922,
     "honesty_labels": {
       "REPRODUCTION": "recomputed from inputs fully specified in the document",
       "RECONSTRUCTION": "document publishes summaries, not raw data; dataset regenerated from the published summaries under a fixed seed",
       "SYMBOLIC": "analytical claim, recorded not re-run",
-      "PROTOCOL": "requires experimental facilities; registered, not re-run"
+      "PROTOCOL": "requires experimental facilities; registered, not re-run",
+      "DERIVATION-CHECK": "a claimed derivation is re-performed from the parameters the source itself states; unstated inputs are swept, never assumed",
+      "REPORTED-ONLY": "values recorded as reported; the underlying computation was not supplied, so nothing is presented as verified"
     },
     "provenance_notes": [
       "The source document's 'weighted confidence' scores (84.6%, updated 89.3%) are a self-assigned scoring rubric, not a statistical test. They are recorded here for provenance and are NOT re-issued as findings.",
-      "The document gives lambda_1 as both 3.70 and 2.80 in different sections; this suite reports the value recomputed from the published correlation matrix (see S1)."
+      "The document gives lambda_1 as both 3.70 and 2.80 in different sections; this suite reports the value recomputed from the published correlation matrix (see S1).",
+      "Addenda (2026-10-23, author-supplied, NOT part of the original 38): Group X audits the 800-1600-year Lindblad half-decoherence claim from the author's decoherence memo against the manuscript's stated parameters; Group I audits the inverse structural solver's N=5 result. Claims URM-9 and URM-10 register both in the registry."
     ]
   },
   "groups": {
@@ -650,6 +653,175 @@
         "notes": "Ensemble is a RECONSTRUCTION (same copula as the 22-reality set, seed 20250922); the document's seed string 'URM-22 + R3' is not a reproducible seed. Differences: lambda_1 = 3.658, outside the published 3.71 +/- 0.04; dominant-mode variance share = 73.2%, not 78% (note: even the published lambda_1 = 3.71 gives 3.71/5 = 74.2%, not 78%; the 78% figure matches the separate 12-layer modal decomposition in Draft-C, not this 5-observable correlation matrix); reference-reality PC1 percentile = 20.1, not 49.8"
       }
     ],
+    "X_decoherence": [
+      {
+        "id": "X1",
+        "test": "Memo's effective-rate conversion: t1/2 = 800-1600 yr corresponds to Gamma_eff = 4.33e-4 - 8.66e-4 /yr (1.37e-11 - 2.75e-11 /s)",
+        "label": "REPRODUCTION",
+        "published_result": "Gamma_eff = 4.33e-4 - 8.66e-4 yr^-1 = 1.37e-11 - 2.75e-11 s^-1; illustrative decomposition 7.5e-4 /yr -> t1/2 = 924 yr",
+        "recomputed_result": {
+          "gamma_eff_per_s": [
+            1.372781795351883e-11,
+            2.745563590703766e-11
+          ],
+          "illustrative_check_yr": 924.1962407465937
+        },
+        "verdict": "AGREES",
+        "notes": "The memo's arithmetic is correct. Correct unit conversion is not a derivation of the interval: the Gamma range is computed FROM 800-1600 yr, and the memo itself labels its component values illustrative."
+      },
+      {
+        "id": "X2",
+        "test": "Lindblad computation from the manuscript's stated decoherence operator L = sqrt(gamma) sigma_z, gamma = 0.94 per recursion",
+        "label": "DERIVATION-CHECK",
+        "published_result": "Claim: the stated Lindblad framework yields t1/2 ~ 800-1600 yr",
+        "recomputed_result": {
+          "liouvillian_eigenvalues_per_step": [
+            "(-1.88+0j)",
+            "(-1.88+0j)",
+            "0j",
+            "0j"
+          ],
+          "slowest_decay_per_step": 1.88,
+          "t_half_steps": 0.36869530880848156,
+          "t_half_yr_if_step_is_gband_period": 2.466526891845115e-22,
+          "required_dtau_for_800yr_years_per_step": 2169.8133414970007
+        },
+        "verdict": "DIFFERS",
+        "verdict_scope": "The stated operator yields t1/2 = 0.369 recursion steps. Reaching 800 yr requires a proper-time step of ~2,170 yr per recursion (~4,340 yr for 1600 yr); at any step duration the text suggests (phonon periods ~1e-14 s) the half-life is ~1e-22 yr."
+      },
+      {
+        "id": "X3",
+        "test": "Modal dynamics: does any stated mode supply the slow decay? gamma_k = 0.94(1 - delta_k1), lambda_1 = 3.71, c_kj = eps*m_kj, eps = 0.15",
+        "label": "DERIVATION-CHECK",
+        "published_result": "Modal framework with 94% damping of non-core modes; core mode persistent",
+        "recomputed_result": {
+          "max_real_eigenvalue_per_step": 3.0998382280264702,
+          "slowest_coupled_decay_per_step": 0.023944550136890008,
+          "slowest_coupled_t_half_steps": 28.94801433300068,
+          "core_mode_intrinsic_decay_per_step": 0.0
+        },
+        "verdict": "DIFFERS",
+        "verdict_scope": "The stated modal drift is growth-dominated (max +3.10/step); the slowest decay anywhere is 0.024/step (t1/2 ~ 29 steps), and the core mode's intrinsic decay is exactly 0 by the delta_k1 factor. No stated mode decays anywhere near 1e-24/step.",
+        "flags": [
+          "Prose/equation tension: the text calls gamma_k a 'damping factor', but the printed modal equation enters it as +gamma_k (lambda_1 - 1), a growth term for k > 1. The audit used the equation as printed.",
+          "omega_0 is stated as 1.0e14 rad/s in the constants table and 1.4e14 rad/s in the body text; immaterial at these orders of magnitude, recorded for the errata list."
+        ]
+      },
+      {
+        "id": "X4",
+        "test": "Protected-sector route: can Lindblad form (no signed budget) produce the interval, and at what price?",
+        "label": "DERIVATION-CHECK",
+        "published_result": "Memo's budget ansatz: Gamma_eff = Gamma_local + Gamma_leak + Gamma_branch - Gamma_recurrence - Gamma_topological",
+        "recomputed_result": {
+          "mechanism": "protected coherence decays at eps_leak/2, so t1/2 = 2 ln2 / eps_leak exactly (sweep-verified)",
+          "sweep": {
+            "eps_leak=0.01": {
+              "slowest_decay_per_step": 0.005,
+              "t_half_steps": 138.62943611198907,
+              "t_half_yr_at_gband_dtau": 9.274141113337632e-20
+            },
+            "eps_leak=1e-06": {
+              "slowest_decay_per_step": 5e-07,
+              "t_half_steps": 1386294.3611198906,
+              "t_half_yr_at_gband_dtau": 9.27414111333763e-16
+            },
+            "eps_leak=1e-10": {
+              "slowest_decay_per_step": 5e-11,
+              "t_half_steps": 13862943611.198906,
+              "t_half_yr_at_gband_dtau": 9.274141113337632e-12
+            },
+            "eps_leak=1e-12": {
+              "slowest_decay_per_step": 5e-13,
+              "t_half_steps": 1386294361119.8906,
+              "t_half_yr_at_gband_dtau": 9.274141113337632e-10
+            }
+          },
+          "required_coherence_decay_per_step_800yr_gband": 5.796338195836019e-25,
+          "implied_eps_leak_per_step": 1.1592676391672039e-24,
+          "only_physical_rate_stated": {
+            "Lambda_s-1": 0.12,
+            "t_half_s": 5.776226504666211,
+            "orders_from_claim_rate": 9.640549739079658
+          }
+        },
+        "verdict": "CANNOT BE DERIVED from stated parameters \u2014 requirement identified",
+        "verdict_scope": "A protected sector with a leak channel yields arbitrarily long half-lives in strict Lindblad form (t1/2 = 2 ln2/eps_leak, sweep-verified), so the mechanism exists. But the 800-yr claim is then exactly equivalent to positing eps_leak ~ 1.2e-24 per step (at a G-band-period step) \u2014 a cancellation to ~3e-25 of the stated dephasing rate. No parameter stated in the manuscript fixes eps_leak or dtau at the required values. This does not disprove the interval; it converts it into one auditable assumption."
+      }
+    ],
+    "I_inverse_solver": [
+      {
+        "id": "I1",
+        "test": "Bridge relations imply B = (5N-4)/(N+2); positive-integer B over N=2..64 leaves only {5, 12}",
+        "label": "REPRODUCTION",
+        "published_result": "Admissible set {N=5 (B=3), N=12 (B=4)}; N=1 rejected (B not a positive integer)",
+        "recomputed_result": {
+          "admissible_set": [
+            "N=5 (B=3)",
+            "N=12 (B=4)"
+          ],
+          "reason": "B = 5 - 14/(N+2) is a positive integer only when (N+2) divides 14; in range only N+2 in {7, 14}",
+          "N1_inadmissible": true
+        },
+        "verdict": "AGREES"
+      },
+      {
+        "id": "I2",
+        "test": "Both candidate architectures satisfy the Euler closure chi = D - (T*B) + R; N=12 reproduces the legacy architecture (R=22, T=14, B=4, 56 channels, D=12, chi=-22)",
+        "label": "REPRODUCTION",
+        "published_result": "N=5: R=8, T=7, B=3, 21 channels, D=5, g=5, chi=-8. N=12: R=22, T=14, B=4, 56 channels, D=12, g=12, chi=-22",
+        "recomputed_result": {
+          "N5": {
+            "N": 5,
+            "R": 8,
+            "T": 7,
+            "B": 3,
+            "T_x_B": 21,
+            "D": 5,
+            "g": 5,
+            "chi": -8,
+            "closure_D_minus_TB_plus_R": -8
+          },
+          "N12": {
+            "N": 12,
+            "R": 22,
+            "T": 14,
+            "B": 4,
+            "T_x_B": 56,
+            "D": 12,
+            "g": 12,
+            "chi": -22,
+            "closure_D_minus_TB_plus_R": -22
+          },
+          "closures_hold": true,
+          "legacy_architecture_reproduced": true
+        },
+        "verdict": "AGREES",
+        "notes": "The legacy architecture (22/14/4/12/-22), assembled before this solver, is one of only two integer solutions of the bridge system. The closure is a counting identity the architecture imposes on itself, not an independently computed Euler characteristic of a specified manifold.",
+        "flags": [
+          "The bridge relations (g=N, D=N, T=N+2, R=-chi) carry all of the selective power and their provenance is not stated in the solver report: if they were abstracted from the legacy architecture, the N=12 reproduction is guaranteed by construction and N=5 is the other solution of a system built around the first; if derived independently, the {5, 12} admissible set is a discovery. The audit cannot distinguish these from the report alone."
+        ]
+      },
+      {
+        "id": "I3",
+        "test": "Topology free-energy sweep selects N=5 over N=12 (lower F wins)",
+        "label": "REPORTED-ONLY",
+        "published_result": "F(g=5) = -9.2023 vs F(g=12) = -0.6029; unrestricted sweep optimum is g=1, rejected on admissibility (see I1)",
+        "recomputed_result": "Not re-performed: the topology sweep itself (objective definition, code, data) was not supplied with the solver report, so the F values are recorded as reported, not verified.",
+        "verdict": "RECORDED (not re-run)",
+        "flags": [
+          "F has its unrestricted optimum at g=1, so the objective alone mostly prefers small genus; the admissibility filter performs the selection and F breaks a two-way tie. Depositing the sweep would upgrade this item to REPRODUCTION."
+        ]
+      },
+      {
+        "id": "I4",
+        "test": "Physical (Hawking) identification of the structural count N",
+        "label": "PROTOCOL",
+        "published_result": "Solver reports: Inference = provisional structural candidate (N=5); Physical Hawking identification = not yet established. The recovered Hawking temperature T_H = hbar*kappa/(2*pi*k_B*c) contains no structural N.",
+        "recomputed_result": "Agrees with the solver's own labeling: no H(N) \u2014 a Hawking-side observable depending on N \u2014 exists in the supplied material, so no independent test of N=5 against Hawking physics can be performed.",
+        "verdict": "NOT ESTABLISHED",
+        "notes": "Stated next milestone (from the solver report): derive an independent H(N). If a Hawking-side quantity lands near N=5 without passing through the bridge relations, the candidate upgrades from internal structure to evidence."
+      }
+    ],
     "R_claims_registry": [
       {
         "claim": "Recursive multiverse structure with phi-ratio scaling",
@@ -716,6 +888,24 @@
         "label": "PROTOCOL",
         "mathematical_basis": "Delta_B = (N_forward - N_reverse)/N_total",
         "status_in_source": "Partially explained"
+      },
+      {
+        "claim": "Multiversal Lindblad half-decoherence time t1/2 ~ 800-1600 years",
+        "computable_part": "tests/decoherence.py (Group X): the memo's unit arithmetic AGREES, but the interval is NOT derivable from the manuscript's stated parameters -- stated dephasing (L = sqrt(0.94) sigma_z) gives t1/2 = 0.369 steps; reaching 800 yr requires dtau ~ 2,170 yr/step or a protected-sector leak eps ~ 1.2e-24/step, neither stated anywhere. Requirement identified; interval neither derived nor disproven",
+        "experimental_test": "None currently defined; the internal derivation audit is the operative test",
+        "id": "URM-9",
+        "label": "PROTOCOL",
+        "mathematical_basis": "Lindblad master equation over the multiversal density matrix; t1/2 = ln2/Gamma_eff, Gamma_eff from local/leak/branch channels opposed by recurrence and topological protection; Einstein field equation as proper-time anchor",
+        "status_in_source": "Model prediction from a partially developed derivation (author's decoherence memo, 2026-10-23); not independently empirically validated"
+      },
+      {
+        "claim": "Inverse structural solution N=5 (R=8, T=7, B=3, 21 branched channels, D=5, g=5, chi=-8) under the bridge relations g=N, D=N, T=N+2, R=-chi with Euler closure chi = D - (T*B) + R",
+        "computable_part": "tests/inverse_solver.py (Group I): algebra, exhaustive integer search, and both Euler closures reproduce exactly (AGREES); F values recorded as REPORTED-ONLY",
+        "experimental_test": "Derivation of an independent Hawking observable H(N) (the solver's stated next milestone); none exists yet",
+        "id": "URM-10",
+        "label": "PROTOCOL",
+        "mathematical_basis": "B = (5N-4)/(N+2) = 5 - 14/(N+2); positive-integer B over N=2..64 leaves exactly {5, 12}; N=12 reproduces the legacy architecture (R=22, T=14, B=4, 56 channels, D=12, chi=-22)",
+        "status_in_source": "Provisional structural candidate (inverse-solver report, 2026-10-23); topology free-energy tiebreak F(5) = -9.2023 vs F(12) = -0.6029 reported but the sweep is not deposited; physical Hawking identification NOT established"
       }
     ]
   },
@@ -745,7 +935,11 @@
     "S6: DM_sigma: the published distribution (peaks 1.5/2.5/3.0) vs the LUX-ZEPLIN upper-limit 'null' of 1.0 gives deviations of +50% to +200% \u2014 above the band, not in it.",
     "S6: t_half 0/6 'agrees' only trivially: model values sit ~7 orders of magnitude below the >1e10 yr null (deviation ~-100%), not just outside a 5-7.5% band as a 'threshold effect'.",
     "S6: H_0 cannot be checked at all: it is not in the ensemble and has no published per-reality values.",
-    "S7: The published p = 0.0008 clustering result presupposes 6 flagged realities whose band membership is arithmetically impossible under the document's own published ranges and nulls (S6). The clustering machinery is implemented here exactly as described (PC1 of the published correlation matrix; label-permutation bootstrap, 10,000 resamples) and runs the moment a dataset with flagged realities is supplied \u2014 on every dataset consistent with the published summaries, there is nothing to run it on."
+    "S7: The published p = 0.0008 clustering result presupposes 6 flagged realities whose band membership is arithmetically impossible under the document's own published ranges and nulls (S6). The clustering machinery is implemented here exactly as described (PC1 of the published correlation matrix; label-permutation bootstrap, 10,000 resamples) and runs the moment a dataset with flagged realities is supplied \u2014 on every dataset consistent with the published summaries, there is nothing to run it on.",
+    "X3: Prose/equation tension: the text calls gamma_k a 'damping factor', but the printed modal equation enters it as +gamma_k (lambda_1 - 1), a growth term for k > 1. The audit used the equation as printed.",
+    "X3: omega_0 is stated as 1.0e14 rad/s in the constants table and 1.4e14 rad/s in the body text; immaterial at these orders of magnitude, recorded for the errata list.",
+    "I2: The bridge relations (g=N, D=N, T=N+2, R=-chi) carry all of the selective power and their provenance is not stated in the solver report: if they were abstracted from the legacy architecture, the N=12 reproduction is guaranteed by construction and N=5 is the other solution of a system built around the first; if derived independently, the {5, 12} admissible set is a discovery. The audit cannot distinguish these from the report alone.",
+    "I3: F has its unrestricted optimum at g=1, so the objective alone mostly prefers small genus; the admissibility filter performs the selection and F breaks a two-way tie. Depositing the sweep would upgrade this item to REPRODUCTION."
   ],
   "figures": [
     "fig1_eigenvalue_spectrum.png",

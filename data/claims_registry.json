@@ -1,1 +1,90 @@
-{"claims":[{"claim":"Recursive multiverse structure with phi-ratio scaling","experimental_test":"CMB power spectrum analysis (Planck data)","id":"URM-1","label":"PROTOCOL","mathematical_basis":"Phi = 1.618... golden ratio recursion","status_in_source":"Testable with Planck data"},{"claim":"Dark matter emerges from inter-universe interactions","computable_part":"Compare sigma ~ 1e-47 cm^2 against published LUX-ZEPLIN limits","experimental_test":"XENON/LUX direct detection","id":"URM-2","label":"PROTOCOL","mathematical_basis":"Cross-section sigma ~ 1e-47 cm^2","status_in_source":"Testable with current detectors"},{"claim":"Particle masses follow sqrt(2):sqrt(3):sqrt(5) geometric progression","experimental_test":"Precision mass measurements","id":"URM-3","label":"PROTOCOL","mathematical_basis":"Mass ratios sqrt(2):sqrt(3):sqrt(5)","status_in_source":"Partially confirmed"},{"claim":"Quantum entanglement spans universe boundaries","experimental_test":"Bell inequality violations over distance","id":"URM-4","label":"PROTOCOL","mathematical_basis":"Decay rate lambda = 0.693/t_half","status_in_source":"Requires new experiments"},{"claim":"Cosmological constant arises from recursion depth","computable_part":"Evaluate Lambda = 1/(N*l_Planck)^2 for the stated N and compare to observed Lambda","experimental_test":"Supernova Ia distance modulus","id":"URM-5","label":"PROTOCOL","mathematical_basis":"Lambda ~ 1e-120 from N recursions","status_in_source":"Consistent with observations"},{"claim":"TeV-scale resonances at LHC from boundary effects","experimental_test":"ATLAS/CMS dijet/dilepton searches","id":"URM-6","label":"PROTOCOL","mathematical_basis":"Resonance peaks at sqrt(s) ~ 1-10 TeV","status_in_source":"Ongoing LHC searches"},{"claim":"CPT symmetry preserved across recursion","experimental_test":"Kaon decay CP violation","id":"URM-7","label":"PROTOCOL","mathematical_basis":"CPT operator commutes with multiverse evolution","status_in_source":"Confirmed in Standard Model"},{"claim":"Baryon asymmetry from recursive imbalance","experimental_test":"Baryon-to-photon ratio measurements","id":"URM-8","label":"PROTOCOL","mathematical_basis":"Delta_B = (N_forward - N_reverse)/N_total","status_in_source":"Partially explained"}],"source":"MMURM_LHC_Foundation (Anthony Castro / Julius AI analyses, data circa Sep 2025)"}
+{
+ "addenda": "URM-9 and URM-10 added 2026-10-23 from author-supplied documents (decoherence memo; inverse-solver report) and audited in Groups X and I. URM-1..URM-8 are as published in MMURM_LHC_Foundation.",
+ "claims": [
+  {
+   "claim": "Recursive multiverse structure with phi-ratio scaling",
+   "experimental_test": "CMB power spectrum analysis (Planck data)",
+   "id": "URM-1",
+   "label": "PROTOCOL",
+   "mathematical_basis": "Phi = 1.618... golden ratio recursion",
+   "status_in_source": "Testable with Planck data"
+  },
+  {
+   "claim": "Dark matter emerges from inter-universe interactions",
+   "computable_part": "Compare sigma ~ 1e-47 cm^2 against published LUX-ZEPLIN limits",
+   "experimental_test": "XENON/LUX direct detection",
+   "id": "URM-2",
+   "label": "PROTOCOL",
+   "mathematical_basis": "Cross-section sigma ~ 1e-47 cm^2",
+   "status_in_source": "Testable with current detectors"
+  },
+  {
+   "claim": "Particle masses follow sqrt(2):sqrt(3):sqrt(5) geometric progression",
+   "experimental_test": "Precision mass measurements",
+   "id": "URM-3",
+   "label": "PROTOCOL",
+   "mathematical_basis": "Mass ratios sqrt(2):sqrt(3):sqrt(5)",
+   "status_in_source": "Partially confirmed"
+  },
+  {
+   "claim": "Quantum entanglement spans universe boundaries",
+   "experimental_test": "Bell inequality violations over distance",
+   "id": "URM-4",
+   "label": "PROTOCOL",
+   "mathematical_basis": "Decay rate lambda = 0.693/t_half",
+   "status_in_source": "Requires new experiments"
+  },
+  {
+   "claim": "Cosmological constant arises from recursion depth",
+   "computable_part": "Evaluate Lambda = 1/(N*l_Planck)^2 for the stated N and compare to observed Lambda",
+   "experimental_test": "Supernova Ia distance modulus",
+   "id": "URM-5",
+   "label": "PROTOCOL",
+   "mathematical_basis": "Lambda ~ 1e-120 from N recursions",
+   "status_in_source": "Consistent with observations"
+  },
+  {
+   "claim": "TeV-scale resonances at LHC from boundary effects",
+   "experimental_test": "ATLAS/CMS dijet/dilepton searches",
+   "id": "URM-6",
+   "label": "PROTOCOL",
+   "mathematical_basis": "Resonance peaks at sqrt(s) ~ 1-10 TeV",
+   "status_in_source": "Ongoing LHC searches"
+  },
+  {
+   "claim": "CPT symmetry preserved across recursion",
+   "experimental_test": "Kaon decay CP violation",
+   "id": "URM-7",
+   "label": "PROTOCOL",
+   "mathematical_basis": "CPT operator commutes with multiverse evolution",
+   "status_in_source": "Confirmed in Standard Model"
+  },
+  {
+   "claim": "Baryon asymmetry from recursive imbalance",
+   "experimental_test": "Baryon-to-photon ratio measurements",
+   "id": "URM-8",
+   "label": "PROTOCOL",
+   "mathematical_basis": "Delta_B = (N_forward - N_reverse)/N_total",
+   "status_in_source": "Partially explained"
+  },
+  {
+   "claim": "Multiversal Lindblad half-decoherence time t1/2 ~ 800-1600 years",
+   "computable_part": "tests/decoherence.py (Group X): the memo's unit arithmetic AGREES, but the interval is NOT derivable from the manuscript's stated parameters -- stated dephasing (L = sqrt(0.94) sigma_z) gives t1/2 = 0.369 steps; reaching 800 yr requires dtau ~ 2,170 yr/step or a protected-sector leak eps ~ 1.2e-24/step, neither stated anywhere. Requirement identified; interval neither derived nor disproven",
+   "experimental_test": "None currently defined; the internal derivation audit is the operative test",
+   "id": "URM-9",
+   "label": "PROTOCOL",
+   "mathematical_basis": "Lindblad master equation over the multiversal density matrix; t1/2 = ln2/Gamma_eff, Gamma_eff from local/leak/branch channels opposed by recurrence and topological protection; Einstein field equation as proper-time anchor",
+   "status_in_source": "Model prediction from a partially developed derivation (author's decoherence memo, 2026-10-23); not independently empirically validated"
+  },
+  {
+   "claim": "Inverse structural solution N=5 (R=8, T=7, B=3, 21 branched channels, D=5, g=5, chi=-8) under the bridge relations g=N, D=N, T=N+2, R=-chi with Euler closure chi = D - (T*B) + R",
+   "computable_part": "tests/inverse_solver.py (Group I): algebra, exhaustive integer search, and both Euler closures reproduce exactly (AGREES); F values recorded as REPORTED-ONLY",
+   "experimental_test": "Derivation of an independent Hawking observable H(N) (the solver's stated next milestone); none exists yet",
+   "id": "URM-10",
+   "label": "PROTOCOL",
+   "mathematical_basis": "B = (5N-4)/(N+2) = 5 - 14/(N+2); positive-integer B over N=2..64 leaves exactly {5, 12}; N=12 reproduces the legacy architecture (R=22, T=14, B=4, 56 channels, D=12, chi=-22)",
+   "status_in_source": "Provisional structural candidate (inverse-solver report, 2026-10-23); topology free-energy tiebreak F(5) = -9.2023 vs F(12) = -0.6029 reported but the sweep is not deposited; physical Hawking identification NOT established"
+  }
+ ],
+ "source": "MMURM_LHC_Foundation (Anthony Castro / Julius AI analyses, data circa Sep 2025)"
+}

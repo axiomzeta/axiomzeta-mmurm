@@ -7,6 +7,9 @@ results/figures/. Groups D and L are REPRODUCTION; groups S and E are
 RECONSTRUCTION from the published summaries under seed 20250922 (see
 ensemble.py). Group C is SYMBOLIC and Group R is a PROTOCOL registry: both
 are recorded from TEST_CENSUS.md / data/claims_registry.json, not re-run.
+Addenda (2026-10-23): Group X (decoherence.py, DERIVATION-CHECK) and Group
+I (inverse_solver.py) audit two author-supplied results that postdate the
+Julius document; they are not part of the original 38 items.
 """
 import json
 import os
@@ -17,9 +20,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 
+import decoherence          # noqa: E402
 import dimensional          # noqa: E402
 import ensemble             # noqa: E402
 import figures              # noqa: E402
+import inverse_solver       # noqa: E402
 import lhc_compare          # noqa: E402
 import stats_suite          # noqa: E402
 
@@ -98,6 +103,8 @@ def main():
     l_results = lhc_compare.run()
     e_results, art_e = ensemble.run()
     s_results, art_s = stats_suite.run(art_e["df22"], art_e["label"])
+    x_results = decoherence.run()
+    i_results = inverse_solver.run()
 
     fig_dir = os.path.join(RESULTS_DIR, "figures")
     fig_paths = figures.make(fig_dir, art_e["df22"], art_s, s_results)
@@ -107,7 +114,7 @@ def main():
         claims = json.load(fh)
 
     all_flags = []
-    for group in (l_results, s_results, e_results):
+    for group in (l_results, s_results, e_results, x_results, i_results):
         for e in group:
             for f in e.get("flags", []) or []:
                 all_flags.append(f"{e['id']}: {f}")
@@ -119,7 +126,8 @@ def main():
             "source_document": "MMURM_LHC_Foundation (Anthony Castro / Julius "
                                "AI session analyses, data circa Sep 2025)",
             "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 "
-                    "registered claims)",
+                    "registered claims; plus 2026-10-23 addenda: Groups X "
+                    "and I, 4 items each, and registry claims URM-9/URM-10)",
             "generated": str(date.today()),
             "seed": 20250922,
             "honesty_labels": {
@@ -131,6 +139,12 @@ def main():
                 "SYMBOLIC": "analytical claim, recorded not re-run",
                 "PROTOCOL": "requires experimental facilities; registered, "
                             "not re-run",
+                "DERIVATION-CHECK": "a claimed derivation is re-performed "
+                            "from the parameters the source itself states; "
+                            "unstated inputs are swept, never assumed",
+                "REPORTED-ONLY": "values recorded as reported; the "
+                            "underlying computation was not supplied, so "
+                            "nothing is presented as verified",
             },
             "provenance_notes": [
                 "The source document's 'weighted confidence' scores (84.6%, "
@@ -140,6 +154,12 @@ def main():
                 "The document gives lambda_1 as both 3.70 and 2.80 in "
                 "different sections; this suite reports the value recomputed "
                 "from the published correlation matrix (see S1).",
+                "Addenda (2026-10-23, author-supplied, NOT part of the "
+                "original 38): Group X audits the 800-1600-year Lindblad "
+                "half-decoherence claim from the author's decoherence memo "
+                "against the manuscript's stated parameters; Group I audits "
+                "the inverse structural solver's N=5 result. Claims URM-9 "
+                "and URM-10 register both in the registry.",
             ],
         },
         "groups": {
@@ -148,6 +168,8 @@ def main():
             "L_lhc": l_results,
             "S_statistics": s_results,
             "E_ensemble": e_results,
+            "X_decoherence": x_results,
+            "I_inverse_solver": i_results,
             "R_claims_registry": claims["claims"],
         },
         "contradictions_and_flags": all_flags,
@@ -187,9 +209,10 @@ def main():
         for e in group:
             md.append(f"| {e['id']} | {str(e.get('test', ''))[:70]} | "
                       f"{e.get('verdict', '')} |")
-    md.append("\nGroup R (URM-1..URM-8) is a PROTOCOL registry — see "
+    md.append("\nGroup R (URM-1..URM-10) is a PROTOCOL registry — see "
               "`data/claims_registry.json`; statuses are as published, not "
-              "re-tested.\n")
+              "re-tested. URM-9 and URM-10 are the 2026-10-23 addenda "
+              "audited in Groups X and I.\n")
 
     md.append("## Group D — Dimensional analysis (REPRODUCTION)\n")
     for e in d_results:
@@ -210,6 +233,25 @@ def main():
         md.append(entry_md(e))
     md.append("## Group E — Ensemble run (RECONSTRUCTION)\n")
     for e in e_results:
+        md.append(entry_md(e))
+    md.append("## Group X — Decoherence half-life audit (addendum "
+              "2026-10-23, DERIVATION-CHECK)\n")
+    md.append("Author-supplied claim (decoherence memo): a multiversal "
+              "Lindblad half-decoherence time of 800-1600 years. Audited "
+              "against the parameters the manuscript itself states; "
+              "unstated inputs (the per-recursion proper-time step, any "
+              "protected-sector leak rate) are swept, never assumed.\n")
+    for e in x_results:
+        md.append(entry_md(e))
+    md.append("## Group I — Inverse structural solver audit (addendum "
+              "2026-10-23)\n")
+    md.append("Author-supplied solver result: under the bridge relations "
+              "g = N, D = N, T = N + 2, R = -chi with Euler closure "
+              "chi = D - (T*B) + R, the admissible structural counts are "
+              "exactly {5, 12}, and a topology free-energy sweep selects "
+              "N = 5. The solver labels N = 5 a provisional structural "
+              "candidate and the Hawking identification not established.\n")
+    for e in i_results:
         md.append(entry_md(e))
 
     md.append("## Contradictions & flags (unsoftened)\n")
