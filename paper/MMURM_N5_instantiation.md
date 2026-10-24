@@ -8,7 +8,10 @@ document defines the **N = 5 instantiation**: every seed-dependent object
 recomputed at N = 5, every branch-invariant object identified as such, and
 everything that does not yet exist on this branch stated plainly.
 Recomputation: `tests/architecture.py` (Group A) and
-`tests/inverse_solver.py` (Group I).
+`tests/inverse_solver.py` (Group I). Companion: the framework's time
+layer, restated in this parameterized form with the N = 5 instantiation
+substituted, is `Time_Governing_Equations_parameterized.md` (source as
+supplied: `Time_Governing_Equations_source_2026-10-23.md`).
 
 ## 1. The parameterized seed
 
