@@ -2,7 +2,7 @@
   "meta": {
     "title": "MMURM Foundation \u2014 independent re-performance of the Julius AI test suite",
     "source_document": "MMURM_LHC_Foundation (Anthony Castro / Julius AI session analyses, data circa Sep 2025)",
-    "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 registered claims; plus 2026-10-23 addenda: Groups X and I, 4 items each, and registry claims URM-9/URM-10; plus 2026-10-24 addendum: Group M, 5 items, and registry claim URM-11)",
+    "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 registered claims; plus 2026-10-23 addenda: Groups X and I, 4 items each, and registry claims URM-9/URM-10; plus 2026-10-24 addendum: Group M, 5 items, and registry claim URM-11; plus 2026-10-24 addendum: Group T, 1 item)",
     "generated": "2026-10-24",
     "seed": 20250922,
     "honesty_labels": {
@@ -1105,6 +1105,67 @@
         },
         "verdict": "SIMULATION",
         "notes": "Loadings are SWEPT, not fitted: no loading is claimed, so nothing here bakes in a desired lam1. Small-n caveat, stated plainly: at n = 8, p = 5 the eigenvalue distribution is wide (see M4 p5/p95), so this test is weak \u2014 clearing the bar is necessary, not sufficient, for the modal-coherence claim. An empirical 8x5 modal dataset would upgrade M3/M4 from SIMULATION to REPRODUCTION-style measurement; none exists."
+      }
+    ],
+    "T_time_branch": [
+      {
+        "id": "T1",
+        "test": "T4 branch-selection closure at N = 5 (O2, branch-selection part)",
+        "label": "CONSTRUCTION",
+        "published_result": "Source T4 convention (Time Governing Equations, parameterized restatement, section 2): b = 1 for dK >= 0; b = 2 for dK < 0 and Dcal > Dc; b = 3 for Bcal > Bc. Stated with the caveat that the conditions overlap, so priority or multichannel selection must be specified (O2).",
+        "recomputed_result": {
+          "predicate_combinations_enumerated": 8,
+          "source_overlap_count": 3,
+          "source_overlaps": [
+            [
+              false,
+              true,
+              true
+            ],
+            [
+              true,
+              false,
+              true
+            ],
+            [
+              true,
+              true,
+              true
+            ]
+          ],
+          "source_uncovered_count": 1,
+          "source_uncovered": [
+            [
+              false,
+              false,
+              false
+            ]
+          ],
+          "closure_rule": "priority in the source's listing order 1 > 2 > 3; no predicate firing -> no transition",
+          "priority_map": {
+            "[False, False, False]": null,
+            "[False, False, True]": 3,
+            "[False, True, False]": 2,
+            "[False, True, True]": 2,
+            "[True, False, False]": 1,
+            "[True, False, True]": 1,
+            "[True, True, False]": 1,
+            "[True, True, True]": 1
+          },
+          "branches_reachable_at_N5": [
+            1,
+            2,
+            3
+          ],
+          "no_transition_case": [
+            false,
+            false,
+            false
+          ],
+          "general_B_note": "At B = 4 (N = 12 branch) the source names no predicate for branch 4; this rule assigns branches 1-3 only and leaves branch 4 unassigned rather than inventing a predicate."
+        },
+        "verdict": "CLOSED (branch selection, construction)",
+        "notes": "Agrees with the source wherever the source is already single-valued (asserted over all 8 combinations); the only new choice is the uncovered case, deliberately left as no-transition rather than inventing a fourth predicate. NOT closed: successor timeline l' (O2's remainder); branch 4 at N = 12 (no source predicate); O1 (H_in/H_out) and F1/F2/F3 (theta/Delta-tau, state space, Reality Anchor) are untouched."
       }
     ],
     "R_claims_registry": [

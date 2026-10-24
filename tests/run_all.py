@@ -32,6 +32,7 @@ import inverse_solver       # noqa: E402
 import lhc_compare          # noqa: E402
 import modal                # noqa: E402
 import stats_suite          # noqa: E402
+import time_branch          # noqa: E402
 
 RESULTS_DIR = os.path.join(ROOT, "results")
 
@@ -112,6 +113,7 @@ def main():
     i_results = inverse_solver.run()
     a_results = architecture.run()
     m_results, _ = modal.run()
+    t_results, _ = time_branch.run()
 
     fig_dir = os.path.join(RESULTS_DIR, "figures")
     fig_paths = figures.make(fig_dir, art_e["df22"], art_s, s_results)
@@ -122,7 +124,7 @@ def main():
 
     all_flags = []
     for group in (l_results, s_results, e_results, x_results, i_results,
-                  a_results, m_results):
+                  a_results, m_results, t_results):
         for e in group:
             for f in e.get("flags", []) or []:
                 all_flags.append(f"{e['id']}: {f}")
@@ -137,7 +139,8 @@ def main():
                     "registered claims; plus 2026-10-23 addenda: Groups X "
                     "and I, 4 items each, and registry claims URM-9/URM-10; "
                     "plus 2026-10-24 addendum: Group M, 5 items, and "
-                    "registry claim URM-11)",
+                    "registry claim URM-11; plus 2026-10-24 addendum: "
+                    "Group T, 1 item)",
             "generated": str(date.today()),
             "seed": 20250922,
             "honesty_labels": {
@@ -182,6 +185,7 @@ def main():
             "I_inverse_solver": i_results,
             "A_architecture": a_results,
             "M_modal": m_results,
+            "T_time_branch": t_results,
             "R_claims_registry": claims["claims"],
         },
         "contradictions_and_flags": all_flags,
@@ -282,6 +286,18 @@ def main():
               "and `data/modal_eigenvalues.csv` (all 5,000 simulation "
               "draws).\n")
     for e in m_results:
+        md.append(entry_md(e))
+    md.append("## Group T — T4 branch-selection closure (addendum "
+              "2026-10-24, CONSTRUCTION)\n")
+    md.append("The author has not developed this layer; at his direction "
+              "it is built here and marked as the builder's construction, "
+              "not the author's canon. The source T4 mapping overlaps on 3 "
+              "of 8 predicate combinations and covers nothing on 1; the "
+              "closure is priority in the source's listing order "
+              "(1 > 2 > 3) with the uncovered case as no transition. "
+              "Successor timeline l' is still unspecified, branch 4 at "
+              "N = 12 is left unassigned, and O1/F1/F2/F3 are untouched.\n")
+    for e in t_results:
         md.append(entry_md(e))
     md.append("## Group A — Parameterized seed architecture (addendum "
               "2026-10-23)\n")

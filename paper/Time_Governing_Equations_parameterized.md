@@ -136,6 +136,13 @@ convention must be re-declared per branch. See O2.
   priority or multichannel selection must be specified. Unchanged from
   the source; the general-$B$ form additionally requires the
   branch↔predicate mapping to be declared for each branch.
+  **Branch selection at N = 5: CLOSED 2026-10-24 (Group T,
+  `MMURM_N5_time_branch.md`)** by [construction] priority in the
+  source's listing order (1 > 2 > 3), with the uncovered case as no
+  transition — proven by exhaustive enumeration of the 8 predicate
+  combinations. What remains of O2 is the successor timeline $\ell'$
+  (which timeline a transition lands on), still unspecified, plus
+  branch 4 at N = 12, for which the source names no predicate.
 
 ## 4. Flagged seams (audit, 2026-10-23)
 
@@ -180,4 +187,6 @@ $R{=}8$, $T{=}7$, $B{=}3$, $D{=}5$. Two open items are the source's own
 (O1, O2); three seams are flagged by the audit (F1–F3). None of the
 five is a defect of arithmetic — each is a specification the layer
 needs and does not yet have, recorded here so that closing them is a
-matter of writing the specification down.
+matter of writing the specification down. **Update 2026-10-24:** O2's
+branch-selection part is closed at N = 5 by Group T (see §3); O1,
+F1–F3, and O2's successor-timeline remainder stay open.

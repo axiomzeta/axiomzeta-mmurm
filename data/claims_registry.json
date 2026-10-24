@@ -1,5 +1,5 @@
 {
- "addenda": "URM-9 and URM-10 added 2026-10-23 from author-supplied documents (decoherence memo; inverse-solver report) and audited in Groups X and I. URM-1..URM-8 are as published in MMURM_LHC_Foundation.",
+ "addenda": "URM-9 and URM-10 added 2026-10-23 from author-supplied documents (decoherence memo; inverse-solver report) and audited in Groups X and I. URM-1..URM-8 are as published in MMURM_LHC_Foundation. Group T (2026-10-24) closes open item O2's branch-selection part at N = 5 by [construction] priority rule (tests/time_branch.py); no new claim is registered, since the closure is a rule, not a claim.",
  "claims": [
   {
    "claim": "Recursive multiverse structure with phi-ratio scaling",

@@ -196,3 +196,14 @@ empirical data. Full statement: `paper/MMURM_N5_modal.md`. Raw data:
 | M3 | n = 8 observable ensemble, λ₁^obs(5) (E1 analogue) | SIMULATION: single dataset eigenvalues [3.1386, 0.9997, 0.6115, 0.2385, 0.0117] — ONE DRAW. 1,000-draw simulation: median 3.6928, p5 2.7943, p95 4.3706, 83.5% above MP edge 3.2061. Target correlation matrix reused as a stated assumption |
 | M4 | Modal-amplitude null ensemble, λ₁^mod(5) | SIMULATION: 1,000 draws of 8×5 i.i.d. normals: median 2.1525, p95 2.7415 (operational bar); only 0.6% exceed the MP edge 3.2061 (strict bar). For correlation matrices the edge sits ABOVE the finite-sample null — verified n = 8..500 |
 | M5 | One-factor coherence sweep | SIMULATION: loadings swept, not fitted. a = 0.5/0.7/0.85 → medians 2.3809/3.0824/3.8966; % above edge 5.1/42.2/84.3; % above null p95 21.5/69.5/94.3. Falsifiable threshold registered as URM-11 (audit-derived, not author-stated) |
+
+### Group T — T4 branch-selection closure at N = 5 (1) · `tests/time_branch.py`
+
+Added 2026-10-24. **Not author-supplied:** the author has not
+developed this layer, and at his direction it is built here. Label
+CONSTRUCTION. Full statement: `paper/MMURM_N5_time_branch.md`.
+No new claim is registered: the closure is a rule, not a claim.
+
+| ID | Item | Construction / result |
+|----|------|----------------------|
+| T1 | T4 branch-selection closure (O2, branch-selection part) | CLOSED (construction): source mapping overlaps on 3 of 8 predicate combinations and covers nothing on 1. Closure = priority in the source's listing order (1 > 2 > 3); uncovered case (ΔK < 0, 𝒟 ≤ 𝒟ᶜ, ℬ ≤ ℬᶜ) = no transition, not an invented fourth branch. Proven by exhaustive enumeration: single-valued on all 8 combinations, agrees with the source wherever the source is already single-valued, all three branches reachable. NOT closed: successor timeline ℓ′ (O2's remainder); branch 4 at N = 12 (no source predicate, left unassigned); O1, F1, F2, F3 untouched |

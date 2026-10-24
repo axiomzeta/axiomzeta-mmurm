@@ -57,6 +57,7 @@ Independent re-run of the 38 tracked items in `tests/TEST_CENSUS.md` (source: *M
 | M3 | n = 8 observable ensemble: lam1_obs(5) (E1 analogue) | SIMULATION |
 | M4 | Modal-amplitude null ensemble: lam1_mod(5) under no coherence | SIMULATION |
 | M5 | One-factor modal coherence sweep: what clears the n = 8 bar? | SIMULATION |
+| T1 | T4 branch-selection closure at N = 5 (O2, branch-selection part) | CLOSED (branch selection, construction) |
 
 Group R (URM-1..URM-11) is a PROTOCOL registry — see `data/claims_registry.json`; statuses are as published, not re-tested. URM-9 and URM-10 are the 2026-10-23 addenda audited in Groups X and I; URM-11 is the 2026-10-24 audit-derived modal-coherence threshold from Group M.
 
@@ -614,6 +615,36 @@ The author has not developed these layers; they are built here and marked as the
   - statement: A future empirical 8-reality x 5-mode dataset with lam1_mod above the null 95th percentile (2.74) exceeds the finite-sample random-matrix null at n = 8; above the MP edge (3.21) it clears the stricter asymptotic bar as well. Below 2.74, the modal coherence claim has no support from that dataset.
 - **Verdict: SIMULATION**
 - Notes: Loadings are SWEPT, not fitted: no loading is claimed, so nothing here bakes in a desired lam1. Small-n caveat, stated plainly: at n = 8, p = 5 the eigenvalue distribution is wide (see M4 p5/p95), so this test is weak — clearing the bar is necessary, not sufficient, for the modal-coherence claim. An empirical 8x5 modal dataset would upgrade M3/M4 from SIMULATION to REPRODUCTION-style measurement; none exists.
+
+## Group T — T4 branch-selection closure (addendum 2026-10-24, CONSTRUCTION)
+
+The author has not developed this layer; at his direction it is built here and marked as the builder's construction, not the author's canon. The source T4 mapping overlaps on 3 of 8 predicate combinations and covers nothing on 1; the closure is priority in the source's listing order (1 > 2 > 3) with the uncovered case as no transition. Successor timeline l' is still unspecified, branch 4 at N = 12 is left unassigned, and O1/F1/F2/F3 are untouched.
+
+### T1 — T4 branch-selection closure at N = 5 (O2, branch-selection part)
+
+- **Label:** CONSTRUCTION
+- **Published:** Source T4 convention (Time Governing Equations, parameterized restatement, section 2): b = 1 for dK >= 0; b = 2 for dK < 0 and Dcal > Dc; b = 3 for Bcal > Bc. Stated with the caveat that the conditions overlap, so priority or multichannel selection must be specified (O2).
+- **Recomputed:** - predicate_combinations_enumerated: 8
+- source_overlap_count: 3
+- source_overlaps:   - False, True, True
+  - True, False, True
+  - True, True, True
+- source_uncovered_count: 1
+- source_uncovered:   - False, False, False
+- closure_rule: priority in the source's listing order 1 > 2 > 3; no predicate firing -> no transition
+- priority_map:   - [False, False, False]: None
+  - [False, False, True]: 3
+  - [False, True, False]: 2
+  - [False, True, True]: 2
+  - [True, False, False]: 1
+  - [True, False, True]: 1
+  - [True, True, False]: 1
+  - [True, True, True]: 1
+- branches_reachable_at_N5: 1, 2, 3
+- no_transition_case: False, False, False
+- general_B_note: At B = 4 (N = 12 branch) the source names no predicate for branch 4; this rule assigns branches 1-3 only and leaves branch 4 unassigned rather than inventing a predicate.
+- **Verdict: CLOSED (branch selection, construction)**
+- Notes: Agrees with the source wherever the source is already single-valued (asserted over all 8 combinations); the only new choice is the uncovered case, deliberately left as no-transition rather than inventing a fourth predicate. NOT closed: successor timeline l' (O2's remainder); branch 4 at N = 12 (no source predicate); O1 (H_in/H_out) and F1/F2/F3 (theta/Delta-tau, state space, Reality Anchor) are untouched.
 
 ## Group A — Parameterized seed architecture (addendum 2026-10-23)
 
