@@ -1,6 +1,6 @@
 # MMURM Foundation — Re-performance Results
 
-Independent re-run of the 38 tracked items in `tests/TEST_CENSUS.md` (source: *MMURM_LHC_Foundation*, Anthony Castro / Julius AI, data circa Sep 2025). Generated 2026-10-24.
+Independent re-run of the 38 tracked items in `tests/TEST_CENSUS.md` (source: *MMURM_LHC_Foundation*, Anthony Castro / Julius AI, data circa Sep 2025). Generated 2026-10-25.
 
 **Honesty labels.** REPRODUCTION = recomputed from inputs fully specified in the document. RECONSTRUCTION = the document publishes summaries (distributions, correlation matrix) but not the raw dataset; the dataset was regenerated from those summaries under fixed seed 20250922 and the tests run on that. If the original dataset is dropped in at `data/ensemble22_original.csv`, the S/E groups upgrade to REPRODUCTION automatically. SYMBOLIC / PROTOCOL items are recorded, not re-run.
 
@@ -59,6 +59,11 @@ Independent re-run of the 38 tracked items in `tests/TEST_CENSUS.md` (source: *M
 | M5 | One-factor modal coherence sweep: what clears the n = 8 bar? | SIMULATION |
 | T1 | T4 branch-selection closure at N = 5 (O2, branch-selection part) | CLOSED (branch selection, construction) |
 | U1 | Successor timeline l' at N = 5: stay selected (O2 remainder) | SELECTED: stay (l' = l) — O2 successor part closed at N = 5 by construction |
+| V1 | Do the reported F(g) facts determine the topology free-energy sweep? ( | UNDERDETERMINED |
+| V2 | Independent Hawking observable H(N) from the framework's own Hawking r | CONSTRUCTED (anchor missing) |
+| V3 | URM-11 verdict on the existing 8x5 dataset (data/modal8_observables.cs | EXCEEDS OPERATIONAL, BELOW STRICT |
+| V4 | Pre-registered protocol for a REAL 8x5 dataset (what would count, judg | REGISTERED (no data yet) |
+| V5 | Do V1-V4 pin down one branch before a final paper? | NOT PINNED DOWN |
 
 Group R (URM-1..URM-11) is a PROTOCOL registry — see `data/claims_registry.json`; statuses are as published, not re-tested. URM-9 and URM-10 are the 2026-10-23 addenda audited in Groups X and I; URM-11 is the 2026-10-24 audit-derived modal-coherence threshold from Group M.
 
@@ -694,6 +699,90 @@ Built as an options register enumerating stay, advance-one, advance-branch, retr
 - **Verdict: SELECTED: stay (l' = l) — O2 successor part closed at N = 5 by construction**
 - Notes: Stay is the minimal rule and the only one with any textual support, but that support is a permission ('may equal l'), not a prescription — hence [construction], not canon. The unselected rules (advance-one, advance-branch, retreat-branch, free) remain enumerated in the audit for the record. Branch 4 at N = 12, the general-B form, O1, and F1–F3 are untouched.
 
+## Group V — Branch discriminators (addendum 2026-10-25)
+
+Built at the author's direction to pin down one branch before a final paper, via the instantiation document's three completion items. Verdict: none of the three pins down a branch. The F(g) sweep cannot be deposited from the report (two functionals fitting all reported facts disagree at g = 8, so the facts underdetermine F). H(N) is derived as [construction] from the framework's Hawking recovery plus stated assumptions, but satisfies the recovery criteria at every N and selects nothing without an absolute anchor. The existing 8x5 dataset's URM-11 verdict is operational-pass / strict-fail on simulated data, and a real-dataset protocol is registered for APQS runs. Full statement: `paper/MMURM_discriminators.md`.
+
+### V1 — Do the reported F(g) facts determine the topology free-energy sweep? (two functionals fitting all facts)
+
+- **Label:** DEMONSTRATION
+- **Published:** F(5) = -9.2023, F(12) = -0.6029, lower wins, unrestricted optimum at g = 1 (I3, REPORTED-ONLY; objective definition, code, and data not supplied)
+- **Recomputed:** - F_log:   - 1: -25.0112
+  - 5: -9.2023
+  - 8: -4.5856
+  - 12: -0.6029
+- F_lin:   - 1: -14.1162
+  - 5: -9.2023
+  - 8: -5.5168
+  - 12: -0.6029
+- both_fit_reported_points: True
+- both_strictly_increasing_min_at_g1: True
+- disagreement_at_g8: 0.9312
+- **Verdict: UNDERDETERMINED**
+- ⚠️ I3 stays REPORTED-ONLY. A constructed sweep may be built as [construction] with its functional stated explicitly, but it must never be presented as the solver's sweep.
+- Notes: Any strictly increasing functional through the two reported points fits every stated fact about F, so the report alone cannot fix the sweep: F_log and F_lin agree at g = 5 and g = 12 by construction and differ by ~0.93 at g = 8. Depositing either as 'the sweep' would be invention, not audit. The deposit specification (exact artifact that would upgrade I3) is in paper/MMURM_discriminators.md.
+
+### V2 — Independent Hawking observable H(N) from the framework's own Hawking recovery (Sec. 9.9, A.1-A.3) + stated construction assumptions
+
+- **Label:** CONSTRUCTION
+- **Published:** No H(N) exists in the supplied material (I4, NOT ESTABLISHED). Framework recovery: T_H = hbar*kappa/(2*pi*kB*c), S = (kB*c^3/4*G*hbar)*A; kappa is a free boundary parameter, containing no N.
+- **Recomputed:** - assumptions: C1 [construction]: horizon area quantized by handles, A(g) = (g-1)*A1, g >= 2., C2 [construction]: the Schwarzschild kappa-area relation kappa = c^2*sqrt(pi/A), which the framework's A.7 requires it to recover (T_H ~ kappa, S ~ A)., Minimal area quantum A1 = 4*lP^2 (one Planck-area quantum per handle).
+- H(N)_definition: H(N) = T_H(N)/T_H(5) = sqrt(4/(N-1))
+- H5: 1.0
+- H12: 0.603
+- T_H5_K: 9.992e+30
+- T_H12_K: 6.025e+30
+- T_H_ratio_5_over_12: 1.6583
+- ratio_matches_sqrt_11_over_4: True
+- entropy_ratio_S12_over_S5: 2.75
+- **Verdict: CONSTRUCTED (anchor missing)**
+- ⚠️ Do not quote T_H(5) ~ 1e31 K or T_H(12) ~ 6e30 K as framework predictions: they are construction outputs under C1 + minimal A1, not measurements and not author-stated values.
+- Notes: H(N) now exists as a derivation, but it cannot select a branch: T_H ~ kappa and S ~ A hold at EVERY N by construction, so the curve alone ranks nothing. The Hawking side takes genus as an input (through A) and does not output it; running the identification the other way needs an absolute anchor fixing kappa or A1 independently (a measured horizon temperature scale, or a derivation of A1 from the framework's operators). No such anchor exists in the supplied material, so I4's empirical half remains open. The absolute temperatures above depend entirely on C1 + the minimal A1 choice and must not be quoted without them.
+
+### V3 — URM-11 verdict on the existing 8x5 dataset (data/modal8_observables.csv, recomputed)
+
+- **Label:** REPRODUCTION
+- **Published:** Group M single-dataset eigenvalues [3.1386, 0.9997, 0.6115, 0.2385, 0.0117] (ONE DRAW); URM-11 bars: operational 2.7415, strict 3.2061
+- **Recomputed:** - eigenvalues: 3.1386, 0.9997, 0.6115, 0.2385, 0.0117
+- eigenvalue_sum: 5.0
+- lambda1_obs: 3.1386
+- exceeds_operational_2.7415: True
+- clears_strict_3.2061: False
+- margin_below_strict_bar: -0.0675
+- n8_null_sd_for_protocol: 0.3153
+- n22_null_median_p95_sd: (1.6216, 1.9326, 0.1737)
+- **Verdict: EXCEEDS OPERATIONAL, BELOW STRICT**
+- ⚠️ Do not cite V3 as empirical support for N = 5: the dataset is simulated, and URM-11 tests N = 5 modal coherence on its own terms, not N = 5 against N = 12.
+- Notes: The existing dataset passes the operational bar and fails the strict bar. Provenance, stated plainly: this is a single SIMULATED draw (seed 20250922, Group M stated-assumption construction), not a measurement. It therefore supports nothing empirically; it fixes what a future real dataset will be judged against. Measurement-readiness gaps in the CSV itself: units for DM_sigma and rho_DE are unstated, so the table cannot be re-measured as it stands (see V4).
+
+### V4 — Pre-registered protocol for a REAL 8x5 dataset (what would count, judged by already-fixed bars)
+
+- **Label:** PROTOCOL
+- **Published:** No real 8x5 dataset exists (Group M §7, open item 4; instantiation §6, item 1 remainder).
+- **Recomputed:** - instrument: APQS polariton analog simulator (framework Sec. 7 program): 8 independent runs/sectors. Eight rows are realities, so only an analog simulator instantiating 8 sectors can produce 8 rows; collider or astrophysical measurements give single-world values, not 8 rows.
+- observables_and_units_declared_before_collection: sin2_thetaW (dimensionless, weak mixing angle), DM_sigma (cm^2, dark-matter cross-section), M_Amat (GeV, Ameterasue mass), t_half (yr, decoherence half-time), rho_DE (GeV/cm^3, dark-energy density)
+- pre_registered_bars:   - operational: 2.7415
+  - strict: 3.2061
+- decision_rule: lambda1 > 2.7415 exceeds the finite-sample null; > 3.2061 clears the strict bar; <= 2.7415 gives the modal-coherence claim no support from that dataset.
+- comparative_clause_for_branch_selection:   - n22_bars_same_method:     - null_median: 1.6216
+    - null_p95: 1.9326
+    - null_sd: 0.1737
+    - mp_edge: 2.18
+  - rule: A single-branch pass supports that branch's coherence only. Branch selection needs a pre-declared comparative statistic computed the same way on both branches (e.g. margin above own strict bar in units of own null SD); the statistic must be declared before the data are seen, not chosen after.
+- caveats: n = 8 is weak (null p5-p95 spans 1.72-2.74; see Group M §6). A larger-n modal dataset would be a stronger test than any n = 8 dataset can be.
+- **Verdict: REGISTERED (no data yet)**
+
+### V5 — Do V1-V4 pin down one branch before a final paper?
+
+- **Label:** SYNTHESIS
+- **Published:** Instantiation §6: branch is a provisional structural candidate until (2) the sweep is deposited and (3) H(N) is derived.
+- **Recomputed:** - F_sweep: BLOCKED on definition (V1); deposit specification delivered, sweep itself not recomputable from the report.
+- H_N: CONSTRUCTED but anchorless (V2); curve exists, selection does not follow without an anchor.
+- dataset: EXISTING verdict is operational-pass / strict-fail on simulated data (V3); real-data protocol registered (V4); neither selects between branches.
+- branch_status: NOT PINNED DOWN
+- **Verdict: NOT PINNED DOWN**
+- Notes: What would change this verdict, in order: (a) the F definition (objective, code, full sweep table) from the author or Julius — the same 'how F is computed' already requested in the draft to Julius; (b) a Hawking anchor fixing kappa or A1 independently; (c) a real APQS dataset under V4 plus the pre-declared comparative statistic. Until at least one lands, the final paper must present N = 5 as a provisional structural candidate with specified layers, not as the selected branch.
+
 ## Group A — Parameterized seed architecture (addendum 2026-10-23)
 
 The seed counts are a one-parameter family under the bridge relations; admissible branches are exactly {5, 12}. The manuscript and Groups D–X describe the N = 12 instantiation (frozen at git tag `n12-legacy`); the N = 5 instantiation is specified in `paper/MMURM_N5_instantiation.md`. Group A recomputes both branches' seed-dependent objects and marks what does not transfer between branches.
@@ -823,6 +912,9 @@ The seed counts are a one-parameter family under the bridge relations; admissibl
 - I2: The bridge relations (g=N, D=N, T=N+2, R=-chi) carry all of the selective power and their provenance is not stated in the solver report: if they were abstracted from the legacy architecture, the N=12 reproduction is guaranteed by construction and N=5 is the other solution of a system built around the first; if derived independently, the {5, 12} admissible set is a discovery. The audit cannot distinguish these from the report alone.
 - I3: F has its unrestricted optimum at g=1, so the objective alone mostly prefers small genus; the admissibility filter performs the selection and F breaks a two-way tie. Depositing the sweep would upgrade this item to REPRODUCTION.
 - A4: If the prefactor's argument is the structural N, the printed 14.59 is consistent ONLY with N=5 (at N=12 it would be ~2.43e7). If it is an independent constant, it is branch-invariant and the match at N=5 is coincidence. The supplied material does not decide between these readings; recorded as an open identification, not as evidence for either branch.
+- V1: I3 stays REPORTED-ONLY. A constructed sweep may be built as [construction] with its functional stated explicitly, but it must never be presented as the solver's sweep.
+- V2: Do not quote T_H(5) ~ 1e31 K or T_H(12) ~ 6e30 K as framework predictions: they are construction outputs under C1 + minimal A1, not measurements and not author-stated values.
+- V3: Do not cite V3 as empirical support for N = 5: the dataset is simulated, and URM-11 tests N = 5 modal coherence on its own terms, not N = 5 against N = 12.
 
 ## Figures
 

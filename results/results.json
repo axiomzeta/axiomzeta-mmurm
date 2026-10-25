@@ -2,8 +2,8 @@
   "meta": {
     "title": "MMURM Foundation \u2014 independent re-performance of the Julius AI test suite",
     "source_document": "MMURM_LHC_Foundation (Anthony Castro / Julius AI session analyses, data circa Sep 2025)",
-    "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 registered claims; plus 2026-10-23 addenda: Groups X and I, 4 items each, and registry claims URM-9/URM-10; plus 2026-10-24 addendum: Group M, 5 items, and registry claim URM-11; plus 2026-10-24 addendum: Group T, 1 item; plus 2026-10-24 addendum: Group U, 1 item)",
-    "generated": "2026-10-24",
+    "spec": "tests/TEST_CENSUS.md (38 tracked items: 30 tests + 8 registered claims; plus 2026-10-23 addenda: Groups X and I, 4 items each, and registry claims URM-9/URM-10; plus 2026-10-24 addendum: Group M, 5 items, and registry claim URM-11; plus 2026-10-24 addendum: Group T, 1 item; plus 2026-10-24 addendum: Group U, 1 item; plus 2026-10-25 addendum: Group V, 5 items)",
+    "generated": "2026-10-25",
     "seed": 20250922,
     "honesty_labels": {
       "REPRODUCTION": "recomputed from inputs fully specified in the document",
@@ -11,7 +11,9 @@
       "SYMBOLIC": "analytical claim, recorded not re-run",
       "PROTOCOL": "requires experimental facilities; registered, not re-run",
       "DERIVATION-CHECK": "a claimed derivation is re-performed from the parameters the source itself states; unstated inputs are swept, never assumed",
-      "REPORTED-ONLY": "values recorded as reported; the underlying computation was not supplied, so nothing is presented as verified"
+      "REPORTED-ONLY": "values recorded as reported; the underlying computation was not supplied, so nothing is presented as verified",
+      "DEMONSTRATION": "a proof by explicit construction (counterexample functionals, not data)",
+      "SYNTHESIS": "a verdict drawn from other groups' results, not a new measurement"
     },
     "provenance_notes": [
       "The source document's 'weighted confidence' scores (84.6%, updated 89.3%) are a self-assigned scoring rubric, not a statistical test. They are recorded here for provenance and are NOT re-issued as findings.",
@@ -1291,6 +1293,139 @@
         "notes": "Stay is the minimal rule and the only one with any textual support, but that support is a permission ('may equal l'), not a prescription \u2014 hence [construction], not canon. The unselected rules (advance-one, advance-branch, retreat-branch, free) remain enumerated in the audit for the record. Branch 4 at N = 12, the general-B form, O1, and F1\u2013F3 are untouched."
       }
     ],
+    "V_discriminators": [
+      {
+        "id": "V1",
+        "test": "Do the reported F(g) facts determine the topology free-energy sweep? (two functionals fitting all facts)",
+        "label": "DEMONSTRATION",
+        "published_result": "F(5) = -9.2023, F(12) = -0.6029, lower wins, unrestricted optimum at g = 1 (I3, REPORTED-ONLY; objective definition, code, and data not supplied)",
+        "recomputed_result": {
+          "F_log": {
+            "1": -25.0112,
+            "5": -9.2023,
+            "8": -4.5856,
+            "12": -0.6029
+          },
+          "F_lin": {
+            "1": -14.1162,
+            "5": -9.2023,
+            "8": -5.5168,
+            "12": -0.6029
+          },
+          "both_fit_reported_points": true,
+          "both_strictly_increasing_min_at_g1": true,
+          "disagreement_at_g8": 0.9312
+        },
+        "verdict": "UNDERDETERMINED",
+        "notes": "Any strictly increasing functional through the two reported points fits every stated fact about F, so the report alone cannot fix the sweep: F_log and F_lin agree at g = 5 and g = 12 by construction and differ by ~0.93 at g = 8. Depositing either as 'the sweep' would be invention, not audit. The deposit specification (exact artifact that would upgrade I3) is in paper/MMURM_discriminators.md.",
+        "flags": [
+          "I3 stays REPORTED-ONLY. A constructed sweep may be built as [construction] with its functional stated explicitly, but it must never be presented as the solver's sweep."
+        ]
+      },
+      {
+        "id": "V2",
+        "test": "Independent Hawking observable H(N) from the framework's own Hawking recovery (Sec. 9.9, A.1-A.3) + stated construction assumptions",
+        "label": "CONSTRUCTION",
+        "published_result": "No H(N) exists in the supplied material (I4, NOT ESTABLISHED). Framework recovery: T_H = hbar*kappa/(2*pi*kB*c), S = (kB*c^3/4*G*hbar)*A; kappa is a free boundary parameter, containing no N.",
+        "recomputed_result": {
+          "assumptions": [
+            "C1 [construction]: horizon area quantized by handles, A(g) = (g-1)*A1, g >= 2.",
+            "C2 [construction]: the Schwarzschild kappa-area relation kappa = c^2*sqrt(pi/A), which the framework's A.7 requires it to recover (T_H ~ kappa, S ~ A).",
+            "Minimal area quantum A1 = 4*lP^2 (one Planck-area quantum per handle)."
+          ],
+          "H(N)_definition": "H(N) = T_H(N)/T_H(5) = sqrt(4/(N-1))",
+          "H5": 1.0,
+          "H12": 0.603,
+          "T_H5_K": 9.992e+30,
+          "T_H12_K": 6.025e+30,
+          "T_H_ratio_5_over_12": 1.6583,
+          "ratio_matches_sqrt_11_over_4": true,
+          "entropy_ratio_S12_over_S5": 2.75
+        },
+        "verdict": "CONSTRUCTED (anchor missing)",
+        "notes": "H(N) now exists as a derivation, but it cannot select a branch: T_H ~ kappa and S ~ A hold at EVERY N by construction, so the curve alone ranks nothing. The Hawking side takes genus as an input (through A) and does not output it; running the identification the other way needs an absolute anchor fixing kappa or A1 independently (a measured horizon temperature scale, or a derivation of A1 from the framework's operators). No such anchor exists in the supplied material, so I4's empirical half remains open. The absolute temperatures above depend entirely on C1 + the minimal A1 choice and must not be quoted without them.",
+        "flags": [
+          "Do not quote T_H(5) ~ 1e31 K or T_H(12) ~ 6e30 K as framework predictions: they are construction outputs under C1 + minimal A1, not measurements and not author-stated values."
+        ]
+      },
+      {
+        "id": "V3",
+        "test": "URM-11 verdict on the existing 8x5 dataset (data/modal8_observables.csv, recomputed)",
+        "label": "REPRODUCTION",
+        "published_result": "Group M single-dataset eigenvalues [3.1386, 0.9997, 0.6115, 0.2385, 0.0117] (ONE DRAW); URM-11 bars: operational 2.7415, strict 3.2061",
+        "recomputed_result": {
+          "eigenvalues": [
+            3.1386,
+            0.9997,
+            0.6115,
+            0.2385,
+            0.0117
+          ],
+          "eigenvalue_sum": 5.0,
+          "lambda1_obs": 3.1386,
+          "exceeds_operational_2.7415": true,
+          "clears_strict_3.2061": false,
+          "margin_below_strict_bar": -0.0675,
+          "n8_null_sd_for_protocol": 0.3153,
+          "n22_null_median_p95_sd": [
+            1.6216,
+            1.9326,
+            0.1737
+          ]
+        },
+        "verdict": "EXCEEDS OPERATIONAL, BELOW STRICT",
+        "notes": "The existing dataset passes the operational bar and fails the strict bar. Provenance, stated plainly: this is a single SIMULATED draw (seed 20250922, Group M stated-assumption construction), not a measurement. It therefore supports nothing empirically; it fixes what a future real dataset will be judged against. Measurement-readiness gaps in the CSV itself: units for DM_sigma and rho_DE are unstated, so the table cannot be re-measured as it stands (see V4).",
+        "flags": [
+          "Do not cite V3 as empirical support for N = 5: the dataset is simulated, and URM-11 tests N = 5 modal coherence on its own terms, not N = 5 against N = 12."
+        ]
+      },
+      {
+        "id": "V4",
+        "test": "Pre-registered protocol for a REAL 8x5 dataset (what would count, judged by already-fixed bars)",
+        "label": "PROTOCOL",
+        "published_result": "No real 8x5 dataset exists (Group M \u00a77, open item 4; instantiation \u00a76, item 1 remainder).",
+        "recomputed_result": {
+          "instrument": "APQS polariton analog simulator (framework Sec. 7 program): 8 independent runs/sectors. Eight rows are realities, so only an analog simulator instantiating 8 sectors can produce 8 rows; collider or astrophysical measurements give single-world values, not 8 rows.",
+          "observables_and_units_declared_before_collection": [
+            "sin2_thetaW (dimensionless, weak mixing angle)",
+            "DM_sigma (cm^2, dark-matter cross-section)",
+            "M_Amat (GeV, Ameterasue mass)",
+            "t_half (yr, decoherence half-time)",
+            "rho_DE (GeV/cm^3, dark-energy density)"
+          ],
+          "pre_registered_bars": {
+            "operational": 2.7415,
+            "strict": 3.2061
+          },
+          "decision_rule": "lambda1 > 2.7415 exceeds the finite-sample null; > 3.2061 clears the strict bar; <= 2.7415 gives the modal-coherence claim no support from that dataset.",
+          "comparative_clause_for_branch_selection": {
+            "n22_bars_same_method": {
+              "null_median": 1.6216,
+              "null_p95": 1.9326,
+              "null_sd": 0.1737,
+              "mp_edge": 2.18
+            },
+            "rule": "A single-branch pass supports that branch's coherence only. Branch selection needs a pre-declared comparative statistic computed the same way on both branches (e.g. margin above own strict bar in units of own null SD); the statistic must be declared before the data are seen, not chosen after."
+          },
+          "caveats": "n = 8 is weak (null p5-p95 spans 1.72-2.74; see Group M \u00a76). A larger-n modal dataset would be a stronger test than any n = 8 dataset can be."
+        },
+        "verdict": "REGISTERED (no data yet)"
+      },
+      {
+        "id": "V5",
+        "test": "Do V1-V4 pin down one branch before a final paper?",
+        "label": "SYNTHESIS",
+        "published_result": "Instantiation \u00a76: branch is a provisional structural candidate until (2) the sweep is deposited and (3) H(N) is derived.",
+        "recomputed_result": {
+          "F_sweep": "BLOCKED on definition (V1); deposit specification delivered, sweep itself not recomputable from the report.",
+          "H_N": "CONSTRUCTED but anchorless (V2); curve exists, selection does not follow without an anchor.",
+          "dataset": "EXISTING verdict is operational-pass / strict-fail on simulated data (V3); real-data protocol registered (V4); neither selects between branches.",
+          "branch_status": "NOT PINNED DOWN"
+        },
+        "verdict": "NOT PINNED DOWN",
+        "notes": "What would change this verdict, in order: (a) the F definition (objective, code, full sweep table) from the author or Julius \u2014 the same 'how F is computed' already requested in the draft to Julius; (b) a Hawking anchor fixing kappa or A1 independently; (c) a real APQS dataset under V4 plus the pre-declared comparative statistic. Until at least one lands, the final paper must present N = 5 as a provisional structural candidate with specified layers, not as the selected branch."
+      }
+    ],
     "R_claims_registry": [
       {
         "claim": "Recursive multiverse structure with phi-ratio scaling",
@@ -1418,7 +1553,10 @@
     "X3: omega_0 is stated as 1.0e14 rad/s in the constants table and 1.4e14 rad/s in the body text; immaterial at these orders of magnitude, recorded for the errata list.",
     "I2: The bridge relations (g=N, D=N, T=N+2, R=-chi) carry all of the selective power and their provenance is not stated in the solver report: if they were abstracted from the legacy architecture, the N=12 reproduction is guaranteed by construction and N=5 is the other solution of a system built around the first; if derived independently, the {5, 12} admissible set is a discovery. The audit cannot distinguish these from the report alone.",
     "I3: F has its unrestricted optimum at g=1, so the objective alone mostly prefers small genus; the admissibility filter performs the selection and F breaks a two-way tie. Depositing the sweep would upgrade this item to REPRODUCTION.",
-    "A4: If the prefactor's argument is the structural N, the printed 14.59 is consistent ONLY with N=5 (at N=12 it would be ~2.43e7). If it is an independent constant, it is branch-invariant and the match at N=5 is coincidence. The supplied material does not decide between these readings; recorded as an open identification, not as evidence for either branch."
+    "A4: If the prefactor's argument is the structural N, the printed 14.59 is consistent ONLY with N=5 (at N=12 it would be ~2.43e7). If it is an independent constant, it is branch-invariant and the match at N=5 is coincidence. The supplied material does not decide between these readings; recorded as an open identification, not as evidence for either branch.",
+    "V1: I3 stays REPORTED-ONLY. A constructed sweep may be built as [construction] with its functional stated explicitly, but it must never be presented as the solver's sweep.",
+    "V2: Do not quote T_H(5) ~ 1e31 K or T_H(12) ~ 6e30 K as framework predictions: they are construction outputs under C1 + minimal A1, not measurements and not author-stated values.",
+    "V3: Do not cite V3 as empirical support for N = 5: the dataset is simulated, and URM-11 tests N = 5 modal coherence on its own terms, not N = 5 against N = 12."
   ],
   "figures": [
     "fig1_eigenvalue_spectrum.png",

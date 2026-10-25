@@ -25,6 +25,7 @@ sys.path.insert(0, HERE)
 
 import architecture         # noqa: E402
 import decoherence          # noqa: E402
+import discriminators       # noqa: E402
 import dimensional          # noqa: E402
 import ensemble             # noqa: E402
 import figures              # noqa: E402
@@ -116,6 +117,7 @@ def main():
     m_results, _ = modal.run()
     t_results, _ = time_branch.run()
     u_results, _ = time_successor.run()
+    v_results = discriminators.run()
 
     fig_dir = os.path.join(RESULTS_DIR, "figures")
     fig_paths = figures.make(fig_dir, art_e["df22"], art_s, s_results)
@@ -126,7 +128,7 @@ def main():
 
     all_flags = []
     for group in (l_results, s_results, e_results, x_results, i_results,
-                  a_results, m_results, t_results, u_results):
+                  a_results, m_results, t_results, u_results, v_results):
         for e in group:
             for f in e.get("flags", []) or []:
                 all_flags.append(f"{e['id']}: {f}")
@@ -143,7 +145,7 @@ def main():
                     "plus 2026-10-24 addendum: Group M, 5 items, and "
                     "registry claim URM-11; plus 2026-10-24 addendum: "
                     "Group T, 1 item; plus 2026-10-24 addendum: Group U, "
-                    "1 item)",
+                    "1 item; plus 2026-10-25 addendum: Group V, 5 items)",
             "generated": str(date.today()),
             "seed": 20250922,
             "honesty_labels": {
@@ -161,6 +163,10 @@ def main():
                 "REPORTED-ONLY": "values recorded as reported; the "
                             "underlying computation was not supplied, so "
                             "nothing is presented as verified",
+                "DEMONSTRATION": "a proof by explicit construction "
+                            "(counterexample functionals, not data)",
+                "SYNTHESIS": "a verdict drawn from other groups' "
+                            "results, not a new measurement",
             },
             "provenance_notes": [
                 "The source document's 'weighted confidence' scores (84.6%, "
@@ -190,6 +196,7 @@ def main():
             "M_modal": m_results,
             "T_time_branch": t_results,
             "U_time_successor": u_results,
+            "V_discriminators": v_results,
             "R_claims_registry": claims["claims"],
         },
         "contradictions_and_flags": all_flags,
@@ -315,6 +322,24 @@ def main():
               "successor by stay); the general-B form, branch 4 at "
               "N = 12, O1, and F1–F3 remain open.\n")
     for e in u_results:
+        md.append(entry_md(e))
+    md.append("## Group V — Branch discriminators (addendum "
+              "2026-10-25)\n")
+    md.append("Built at the author's direction to pin down one branch "
+              "before a final paper, via the instantiation document's "
+              "three completion items. Verdict: none of the three pins "
+              "down a branch. The F(g) sweep cannot be deposited from "
+              "the report (two functionals fitting all reported facts "
+              "disagree at g = 8, so the facts underdetermine F). H(N) "
+              "is derived as [construction] from the framework's "
+              "Hawking recovery plus stated assumptions, but satisfies "
+              "the recovery criteria at every N and selects nothing "
+              "without an absolute anchor. The existing 8x5 dataset's "
+              "URM-11 verdict is operational-pass / strict-fail on "
+              "simulated data, and a real-dataset protocol is "
+              "registered for APQS runs. Full statement: "
+              "`paper/MMURM_discriminators.md`.\n")
+    for e in v_results:
         md.append(entry_md(e))
     md.append("## Group A — Parameterized seed architecture (addendum "
               "2026-10-23)\n")

@@ -136,10 +136,26 @@ independent Hawking observable $H(N)$, which does not yet exist (I4).
    λ₁(5) defined as ensemble statistics with a falsifiable threshold
    (URM-11). The remaining step on this item is an *empirical* 8 × 5
    dataset, which would upgrade the simulation to measurement.
+   Status 2026-10-25 (Group V): the existing dataset's URM-11
+   verdict is computed (λ₁^obs = 3.1386: operational-pass /
+   strict-fail, on simulated data) and a real-dataset protocol is
+   registered (APQS runs, units declared before collection,
+   pre-registered bars, comparative clause for branch selection).
 2. Deposit of the topology sweep → I3 upgrades to REPRODUCTION and the
-   branch selection becomes auditable.
+   branch selection becomes auditable. Status 2026-10-25 (Group V):
+   BLOCKED on definition — the report supplies only a name, two
+   values, and a direction; two functionals fitting all reported
+   facts disagree at g = 8, so the sweep is underdetermined from
+   the report. Deposit specification delivered
+   (`paper/MMURM_discriminators.md` §1); the sweep itself still
+   awaits the author or Julius.
 3. Derivation of an independent H(N) → the branches become empirically
-   discriminable in principle.
+   discriminable in principle. Status 2026-10-25 (Group V): DERIVED
+   as [construction] (H(N) = √(4/(N−1)) under handle-quantized area
+   + Schwarzschild κ–area relation) but anchorless — it satisfies
+   the framework's recovery criteria at every N and selects nothing
+   without an absolute anchor fixing κ or A₁. Empirical half
+   still open.
 
 Until (2)–(3) land, this instantiation is exactly what the solver
 labeled it: a **provisional structural candidate**, now with its

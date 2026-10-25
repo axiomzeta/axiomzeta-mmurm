@@ -208,6 +208,23 @@ No new claim is registered: the closure is a rule, not a claim.
 |----|------|----------------------|
 | T1 | T4 branch-selection closure (O2, branch-selection part) | CLOSED (construction): source mapping overlaps on 3 of 8 predicate combinations and covers nothing on 1. Closure = priority in the source's listing order (1 > 2 > 3); uncovered case (ΔK < 0, 𝒟 ≤ 𝒟ᶜ, ℬ ≤ ℬᶜ) = no transition, not an invented fourth branch. Proven by exhaustive enumeration: single-valued on all 8 combinations, agrees with the source wherever the source is already single-valued, all three branches reachable. NOT closed by T1: successor timeline ℓ′ (closed separately by Group U); branch 4 at N = 12 (no source predicate, left unassigned); O1, F1, F2, F3 untouched |
 
+### Group V — Branch discriminators (5) · `tests/discriminators.py`
+
+Added 2026-10-25, at the author's direction to pin down one branch
+before a final paper, via the instantiation document's three
+completion items. **Verdict: none of the three pins down a branch.**
+Full statement: `paper/MMURM_discriminators.md`. No new claim is
+registered: H(N) is a [construction] quantity, URM-11 is already
+registered, and V3 is a verdict on existing data.
+
+| ID | Item | Result |
+|----|------|--------|
+| V1 | F(g) sweep depositable from the report? | UNDERDETERMINED (demonstration): two strictly increasing functionals fitting all reported facts (F(5) = −9.2023, F(12) = −0.6029, lower wins, optimum at g = 1) disagree by 0.9312 at g = 8 (log-interpolation −4.5856 vs linear −5.5168). The sweep cannot be deposited from the report; deposit specification delivered (objective, code, full sweep table, filter step). I3 stays REPORTED-ONLY |
+| V2 | Independent H(N) | CONSTRUCTED (anchor missing): from manuscript §9.9 A.1–A.3 plus [construction] assumptions (handle-quantized area A(g) = (g−1)·A₁; Schwarzschild κ–area relation), H(N) = T_H(N)/T_H(5) = √(4/(N−1)); H(12) = 0.603, T_H(5)/T_H(12) = √(11/4) ≈ 1.6583, T_H(5) ≈ 9.99×10³⁰ K and T_H(12) ≈ 6.03×10³⁰ K under minimal A₁ = 4ℓ_P². Satisfies A.7 recovery at every N, so selects nothing without an absolute anchor fixing κ or A₁. I4's empirical half remains open |
+| V3 | URM-11 verdict on the existing 8×5 dataset | REPRODUCTION: eigenvalues recomputed from `data/modal8_observables.csv` as [3.1386, 0.9997, 0.6115, 0.2385, 0.0117]; λ₁^obs = 3.1386 EXCEEDS operational 2.7415, does NOT clear strict 3.2061 (margin −0.0675). Dataset is a single simulated draw, not a measurement; units for DM σ and ρ_DE unstated |
+| V4 | Real 8×5 dataset protocol | REGISTERED (no data yet): APQS polariton analog simulator, 8 independent runs/sectors (8 rows are realities, so only a simulator instantiating 8 sectors can produce 8 rows); five observables with units declared before collection; pre-registered bars 2.7415/3.2061; comparative clause for branch selection (pre-declared comparative statistic, e.g. margin above own strict bar in own null-SD units; n = 22 bars by the same method: null median 1.6216, p95 1.9326, SD 0.1737, MP edge 2.18) |
+| V5 | Do V1–V4 pin down one branch? | NOT PINNED DOWN: F blocked on definition, H(N) anchorless, dataset verdict is single-branch coherence on simulated data. What would change it: (a) the F definition from the author or Julius, (b) a Hawking anchor, (c) a real APQS dataset plus the comparative statistic |
+
 ### Group U — Successor timeline ℓ′ at N = 5 (1) · `tests/time_successor.py`
 
 Added 2026-10-24 as an options register, then closed by author
