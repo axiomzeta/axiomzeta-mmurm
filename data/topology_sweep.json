@@ -1,0 +1,129 @@
+{
+  "sweep_range": [
+    0,
+    16
+  ],
+  "optimal_genus": 1,
+  "euler_characteristic_g12": -22,
+  "evaluations": [
+    {
+      "genus": 0,
+      "euler_characteristic": 2,
+      "free_energy": -11.517945210300901,
+      "bridge_integral": 1.0,
+      "soft_modes": 2
+    },
+    {
+      "genus": 1,
+      "euler_characteristic": 0,
+      "free_energy": -12.759551616157307,
+      "bridge_integral": 1.0452418709017979,
+      "soft_modes": 4
+    },
+    {
+      "genus": 2,
+      "euler_characteristic": -2,
+      "free_energy": -11.972061214176218,
+      "bridge_integral": 1.081873075307798,
+      "soft_modes": 5
+    },
+    {
+      "genus": 3,
+      "euler_characteristic": -4,
+      "free_energy": -11.212778013813068,
+      "bridge_integral": 1.1111227331022577,
+      "soft_modes": 7
+    },
+    {
+      "genus": 4,
+      "euler_characteristic": -6,
+      "free_energy": -10.338936050626495,
+      "bridge_integral": 1.134064009207128,
+      "soft_modes": 8
+    },
+    {
+      "genus": 5,
+      "euler_characteristic": -8,
+      "free_energy": -9.202295078056759,
+      "bridge_integral": 1.1516326649281583,
+      "soft_modes": 10
+    },
+    {
+      "genus": 6,
+      "euler_characteristic": -10,
+      "free_energy": -7.8156071413828965,
+      "bridge_integral": 1.164643490828208,
+      "soft_modes": 12
+    },
+    {
+      "genus": 7,
+      "euler_characteristic": -12,
+      "free_energy": -6.355378616251388,
+      "bridge_integral": 1.1738048563269934,
+      "soft_modes": 13
+    },
+    {
+      "genus": 8,
+      "euler_characteristic": -14,
+      "free_energy": -5.006457573475043,
+      "bridge_integral": 1.1797315856468886,
+      "soft_modes": 15
+    },
+    {
+      "genus": 9,
+      "euler_characteristic": -16,
+      "free_energy": -3.8332474475213765,
+      "bridge_integral": 1.1829563468832696,
+      "soft_modes": 16
+    },
+    {
+      "genus": 10,
+      "euler_characteristic": -18,
+      "free_energy": -2.779042001665534,
+      "bridge_integral": 1.1839397205857212,
+      "soft_modes": 18
+    },
+    {
+      "genus": 11,
+      "euler_characteristic": -20,
+      "free_energy": -1.7344451545197472,
+      "bridge_integral": 1.1830790960339437,
+      "soft_modes": 20
+    },
+    {
+      "genus": 12,
+      "euler_characteristic": -22,
+      "free_energy": -0.6028778739347526,
+      "bridge_integral": 1.1807165271473212,
+      "soft_modes": 21
+    },
+    {
+      "genus": 13,
+      "euler_characteristic": -24,
+      "free_energy": 0.6564861859394403,
+      "bridge_integral": 1.1771456654721082,
+      "soft_modes": 23
+    },
+    {
+      "genus": 14,
+      "euler_characteristic": -26,
+      "free_energy": 2.0176157468021487,
+      "bridge_integral": 1.1726178747591245,
+      "soft_modes": 24
+    },
+    {
+      "genus": 15,
+      "euler_characteristic": -28,
+      "free_energy": 3.414615880732782,
+      "bridge_integral": 1.1673476201113224,
+      "soft_modes": 26
+    },
+    {
+      "genus": 16,
+      "euler_characteristic": -30,
+      "free_energy": 4.786538978548499,
+      "bridge_integral": 1.1615172143957242,
+      "soft_modes": 28
+    }
+  ]
+}

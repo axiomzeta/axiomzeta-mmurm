@@ -64,6 +64,9 @@ Independent re-run of the 38 tracked items in `tests/TEST_CENSUS.md` (source: *M
 | V3 | URM-11 verdict on the existing 8x5 dataset (data/modal8_observables.cs | EXCEEDS OPERATIONAL, BELOW STRICT |
 | V4 | Pre-registered protocol for a REAL 8x5 dataset (what would count, judg | REGISTERED (no data yet) |
 | V5 | Do V1-V4 pin down one branch before a final paper? | NOT PINNED DOWN |
+| V6 | Deposited F(g) sweep table (data/topology_sweep.json, verbatim copy of | REPRODUCTION (selection) |
+| V7 | External validation-lab blind dynamics, preregistered standard preset  | RECORDED (external, checked) |
+| V8 | Updated synthesis after the validation-lab deposit: do V1-V7 pin down  | NOT PINNED DOWN |
 
 Group R (URM-1..URM-11) is a PROTOCOL registry — see `data/claims_registry.json`; statuses are as published, not re-tested. URM-9 and URM-10 are the 2026-10-23 addenda audited in Groups X and I; URM-11 is the 2026-10-24 audit-derived modal-coherence threshold from Group M.
 
@@ -783,6 +786,68 @@ Built at the author's direction to pin down one branch before a final paper, via
 - **Verdict: NOT PINNED DOWN**
 - Notes: What would change this verdict, in order: (a) the F definition (objective, code, full sweep table) from the author or Julius — the same 'how F is computed' already requested in the draft to Julius; (b) a Hawking anchor fixing kappa or A1 independently; (c) a real APQS dataset under V4 plus the pre-declared comparative statistic. Until at least one lands, the final paper must present N = 5 as a provisional structural candidate with specified layers, not as the selected branch.
 
+### V6 — Deposited F(g) sweep table (data/topology_sweep.json, verbatim copy of the validation lab's sweep) reproduces the solver's selection
+
+- **Label:** REPRODUCTION
+- **Published:** Solver report: F(5) = -9.2023, F(12) = -0.6029, lower wins, optimum at g = 1; selection N = 5 (I3, REPORTED-ONLY before this deposit).
+- **Recomputed:** - table_genera: 0..16, all present
+- F5_from_table: -9.2023
+- F12_from_table: -0.6029
+- matches_reported_values_to_4dp: True
+- global_minimum_genus: 1
+- strictly_increasing_for_g_ge_1: True
+- selection_min_F5_F12: 5
+- provenance: Verbatim copy of mmurm-validation-2.0/results/n_inverse_topology_evidence.json (md5-verified on deposit); the lab's solver consumes this table.
+- **Verdict: REPRODUCTION (selection)**
+- ⚠️ Do not describe the sweep as 'derived' or 'recomputed': the deposited table is the lab's own output, copied verbatim, and its functional remains unstated.
+- Notes: This upgrades I3 one step: the selection (min among {5, 12} -> 5) is now reproduced from deposited data instead of resting on two quoted values. It does NOT upgrade I3 to full reproduction: the table is data, not a definition. The objective functional and the generator code are still absent from the package (no simple closed form in genus, Euler characteristic, soft-mode count, or bridge integral fits all 17 points), so F(g) still cannot be recomputed from first principles. V1's verdict stands for the report alone; V6 records what the deposit adds.
+
+### V7 — External validation-lab blind dynamics, preregistered standard preset (24 runs): recorded result checked, not re-run here
+
+- **Label:** RECORDED
+- **Published:** Lab standard run 2026-10-25 (run by Cami on her VM from the supplied package; lab tests 30/30 pass there): status unsupported for N = 12.
+- **Recomputed:** - usable_runs: 24
+- histogram:   - 9: 1
+  - 10: 6
+  - 11: 8
+  - 12: 8
+  - 13: 1
+- modal_field: 11
+- tied_at_top: 11, 12
+- tie_note: 11 and 12 tie at 8 runs each; the lab's modal field (11) is a tie-break, not a majority.
+- target_recurrence_12: 0.3333333333333333
+- target_recurrence_wilson_95ci: 0.1797, 0.5329
+- stable_target_recurrence: 0.20833333333333334
+- criteria:   - enough_usable_runs: True
+  - target_is_modal: False
+  - target_recurrence_pass: False
+  - stable_target_recurrence_pass: False
+  - null_comparison_pass: True
+- null_p: 0.0004997501249375312
+- null_mean_recurrence: 0.0
+- strong_geometry_runs: 20
+- median_silhouette: 0.5867
+- dynamic_hawking_identifiable_runs: 12
+- provenance: Verbatim copy of the lab's results/app_runs/standard_20261025.json (md5-verified on deposit).
+- **Verdict: RECORDED (external, checked)**
+- ⚠️ Do not cite the smoke modal (5) without the standard result: the standard preset supersedes it as the preregistered endpoint, and the two presets disagree.
+- ⚠️ Do not cite 'unsupported for 12' as '12 ruled out': 12 recurs significantly above the null; it fails the support bar, which is a weaker statement.
+- Notes: Read precisely: 12 recurs in 8/24 runs, vastly above the null (which never produces 12 in 2000 synthetic experiments, p = 0.0005), but below the preregistered support bar (recurrence >= 0.5, stable >= 0.4, target modal) — so the protocol verdict is unsupported for 12, not '12 is absent'. The distribution spreads 9-13 with 11 and 12 tied at the top, so no single N dominates. Preset sensitivity is itself a finding: the lab's 5-run smoke preset (same master seed) gave modal 5 over range 4-7 with 0/5 for 12, while the standard preset (6 seeds/run vs 3) gives range 9-13 — the blind-k outcome moves with the preset, so blind dynamics cannot yet weigh between branches until that sensitivity is understood. Dynamic horizon identifiability appears in 12/24 standard runs (vs 0/5 smoke): partial, not uniform.
+
+### V8 — Updated synthesis after the validation-lab deposit: do V1-V7 pin down one branch?
+
+- **Label:** SYNTHESIS
+- **Published:** V5 verdict (2026-10-25 morning): NOT PINNED DOWN, with three named unblockers.
+- **Recomputed:** - F_sweep: TABLE DEPOSITED (V6): full g = 0..16 table, selection reproduced; functional and generator still missing, so I3 is not fully reproduced.
+- H_N_versions_reconciled:   - V2_temperature_ratio: CONSTRUCTED, anchorless; ranks nothing without a fixed kappa or A1.
+  - lab_schwarzschild_slope_H_1_over_N_minus_2: ANCHORED (standard 3+1 GR gives H = 1 -> N = 3, inadmissible): inconsistent with BOTH candidates; falsifies the conjunction (Hawking assumptions + D = N bridge), not N = 5 specifically. Lab's three disciplined alternatives: reject a candidate, revise the bridge (preregistered), or show the regime is out of Schwarzschild-Tangherlini scope.
+  - lab_phase_cardinality: CONSISTENCY ONLY: source 14-state architecture -> N = 12 exactly; restates the source, measures nothing.
+- blind_dynamics: Standard 24-run: unsupported for 12 at the preregistered bar; 12 above chance but tied at top with 11 and spread 9-13; preset-sensitive (V7).
+- dataset: Unchanged since V3/V4: operational-pass / strict-fail on simulated data; real-data protocol registered.
+- branch_status: NOT PINNED DOWN
+- **Verdict: NOT PINNED DOWN**
+- Notes: The lab deposit moves two items forward (F from two values to a full deposited table; H(N) from one anchorless construction to three reconciled versions, one anchored and inconsistent with both branches) and adds a genuine independent dynamics line (blind standard run) — but no item now selects a branch: the F table still lacks its functional, the anchored H(N) excludes both candidates rather than choosing one, the phase inverse is consistency-only, and blind dynamics are preset-sensitive with no dominant N. What would change the verdict, in updated order: (a) the F functional (the table alone cannot recompute F); (b) resolution of the Hawking-slope vs bridge inconsistency (a preregistered bridge revision, or a scope argument for the black-hole regime); (c) a real APQS dataset under V4 plus the comparative statistic; (d) blind-dynamics stabilization — understanding the smoke/standard preset shift before blind k can weigh. The final paper still presents N = 5 as a provisional structural candidate, not the selected branch.
+
 ## Group A — Parameterized seed architecture (addendum 2026-10-23)
 
 The seed counts are a one-parameter family under the bridge relations; admissible branches are exactly {5, 12}. The manuscript and Groups D–X describe the N = 12 instantiation (frozen at git tag `n12-legacy`); the N = 5 instantiation is specified in `paper/MMURM_N5_instantiation.md`. Group A recomputes both branches' seed-dependent objects and marks what does not transfer between branches.
@@ -915,6 +980,9 @@ The seed counts are a one-parameter family under the bridge relations; admissibl
 - V1: I3 stays REPORTED-ONLY. A constructed sweep may be built as [construction] with its functional stated explicitly, but it must never be presented as the solver's sweep.
 - V2: Do not quote T_H(5) ~ 1e31 K or T_H(12) ~ 6e30 K as framework predictions: they are construction outputs under C1 + minimal A1, not measurements and not author-stated values.
 - V3: Do not cite V3 as empirical support for N = 5: the dataset is simulated, and URM-11 tests N = 5 modal coherence on its own terms, not N = 5 against N = 12.
+- V6: Do not describe the sweep as 'derived' or 'recomputed': the deposited table is the lab's own output, copied verbatim, and its functional remains unstated.
+- V7: Do not cite the smoke modal (5) without the standard result: the standard preset supersedes it as the preregistered endpoint, and the two presets disagree.
+- V7: Do not cite 'unsupported for 12' as '12 ruled out': 12 recurs significantly above the null; it fails the support bar, which is a weaker statement.
 
 ## Figures
 

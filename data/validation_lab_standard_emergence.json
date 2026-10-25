@@ -1,0 +1,542 @@
+{
+  "experiment": "repeated_blind_N_emergence",
+  "status": "unsupported",
+  "primary_question": "Does blind IFT dynamics repeatedly recover internal N=12 without fitting to 12?",
+  "target_reference_N": 12,
+  "target_reference_used_in_fit": false,
+  "requested_runs": 24,
+  "usable_runs": 24,
+  "usable_fraction": 1.0,
+  "inferred_N_histogram": {
+    "9": 1,
+    "10": 6,
+    "11": 8,
+    "12": 8,
+    "13": 1
+  },
+  "modal_inferred_N": 11,
+  "target_recurrence": {
+    "count": 8,
+    "fraction": 0.3333333333333333,
+    "wilson_95_ci": [
+      0.1797219032729775,
+      0.5329368316186824
+    ],
+    "stable_count": 5,
+    "stable_fraction": 0.20833333333333334
+  },
+  "quality": {
+    "strong_geometry_runs": 20,
+    "dynamic_hawking_identifiable_runs": 12,
+    "median_silhouette": 0.58668656921883,
+    "median_boundary_sweep_stability": 0.6666666666666666
+  },
+  "null_comparison": {
+    "runs_with_null_samples": 24,
+    "synthetic_null_experiments": 2000,
+    "mean_target_recurrence_under_null": 0.0,
+    "q95_target_recurrence_under_null": 0.0,
+    "empirical_p_null_ge_observed": 0.0004997501249375312
+  },
+  "preregistered_criteria": {
+    "min_usable_fraction": 0.8,
+    "target_must_be_modal": true,
+    "min_target_recurrence": 0.5,
+    "min_stable_target_recurrence": 0.4,
+    "stable_run_requires_min_silhouette": 0.25,
+    "stable_run_requires_min_boundary_sweep_stability": 0.6666666666666666,
+    "max_null_p": 0.05
+  },
+  "criteria_results": {
+    "enough_usable_runs": true,
+    "target_is_modal": false,
+    "target_recurrence_pass": false,
+    "stable_target_recurrence_pass": false,
+    "null_comparison_pass": true
+  },
+  "run_rows": [
+    {
+      "run_index": 1,
+      "status": "unsupported",
+      "inferred_N": 10,
+      "matches_target": false,
+      "silhouette": 0.59647008615871,
+      "sweep_stability": 1.0,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 2,
+      "status": "insufficient_evidence",
+      "inferred_N": 12,
+      "matches_target": true,
+      "silhouette": 0.5859336013135605,
+      "sweep_stability": 0.3333333333333333,
+      "strong_geometry": false,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 3,
+      "status": "unsupported",
+      "inferred_N": 11,
+      "matches_target": false,
+      "silhouette": 0.5780711730705123,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 4,
+      "status": "unsupported",
+      "inferred_N": 11,
+      "matches_target": false,
+      "silhouette": 0.5748571981642051,
+      "sweep_stability": 1.0,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 5,
+      "status": "unsupported",
+      "inferred_N": 11,
+      "matches_target": false,
+      "silhouette": 0.5900668137295142,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 6,
+      "status": "unsupported",
+      "inferred_N": 11,
+      "matches_target": false,
+      "silhouette": 0.6138946900590162,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 7,
+      "status": "partially_supported",
+      "inferred_N": 12,
+      "matches_target": true,
+      "silhouette": 0.5924165979117612,
+      "sweep_stability": 1.0,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 8,
+      "status": "supported",
+      "inferred_N": 12,
+      "matches_target": true,
+      "silhouette": 0.568627419319471,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 9,
+      "status": "unsupported",
+      "inferred_N": 11,
+      "matches_target": false,
+      "silhouette": 0.5821863891145129,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 10,
+      "status": "unsupported",
+      "inferred_N": 10,
+      "matches_target": false,
+      "silhouette": 0.6104794663508183,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 11,
+      "status": "unsupported",
+      "inferred_N": 11,
+      "matches_target": false,
+      "silhouette": 0.5594018375041423,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 12,
+      "status": "partially_supported",
+      "inferred_N": 12,
+      "matches_target": true,
+      "silhouette": 0.5822745807032712,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 13,
+      "status": "insufficient_evidence",
+      "inferred_N": 12,
+      "matches_target": true,
+      "silhouette": 0.5921379992372392,
+      "sweep_stability": 0.3333333333333333,
+      "strong_geometry": false,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 14,
+      "status": "insufficient_evidence",
+      "inferred_N": 10,
+      "matches_target": false,
+      "silhouette": 0.5733317560003817,
+      "sweep_stability": 0.3333333333333333,
+      "strong_geometry": false,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 15,
+      "status": "unsupported",
+      "inferred_N": 11,
+      "matches_target": false,
+      "silhouette": 0.6002961318941492,
+      "sweep_stability": 1.0,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 16,
+      "status": "unsupported",
+      "inferred_N": 10,
+      "matches_target": false,
+      "silhouette": 0.60221229373605,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 17,
+      "status": "unsupported",
+      "inferred_N": 13,
+      "matches_target": false,
+      "silhouette": 0.5738793549937908,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 18,
+      "status": "unsupported",
+      "inferred_N": 10,
+      "matches_target": false,
+      "silhouette": 0.6016123211604919,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 19,
+      "status": "insufficient_evidence",
+      "inferred_N": 12,
+      "matches_target": true,
+      "silhouette": 0.5724329358856862,
+      "sweep_stability": 0.3333333333333333,
+      "strong_geometry": false,
+      "dynamic_hawking_identifiable": true,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 20,
+      "status": "partially_supported",
+      "inferred_N": 12,
+      "matches_target": true,
+      "silhouette": 0.5870742325016853,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 21,
+      "status": "unsupported",
+      "inferred_N": 11,
+      "matches_target": false,
+      "silhouette": 0.5647833909325911,
+      "sweep_stability": 1.0,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 22,
+      "status": "unsupported",
+      "inferred_N": 9,
+      "matches_target": false,
+      "silhouette": 0.6030055640846912,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 23,
+      "status": "partially_supported",
+      "inferred_N": 12,
+      "matches_target": true,
+      "silhouette": 0.5966171499775582,
+      "sweep_stability": 0.6666666666666666,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    },
+    {
+      "run_index": 24,
+      "status": "unsupported",
+      "inferred_N": 10,
+      "matches_target": false,
+      "silhouette": 0.5862989059359747,
+      "sweep_stability": 1.0,
+      "strong_geometry": true,
+      "dynamic_hawking_identifiable": false,
+      "solver_successes": 6
+    }
+  ],
+  "guardrail": "A passing software test is not a physical validation. This verdict concerns repeated computational emergence in the supplied IFT model only.",
+  "configuration": {
+    "run_count": 24,
+    "seeds_per_run": 6,
+    "master_seed": 20260904,
+    "grid_points": 12,
+    "domain_length": 10.0,
+    "duration": 0.8,
+    "num_save_points": 64,
+    "epsilon": 0.02,
+    "model_variant": "canonical_table",
+    "solver": "RK45",
+    "k_min": 2,
+    "k_max": 16,
+    "boundary_fraction": 0.12,
+    "boundary_sweep": [
+      0.08,
+      0.12,
+      0.16
+    ],
+    "null_shuffles_per_run": 6,
+    "null_aggregate_replicates": 2000,
+    "target_reference_N": 12,
+    "target_enters_fit": false
+  },
+  "seed_matrix": [
+    [
+      920513558,
+      255051276,
+      1587656835,
+      1765319687,
+      1736840284,
+      1594896108
+    ],
+    [
+      1572450674,
+      860067109,
+      1424156286,
+      304986694,
+      468063680,
+      906883554
+    ],
+    [
+      286600870,
+      1135631580,
+      1359719122,
+      1432718219,
+      1937635085,
+      1059826031
+    ],
+    [
+      703223465,
+      183462893,
+      144106617,
+      3546180,
+      1209122103,
+      1245555095
+    ],
+    [
+      431750527,
+      895825952,
+      1115529532,
+      1923112398,
+      1186630200,
+      585405177
+    ],
+    [
+      529824970,
+      1741263795,
+      1541249696,
+      1697038256,
+      1495308758,
+      1333282129
+    ],
+    [
+      1522086611,
+      1767715816,
+      578775482,
+      1419626074,
+      1702919519,
+      1879657211
+    ],
+    [
+      1056239924,
+      734575887,
+      1520920059,
+      1088658590,
+      1341569332,
+      217361436
+    ],
+    [
+      521182250,
+      251823681,
+      1761153968,
+      1679885209,
+      380736736,
+      1583892681
+    ],
+    [
+      392703728,
+      1831587663,
+      1480770429,
+      1250088626,
+      1711806319,
+      1675334843
+    ],
+    [
+      1987539963,
+      1069445303,
+      925973572,
+      307342239,
+      828497089,
+      1202766497
+    ],
+    [
+      298612605,
+      1755201924,
+      491716710,
+      1257987772,
+      1799213199,
+      1955370148
+    ],
+    [
+      450904261,
+      425101004,
+      1438508103,
+      1069871082,
+      783628400,
+      1732744731
+    ],
+    [
+      37541367,
+      460048266,
+      422663422,
+      1064069752,
+      391034751,
+      1118935252
+    ],
+    [
+      587619337,
+      1368438684,
+      533279116,
+      931621956,
+      486143750,
+      637800764
+    ],
+    [
+      210179163,
+      645611665,
+      1249312401,
+      1981693024,
+      739329143,
+      241941440
+    ],
+    [
+      160619490,
+      1087967391,
+      1746668648,
+      1060582131,
+      1241895797,
+      1173978111
+    ],
+    [
+      272472373,
+      891776812,
+      1600542255,
+      1785640466,
+      1650848978,
+      1679210585
+    ],
+    [
+      1253724645,
+      1963507449,
+      1462847877,
+      545956669,
+      1661889753,
+      1881786518
+    ],
+    [
+      283095497,
+      1198116043,
+      249637925,
+      598350537,
+      258130017,
+      1051737728
+    ],
+    [
+      510566895,
+      359389663,
+      731498557,
+      1209172160,
+      530127533,
+      303623338
+    ],
+    [
+      1937155808,
+      532206765,
+      1879053114,
+      130858319,
+      1973478152,
+      1947351647
+    ],
+    [
+      1459258519,
+      866756863,
+      108291536,
+      21365219,
+      160102691,
+      566945435
+    ],
+    [
+      1224950974,
+      15555865,
+      605897029,
+      1917154424,
+      1527388426,
+      404358996
+    ]
+  ]
+}

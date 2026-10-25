@@ -44,6 +44,7 @@ V5 (SYNTHESIS): none of V1-V4 pins down one branch. The final paper
     that would change that are named explicitly.
 """
 
+import json
 import math
 import os
 
@@ -334,7 +335,201 @@ def run():
                  "layers, not as the selected branch.",
     }
 
-    return [v1, v2, v3, v4, v5]
+    # ---------------- V6: deposited sweep reproduces selection -------
+    with open(os.path.join(ROOT, "data", "topology_sweep.json")) as fh:
+        sweep = json.load(fh)
+    table = {e["genus"]: e["free_energy"]
+             for e in sweep["evaluations"]}
+    f5, f12 = table[5], table[12]
+    sweep_ok = (
+        sorted(table) == list(range(0, 17))
+        and abs(f5 + 9.2023) < 5e-5
+        and abs(f12 + 0.6029) < 5e-5
+        and min(table, key=table.get) == 1
+        and all(table[g] < table[g + 1] for g in range(1, 16))
+        and min(f5, f12) == f5)
+    v6 = {
+        "id": "V6",
+        "test": "Deposited F(g) sweep table (data/topology_sweep.json, "
+                "verbatim copy of the validation lab's sweep) "
+                "reproduces the solver's selection",
+        "label": "REPRODUCTION",
+        "published_result": "Solver report: F(5) = -9.2023, F(12) = "
+                            "-0.6029, lower wins, optimum at g = 1; "
+                            "selection N = 5 (I3, REPORTED-ONLY before "
+                            "this deposit).",
+        "recomputed_result": {
+            "table_genera": "0..16, all present",
+            "F5_from_table": round(f5, 4),
+            "F12_from_table": round(f12, 4),
+            "matches_reported_values_to_4dp": abs(f5 + 9.2023) < 5e-5
+                and abs(f12 + 0.6029) < 5e-5,
+            "global_minimum_genus": min(table, key=table.get),
+            "strictly_increasing_for_g_ge_1": all(
+                table[g] < table[g + 1] for g in range(1, 16)),
+            "selection_min_F5_F12": 5 if min(f5, f12) == f5 else 12,
+            "provenance": "Verbatim copy of "
+                "mmurm-validation-2.0/results/"
+                "n_inverse_topology_evidence.json (md5-verified on "
+                "deposit); the lab's solver consumes this table.",
+        },
+        "verdict": "REPRODUCTION (selection)" if sweep_ok else "CHECK FAILED",
+        "notes": "This upgrades I3 one step: the selection (min among "
+                 "{5, 12} -> 5) is now reproduced from deposited data "
+                 "instead of resting on two quoted values. It does NOT "
+                 "upgrade I3 to full reproduction: the table is data, "
+                 "not a definition. The objective functional and the "
+                 "generator code are still absent from the package "
+                 "(no simple closed form in genus, Euler "
+                 "characteristic, soft-mode count, or bridge integral "
+                 "fits all 17 points), so F(g) still cannot be "
+                 "recomputed from first principles. V1's verdict "
+                 "stands for the report alone; V6 records what the "
+                 "deposit adds.",
+        "flags": [
+            "Do not describe the sweep as 'derived' or 'recomputed': "
+            "the deposited table is the lab's own output, copied "
+            "verbatim, and its functional remains unstated.",
+        ],
+    }
+
+    # ---------------- V7: validation-lab standard emergence ----------
+    with open(os.path.join(
+            ROOT, "data", "validation_lab_standard_emergence.json")) as fh:
+        lab = json.load(fh)
+    hist = {int(k): v for k, v in lab["inferred_N_histogram"].items()}
+    top_count = max(hist.values())
+    tied_top = sorted(g for g, c in hist.items() if c == top_count)
+    v7 = {
+        "id": "V7",
+        "test": "External validation-lab blind dynamics, preregistered "
+                "standard preset (24 runs): recorded result checked, "
+                "not re-run here",
+        "label": "RECORDED",
+        "published_result": "Lab standard run 2026-10-25 (run by Cami on "
+                            "her VM from the supplied package; lab "
+                            "tests 30/30 pass there): status "
+                            "unsupported for N = 12.",
+        "recomputed_result": {
+            "usable_runs": lab["usable_runs"],
+            "histogram": hist,
+            "modal_field": lab["modal_inferred_N"],
+            "tied_at_top": tied_top,
+            "tie_note": "11 and 12 tie at 8 runs each; the lab's "
+                        "modal field (11) is a tie-break, not a "
+                        "majority.",
+            "target_recurrence_12": lab["target_recurrence"]["fraction"],
+            "target_recurrence_wilson_95ci":
+                [round(v, 4) for v in
+                 lab["target_recurrence"]["wilson_95_ci"]],
+            "stable_target_recurrence":
+                lab["target_recurrence"]["stable_fraction"],
+            "criteria": lab["criteria_results"],
+            "null_p": lab["null_comparison"][
+                "empirical_p_null_ge_observed"],
+            "null_mean_recurrence":
+                lab["null_comparison"]["mean_target_recurrence_under_null"],
+            "strong_geometry_runs": lab["quality"]["strong_geometry_runs"],
+            "median_silhouette": round(
+                lab["quality"]["median_silhouette"], 4),
+            "dynamic_hawking_identifiable_runs":
+                lab["quality"]["dynamic_hawking_identifiable_runs"],
+            "provenance": "Verbatim copy of the lab's "
+                "results/app_runs/standard_20261025.json "
+                "(md5-verified on deposit).",
+        },
+        "verdict": "RECORDED (external, checked)",
+        "notes": "Read precisely: 12 recurs in 8/24 runs, vastly above "
+                 "the null (which never produces 12 in 2000 "
+                 "synthetic experiments, p = 0.0005), but below the "
+                 "preregistered support bar (recurrence >= 0.5, "
+                 "stable >= 0.4, target modal) — so the protocol "
+                 "verdict is unsupported for 12, not '12 is absent'. "
+                 "The distribution spreads 9-13 with 11 and 12 tied "
+                 "at the top, so no single N dominates. Preset "
+                 "sensitivity is itself a finding: the lab's 5-run "
+                 "smoke preset (same master seed) gave modal 5 over "
+                 "range 4-7 with 0/5 for 12, while the standard "
+                 "preset (6 seeds/run vs 3) gives range 9-13 — the "
+                 "blind-k outcome moves with the preset, so blind "
+                 "dynamics cannot yet weigh between branches until "
+                 "that sensitivity is understood. Dynamic horizon "
+                 "identifiability appears in 12/24 standard runs "
+                 "(vs 0/5 smoke): partial, not uniform.",
+        "flags": [
+            "Do not cite the smoke modal (5) without the standard "
+            "result: the standard preset supersedes it as the "
+            "preregistered endpoint, and the two presets disagree.",
+            "Do not cite 'unsupported for 12' as '12 ruled out': "
+            "12 recurs significantly above the null; it fails the "
+            "support bar, which is a weaker statement.",
+        ],
+    }
+
+    # ---------------- V8: updated synthesis ----------------
+    v8 = {
+        "id": "V8",
+        "test": "Updated synthesis after the validation-lab deposit: do "
+                "V1-V7 pin down one branch?",
+        "label": "SYNTHESIS",
+        "published_result": "V5 verdict (2026-10-25 morning): NOT PINNED "
+                            "DOWN, with three named unblockers.",
+        "recomputed_result": {
+            "F_sweep": "TABLE DEPOSITED (V6): full g = 0..16 table, "
+                       "selection reproduced; functional and "
+                       "generator still missing, so I3 is not fully "
+                       "reproduced.",
+            "H_N_versions_reconciled": {
+                "V2_temperature_ratio": "CONSTRUCTED, anchorless; "
+                    "ranks nothing without a fixed kappa or A1.",
+                "lab_schwarzschild_slope_H_1_over_N_minus_2":
+                    "ANCHORED (standard 3+1 GR gives H = 1 -> N = 3, "
+                    "inadmissible): inconsistent with BOTH "
+                    "candidates; falsifies the conjunction "
+                    "(Hawking assumptions + D = N bridge), not N = 5 "
+                    "specifically. Lab's three disciplined "
+                    "alternatives: reject a candidate, revise the "
+                    "bridge (preregistered), or show the regime is "
+                    "out of Schwarzschild-Tangherlini scope.",
+                "lab_phase_cardinality": "CONSISTENCY ONLY: source "
+                    "14-state architecture -> N = 12 exactly; "
+                    "restates the source, measures nothing.",
+            },
+            "blind_dynamics": "Standard 24-run: unsupported for 12 "
+                              "at the preregistered bar; 12 above "
+                              "chance but tied at top with 11 and "
+                              "spread 9-13; preset-sensitive (V7).",
+            "dataset": "Unchanged since V3/V4: operational-pass / "
+                       "strict-fail on simulated data; real-data "
+                       "protocol registered.",
+            "branch_status": "NOT PINNED DOWN",
+        },
+        "verdict": "NOT PINNED DOWN",
+        "notes": "The lab deposit moves two items forward (F from two "
+                 "values to a full deposited table; H(N) from one "
+                 "anchorless construction to three reconciled "
+                 "versions, one anchored and inconsistent with both "
+                 "branches) and adds a genuine independent dynamics "
+                 "line (blind standard run) — but no item now selects "
+                 "a branch: the F table still lacks its functional, "
+                 "the anchored H(N) excludes both candidates rather "
+                 "than choosing one, the phase inverse is "
+                 "consistency-only, and blind dynamics are "
+                 "preset-sensitive with no dominant N. What would "
+                 "change the verdict, in updated order: (a) the F "
+                 "functional (the table alone cannot recompute F); "
+                 "(b) resolution of the Hawking-slope vs bridge "
+                 "inconsistency (a preregistered bridge revision, or "
+                 "a scope argument for the black-hole regime); (c) a "
+                 "real APQS dataset under V4 plus the comparative "
+                 "statistic; (d) blind-dynamics stabilization — "
+                 "understanding the smoke/standard preset shift "
+                 "before blind k can weigh. The final paper still "
+                 "presents N = 5 as a provisional structural "
+                 "candidate, not the selected branch.",
+    }
+
+    return [v1, v2, v3, v4, v5, v6, v7, v8]
 
 
 if __name__ == "__main__":

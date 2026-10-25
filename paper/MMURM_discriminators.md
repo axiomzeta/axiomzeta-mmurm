@@ -220,3 +220,56 @@ other (N = 12) frozen as the original canon text.
 **Registry note.** No new claim is registered: H(N) is a
 [construction] quantity, not a claim; URM-11 is already registered;
 V3 is a verdict on existing data, not a new claim.
+
+## 6. Addendum 2026-10-25 (afternoon): validation-lab deposit
+
+The author supplied the MMURM Phase-Hawking Validation Lab v4.0
+(a falsification-first package; its 30 tests pass on Cami's VM, its
+phase-inverse example and smoke emergence reproduce exactly). Two
+deposits from it are copied verbatim into this repo's data
+directory (md5-verified on deposit):
+
+- `data/topology_sweep.json` — the full F(g) table, g = 0..16
+  (F(5) = −9.202295078056759, F(12) = −0.6028778739347526, global
+  minimum at g = 1, strictly increasing for g ≥ 1). V6 reproduces
+  the solver's selection (min among {5, 12} → 5) from this table.
+  Status change, stated precisely: I3 moves from "two reported
+  values" to "full table deposited, selection reproduced". It does
+  NOT move to full reproduction — the objective functional and the
+  generator code are absent from the package, and no simple closed
+  form in genus, χ, soft-mode count, or bridge integral fits all 17
+  points, so F(g) still cannot be recomputed from a definition.
+  The remaining F ask narrows to the functional alone.
+- `data/validation_lab_standard_emergence.json` — the lab's
+  preregistered 24-run blind-dynamics standard result (V7 checks
+  its fields): status **unsupported** for N = 12; histogram
+  9:1, 10:6, 11:8, 12:8, 13:1; 12 recurs in 8/24 (Wilson 95% CI
+  [0.18, 0.53]) against a null that never produces 12 in 2000
+  synthetic experiments (p = 0.0005); stable 12-recurrence 5/24;
+  11 and 12 tie at the top, so the lab's modal field (11) is a
+  tie-break, not a majority; dynamic horizon identifiability in
+  12/24 runs. Read precisely: 12 is present in the dynamics well
+  above chance but is not the dominant or stable answer, and the
+  distribution spreads 9–13. Preset sensitivity is itself a
+  finding: the lab's 5-run smoke preset (same master seed, 3
+  seeds/run vs 6) gave modal 5 over range 4–7 with 0/5 for 12 —
+  the blind-k outcome moves with the preset, so blind dynamics
+  cannot yet weigh between branches until that shift is
+  understood.
+
+### Three H(N) versions, reconciled
+
+| Version | Definition | Verdict |
+|---|---|---|
+| V2 temperature ratio [construction] | T_H(N)/T_H(5) = √(4/(N−1)) under handle-quantized area + Schwarzschild κ–area relation | Anchorless; satisfies recovery at every N; ranks nothing |
+| Lab Schwarzschild log-slope (archived) | H = −dln(T_H)/dln(M) = 1/(N−2) under Tangherlini + D = N bridge | Anchored: standard 3+1 GR gives H = 1 → N = 3, inadmissible. Inconsistent with BOTH candidates; falsifies the conjunction (Hawking assumptions + D = N bridge), not N = 5 specifically |
+| Lab phase cardinality (consistency only) | H_boundary = 2/(N+2), H_out = 1/(N+2) from the source 14-state architecture | N = 12 exactly, zero residual — restates the source; measures nothing |
+
+The lab's own cross-evidence verdict is `cross_evidence_conflict`
+(topology → 5, phase → 12, Hawking-slope → neither, blind
+standard → unsupported for 12). V8 carries the updated synthesis:
+**still NOT PINNED DOWN**, with the unblockers reordered — (a) the
+F functional, (b) resolution of the Hawking-slope vs bridge
+inconsistency (preregistered bridge revision, or a scope argument
+for the black-hole regime), (c) a real APQS dataset under §4 plus
+the comparative statistic, (d) blind-dynamics stabilization.

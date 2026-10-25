@@ -145,7 +145,8 @@ def main():
                     "plus 2026-10-24 addendum: Group M, 5 items, and "
                     "registry claim URM-11; plus 2026-10-24 addendum: "
                     "Group T, 1 item; plus 2026-10-24 addendum: Group U, "
-                    "1 item; plus 2026-10-25 addendum: Group V, 5 items)",
+                    "1 item; plus 2026-10-25 addendum: Group V, 8 items "
+                    "(incl. validation-lab deposit)),",
             "generated": str(date.today()),
             "seed": 20250922,
             "honesty_labels": {

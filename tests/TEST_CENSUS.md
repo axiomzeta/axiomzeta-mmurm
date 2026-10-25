@@ -208,7 +208,16 @@ No new claim is registered: the closure is a rule, not a claim.
 |----|------|----------------------|
 | T1 | T4 branch-selection closure (O2, branch-selection part) | CLOSED (construction): source mapping overlaps on 3 of 8 predicate combinations and covers nothing on 1. Closure = priority in the source's listing order (1 > 2 > 3); uncovered case (ΔK < 0, 𝒟 ≤ 𝒟ᶜ, ℬ ≤ ℬᶜ) = no transition, not an invented fourth branch. Proven by exhaustive enumeration: single-valued on all 8 combinations, agrees with the source wherever the source is already single-valued, all three branches reachable. NOT closed by T1: successor timeline ℓ′ (closed separately by Group U); branch 4 at N = 12 (no source predicate, left unassigned); O1, F1, F2, F3 untouched |
 
-### Group V — Branch discriminators (5) · `tests/discriminators.py`
+### Group V — Branch discriminators (8) · `tests/discriminators.py`
+
+Added 2026-10-25, at the author's direction to pin down one branch
+before a final paper, via the instantiation document's three
+completion items. **Verdict: none of the three pins down a branch.**
+Full statement: `paper/MMURM_discriminators.md`. No new claim is
+registered: H(N) is a [construction] quantity, URM-11 is already
+registered, and V3 is a verdict on existing data. Items V6–V8
+added the same day from the author-supplied validation lab
+(see §6 of the discriminators document):
 
 Added 2026-10-25, at the author's direction to pin down one branch
 before a final paper, via the instantiation document's three
@@ -224,6 +233,9 @@ registered, and V3 is a verdict on existing data.
 | V3 | URM-11 verdict on the existing 8×5 dataset | REPRODUCTION: eigenvalues recomputed from `data/modal8_observables.csv` as [3.1386, 0.9997, 0.6115, 0.2385, 0.0117]; λ₁^obs = 3.1386 EXCEEDS operational 2.7415, does NOT clear strict 3.2061 (margin −0.0675). Dataset is a single simulated draw, not a measurement; units for DM σ and ρ_DE unstated |
 | V4 | Real 8×5 dataset protocol | REGISTERED (no data yet): APQS polariton analog simulator, 8 independent runs/sectors (8 rows are realities, so only a simulator instantiating 8 sectors can produce 8 rows); five observables with units declared before collection; pre-registered bars 2.7415/3.2061; comparative clause for branch selection (pre-declared comparative statistic, e.g. margin above own strict bar in own null-SD units; n = 22 bars by the same method: null median 1.6216, p95 1.9326, SD 0.1737, MP edge 2.18) |
 | V5 | Do V1–V4 pin down one branch? | NOT PINNED DOWN: F blocked on definition, H(N) anchorless, dataset verdict is single-branch coherence on simulated data. What would change it: (a) the F definition from the author or Julius, (b) a Hawking anchor, (c) a real APQS dataset plus the comparative statistic |
+| V6 | Deposited F(g) table reproduces the selection | REPRODUCTION (selection): `data/topology_sweep.json` (verbatim validation-lab table, g = 0..16) matches the report to 4dp (F(5) = −9.2023, F(12) = −0.6029), minimum at g = 1, strictly increasing for g ≥ 1, min among {5, 12} → 5. I3 upgraded to table-deposited; functional and generator still missing, so not full reproduction |
+| V7 | Validation-lab blind dynamics, standard 24-run | RECORDED (external, checked): `data/validation_lab_standard_emergence.json` — status unsupported for 12; histogram 9:1, 10:6, 11:8, 12:8, 13:1 (11/12 tie at top); 12 recurs 8/24 vs null p = 0.0005; stable 12-recurrence 5/24; dynamic horizon identifiability 12/24 runs. Preset-sensitive: 5-run smoke gave modal 5 over 4–7 with 0/5 for 12 |
+| V8 | Updated synthesis after the lab deposit | NOT PINNED DOWN: F table deposited but functional missing; anchored H(N) (Schwarzschild slope) excludes both candidates rather than choosing one; phase inverse is consistency-only; blind dynamics preset-sensitive with no dominant N. Unblockers reordered: (a) F functional, (b) Hawking-slope vs bridge resolution, (c) real APQS dataset + comparative statistic, (d) blind-dynamics stabilization |
 
 ### Group U — Successor timeline ℓ′ at N = 5 (1) · `tests/time_successor.py`
 
